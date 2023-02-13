@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DirectService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" />
+      <xsd:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd3" namespace="http://NetSqlAzMan/ServiceModel" />
+      <xsd:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDirectService_Test_InputMessage">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_Test_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_DirectGetDBUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DirectGetDBUser" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_DirectGetDBUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DirectGetDBUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_DirectValidatePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:DirectValidatePassword" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_DirectValidatePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DirectValidatePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_DirectCheckAccessForDatabaseUsersWithoutAttributesRetrieve_InputMessage">
+    <wsdl:part name="parameters" element="tns:DirectCheckAccessForDatabaseUsersWithoutAttributesRetrieve" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_DirectCheckAccessForDatabaseUsersWithoutAttributesRetrieve_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DirectCheckAccessForDatabaseUsersWithoutAttributesRetrieveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_ChangePwd_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePwd" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_ChangePwd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePwdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_ChangePwdEx_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePwdEx" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_ChangePwdEx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePwdExResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_ValidatePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidatePassword" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_ValidatePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidatePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_CheckAccessLDAP_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAccessLDAP" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_CheckAccessLDAP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAccessLDAPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_CheckAccessLDAPEx_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAccessLDAPEx" />
+  </wsdl:message>
+  <wsdl:message name="IDirectService_CheckAccessLDAPEx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAccessLDAPExResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDirectService">
+    <wsdl:operation name="Test">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDirectService/Test" message="tns:IDirectService_Test_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDirectService/TestResponse" message="tns:IDirectService_Test_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DirectGetDBUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDirectService/DirectGetDBUser" message="tns:IDirectService_DirectGetDBUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDirectService/DirectGetDBUserResponse" message="tns:IDirectService_DirectGetDBUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDirectService/GetUser" message="tns:IDirectService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDirectService/GetUserResponse" message="tns:IDirectService_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DirectValidatePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDirectService/DirectValidatePassword" message="tns:IDirectService_DirectValidatePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDirectService/DirectValidatePasswordResponse" message="tns:IDirectService_DirectValidatePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DirectCheckAccessForDatabaseUsersWithoutAttributesRetrieve">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDirectService/DirectCheckAccessForDatabaseUsersWithoutAttributesRetrieve" message="tns:IDirectService_DirectCheckAccessForDatabaseUsersWithoutAttributesRetrieve_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDirectService/DirectCheckAccessForDatabaseUsersWithoutAttributesRetrieveResponse" message="tns:IDirectService_DirectCheckAccessForDatabaseUsersWithoutAttributesRetrieve_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDirectService/ChangePwd" message="tns:IDirectService_ChangePwd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDirectService/ChangePwdResponse" message="tns:IDirectService_ChangePwd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwdEx">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDirectService/ChangePwdEx" message="tns:IDirectService_ChangePwdEx_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDirectService/ChangePwdExResponse" message="tns:IDirectService_ChangePwdEx_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDirectService/ValidatePassword" message="tns:IDirectService_ValidatePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDirectService/ValidatePasswordResponse" message="tns:IDirectService_ValidatePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccessLDAP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDirectService/CheckAccessLDAP" message="tns:IDirectService_CheckAccessLDAP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDirectService/CheckAccessLDAPResponse" message="tns:IDirectService_CheckAccessLDAP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccessLDAPEx">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDirectService/CheckAccessLDAPEx" message="tns:IDirectService_CheckAccessLDAPEx_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDirectService/CheckAccessLDAPExResponse" message="tns:IDirectService_CheckAccessLDAPEx_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDirectService" type="tns:IDirectService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/IDirectService/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DirectGetDBUser">
+      <soap:operation soapAction="http://tempuri.org/IDirectService/DirectGetDBUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IDirectService/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DirectValidatePassword">
+      <soap:operation soapAction="http://tempuri.org/IDirectService/DirectValidatePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DirectCheckAccessForDatabaseUsersWithoutAttributesRetrieve">
+      <soap:operation soapAction="http://tempuri.org/IDirectService/DirectCheckAccessForDatabaseUsersWithoutAttributesRetrieve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwd">
+      <soap:operation soapAction="http://tempuri.org/IDirectService/ChangePwd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwdEx">
+      <soap:operation soapAction="http://tempuri.org/IDirectService/ChangePwdEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePassword">
+      <soap:operation soapAction="http://tempuri.org/IDirectService/ValidatePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccessLDAP">
+      <soap:operation soapAction="http://tempuri.org/IDirectService/CheckAccessLDAP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccessLDAPEx">
+      <soap:operation soapAction="http://tempuri.org/IDirectService/CheckAccessLDAPEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DirectService">
+    <wsdl:port name="BasicHttpBinding_IDirectService" binding="tns:BasicHttpBinding_IDirectService">
+      <soap:address location="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AzManLoginSqlDbScripts", "..\AzManLoginSqlDbScripts\AzManLoginSqlDbScripts.sqlproj", "{94E59E27-C291-4043-AA1F-80C7582D3C09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzManLoginWebServices", "AzManLoginWebServices.csproj", "{F1284250-20A0-493D-883C-2990F13029A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzManLoginWebServicesTest", "..\AzManLoginWebServicesTest\AzManLoginWebServicesTest.csproj", "{80C92AA4-C727-4716-A3AC-D8A6DD6544FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzManLoginWebServicesClient", "..\AzManLoginWebServicesClient\AzManLoginWebServicesClient.csproj", "{69156B38-06B7-4390-9C37-79C3C9FD5B17}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AzManLoginWebServicesSqlClrClient", "..\AzManLoginWebServicesSqlClrClient\AzManLoginWebServicesSqlClrClient.sqlproj", "{61ECA32B-8AAA-448C-9CDB-C095EE14545F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94E59E27-C291-4043-AA1F-80C7582D3C09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94E59E27-C291-4043-AA1F-80C7582D3C09}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{94E59E27-C291-4043-AA1F-80C7582D3C09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94E59E27-C291-4043-AA1F-80C7582D3C09}.Release|x86.ActiveCfg = Release|Any CPU
+		{F1284250-20A0-493D-883C-2990F13029A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1284250-20A0-493D-883C-2990F13029A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1284250-20A0-493D-883C-2990F13029A7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F1284250-20A0-493D-883C-2990F13029A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1284250-20A0-493D-883C-2990F13029A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1284250-20A0-493D-883C-2990F13029A7}.Release|x86.ActiveCfg = Release|Any CPU
+		{80C92AA4-C727-4716-A3AC-D8A6DD6544FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80C92AA4-C727-4716-A3AC-D8A6DD6544FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80C92AA4-C727-4716-A3AC-D8A6DD6544FD}.Debug|x86.ActiveCfg = Debug|x86
+		{80C92AA4-C727-4716-A3AC-D8A6DD6544FD}.Debug|x86.Build.0 = Debug|x86
+		{80C92AA4-C727-4716-A3AC-D8A6DD6544FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80C92AA4-C727-4716-A3AC-D8A6DD6544FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80C92AA4-C727-4716-A3AC-D8A6DD6544FD}.Release|x86.ActiveCfg = Release|x86
+		{80C92AA4-C727-4716-A3AC-D8A6DD6544FD}.Release|x86.Build.0 = Release|x86
+		{69156B38-06B7-4390-9C37-79C3C9FD5B17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69156B38-06B7-4390-9C37-79C3C9FD5B17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69156B38-06B7-4390-9C37-79C3C9FD5B17}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{69156B38-06B7-4390-9C37-79C3C9FD5B17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69156B38-06B7-4390-9C37-79C3C9FD5B17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69156B38-06B7-4390-9C37-79C3C9FD5B17}.Release|x86.ActiveCfg = Release|Any CPU
+		{61ECA32B-8AAA-448C-9CDB-C095EE14545F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61ECA32B-8AAA-448C-9CDB-C095EE14545F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61ECA32B-8AAA-448C-9CDB-C095EE14545F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{61ECA32B-8AAA-448C-9CDB-C095EE14545F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61ECA32B-8AAA-448C-9CDB-C095EE14545F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61ECA32B-8AAA-448C-9CDB-C095EE14545F}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

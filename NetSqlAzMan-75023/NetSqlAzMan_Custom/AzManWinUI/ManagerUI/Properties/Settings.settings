@@ -1,0 +1,29 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AzManWinUI.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ManagerUI_ListViewType" Type="AzManWinUI.ListViewTypeEnum" Scope="User">
+      <Value Profile="(Default)">Details</Value>
+    </Setting>
+    <Setting Name="ManagerUI_TreeNodeSize" Type="AzManWinUI.TreeNodeSizeEnum" Scope="User">
+      <Value Profile="(Default)">Large</Value>
+    </Setting>
+    <Setting Name="ManagerUI_AuthorizationView" Type="AzManWinUI.AuthorizationViewEnum" Scope="User">
+      <Value Profile="(Default)">Role</Value>
+    </Setting>
+    <Setting Name="ManagerUI_Culture" Type="System.String" Scope="User">
+      <Value Profile="(Default)">es</Value>
+    </Setting>
+    <Setting Name="ManagerUI_StructureView" Type="AzManWinUI.StructureViewEnum" Scope="User">
+      <Value Profile="(Default)">Role</Value>
+    </Setting>
+    <Setting Name="AzManConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=172.22.1.21;Initial Catalog=AzMan;Persist Security Info=True;User ID=secman;Password=sisepuede&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=172.22.1.21;Initial Catalog=AzMan;Persist Security Info=True;User ID=secman;Password=sisepuede</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AzManLdap" Class="DBUsersModelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQL2K14,1433;Initial Catalog=AzManLdap;User ID=secman" SettingsObjectName="NetSqlAzMan.CustomDataLayer.Properties.Settings" SettingsPropertyName="AzManLdapConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.identity_User" Member="identity_Users">
+    <Type Name="identity_User">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.Data.Linq.Binary" DbType="VarBinary(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(2048)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(301) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Mail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RecordVersion" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="identity_User_identity_UserBranchOffice" Member="identity_UserBranchOffices" ThisKey="UserID" OtherKey="UserID" Type="identity_UserBranchOffice" />
+      <Association Name="identity_Department_identity_User" Member="identity_Department" ThisKey="DepartmentId" OtherKey="DepartmentId" Type="identity_Department" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.identity_UserBranchOffice" Member="identity_UserBranchOffices">
+    <Type Name="identity_UserBranchOffice">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BranchOfficeId" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="identity_User_identity_UserBranchOffice" Member="identity_User" ThisKey="UserID" OtherKey="UserID" Type="identity_User" IsForeignKey="true" />
+      <Association Name="identity_BranchOffice_identity_UserBranchOffice" Member="identity_BranchOffice" ThisKey="BranchOfficeId" OtherKey="BranchOfficeId" Type="identity_BranchOffice" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.identity_Department" Member="identity_Departments">
+    <Type Name="identity_Department">
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Association Name="identity_Department_identity_User" Member="identity_Users" ThisKey="DepartmentId" OtherKey="DepartmentId" Type="identity_User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.identity_BranchOffice" Member="identity_BranchOffices">
+    <Type Name="identity_BranchOffice">
+      <Column Name="BranchOfficeId" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BranchOfficeName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="RelativeBranchOfficeId" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Association Name="identity_BranchOffice_identity_UserBranchOffice" Member="identity_UserBranchOffices" ThisKey="BranchOfficeId" OtherKey="BranchOfficeId" Type="identity_UserBranchOffice" />
+      <Association Name="identity_BranchOffice_identity_BranchOffice" Member="identity_BranchOffices" ThisKey="BranchOfficeId" OtherKey="RelativeBranchOfficeId" Type="identity_BranchOffice" />
+      <Association Name="identity_BranchOffice_identity_BranchOffice" Member="identity_BranchOffice1" ThisKey="RelativeBranchOfficeId" OtherKey="BranchOfficeId" Type="identity_BranchOffice" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

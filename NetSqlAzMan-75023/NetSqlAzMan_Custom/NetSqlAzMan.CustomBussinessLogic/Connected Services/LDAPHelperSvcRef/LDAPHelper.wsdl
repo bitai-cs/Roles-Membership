@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LDAPHelper" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_ILDAPHelper1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" />
+      <xsd:import schemaLocation="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.DirectoryServices" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILDAPHelper_GetDefaultNamingContext_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultNamingContext" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_GetDefaultNamingContext_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultNamingContextResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_AuthenticateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUser" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_AuthenticateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_GetCanonicalNameForSAMAccountName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCanonicalNameForSAMAccountName" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_GetCanonicalNameForSAMAccountName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCanonicalNameForSAMAccountNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_GetGroupsForSAMAccountName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsForSAMAccountName" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_GetGroupsForSAMAccountName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsForSAMAccountNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_CheckGroupMembershipForSAMAccountName_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckGroupMembershipForSAMAccountName" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_CheckGroupMembershipForSAMAccountName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckGroupMembershipForSAMAccountNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_SearchAnything_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAnything" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_SearchAnything_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAnythingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_SearchUsersAndGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUsersAndGroups" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_SearchUsersAndGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUsersAndGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_SearchUsersAndGroupsByTwoProperties_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUsersAndGroupsByTwoProperties" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_SearchUsersAndGroupsByTwoProperties_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUsersAndGroupsByTwoPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_SearchBySid_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchBySid" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_SearchBySid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchBySidResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_SearchByBaseDN_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByBaseDN" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_SearchByBaseDN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByBaseDNResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_SearchUsersAndGroupsOrNTAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUsersAndGroupsOrNTAccount" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_SearchUsersAndGroupsOrNTAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUsersAndGroupsOrNTAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_GetGroupsRecursivelyForObjectSID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsRecursivelyForObjectSID" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_GetGroupsRecursivelyForObjectSID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsRecursivelyForObjectSIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_GetGroupsRecursivelyForDistinguishedName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsRecursivelyForDistinguishedName" />
+  </wsdl:message>
+  <wsdl:message name="ILDAPHelper_GetGroupsRecursivelyForDistinguishedName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsRecursivelyForDistinguishedNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILDAPHelper">
+    <wsdl:operation name="GetDefaultNamingContext">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILDAPHelper/GetDefaultNamingContext" message="tns:ILDAPHelper_GetDefaultNamingContext_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILDAPHelper/GetDefaultNamingContextResponse" message="tns:ILDAPHelper_GetDefaultNamingContext_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILDAPHelper/AuthenticateUser" message="tns:ILDAPHelper_AuthenticateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILDAPHelper/AuthenticateUserResponse" message="tns:ILDAPHelper_AuthenticateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCanonicalNameForSAMAccountName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILDAPHelper/GetCanonicalNameForSAMAccountName" message="tns:ILDAPHelper_GetCanonicalNameForSAMAccountName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILDAPHelper/GetCanonicalNameForSAMAccountNameResponse" message="tns:ILDAPHelper_GetCanonicalNameForSAMAccountName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsForSAMAccountName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILDAPHelper/GetGroupsForSAMAccountName" message="tns:ILDAPHelper_GetGroupsForSAMAccountName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILDAPHelper/GetGroupsForSAMAccountNameResponse" message="tns:ILDAPHelper_GetGroupsForSAMAccountName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckGroupMembershipForSAMAccountName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILDAPHelper/CheckGroupMembershipForSAMAccountName" message="tns:ILDAPHelper_CheckGroupMembershipForSAMAccountName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILDAPHelper/CheckGroupMembershipForSAMAccountNameResponse" message="tns:ILDAPHelper_CheckGroupMembershipForSAMAccountName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchAnything">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILDAPHelper/SearchAnything" message="tns:ILDAPHelper_SearchAnything_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILDAPHelper/SearchAnythingResponse" message="tns:ILDAPHelper_SearchAnything_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsersAndGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILDAPHelper/SearchUsersAndGroups" message="tns:ILDAPHelper_SearchUsersAndGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILDAPHelper/SearchUsersAndGroupsResponse" message="tns:ILDAPHelper_SearchUsersAndGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsersAndGroupsByTwoProperties">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILDAPHelper/SearchUsersAndGroupsByTwoProperties" message="tns:ILDAPHelper_SearchUsersAndGroupsByTwoProperties_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILDAPHelper/SearchUsersAndGroupsByTwoPropertiesResponse" message="tns:ILDAPHelper_SearchUsersAndGroupsByTwoProperties_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchBySid">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILDAPHelper/SearchBySid" message="tns:ILDAPHelper_SearchBySid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILDAPHelper/SearchBySidResponse" message="tns:ILDAPHelper_SearchBySid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchByBaseDN">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILDAPHelper/SearchByBaseDN" message="tns:ILDAPHelper_SearchByBaseDN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILDAPHelper/SearchByBaseDNResponse" message="tns:ILDAPHelper_SearchByBaseDN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsersAndGroupsOrNTAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILDAPHelper/SearchUsersAndGroupsOrNTAccount" message="tns:ILDAPHelper_SearchUsersAndGroupsOrNTAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILDAPHelper/SearchUsersAndGroupsOrNTAccountResponse" message="tns:ILDAPHelper_SearchUsersAndGroupsOrNTAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsRecursivelyForObjectSID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILDAPHelper/GetGroupsRecursivelyForObjectSID" message="tns:ILDAPHelper_GetGroupsRecursivelyForObjectSID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILDAPHelper/GetGroupsRecursivelyForObjectSIDResponse" message="tns:ILDAPHelper_GetGroupsRecursivelyForObjectSID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsRecursivelyForDistinguishedName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILDAPHelper/GetGroupsRecursivelyForDistinguishedName" message="tns:ILDAPHelper_GetGroupsRecursivelyForDistinguishedName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILDAPHelper/GetGroupsRecursivelyForDistinguishedNameResponse" message="tns:ILDAPHelper_GetGroupsRecursivelyForDistinguishedName_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILDAPHelper" type="tns:ILDAPHelper">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDefaultNamingContext">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/GetDefaultNamingContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCanonicalNameForSAMAccountName">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/GetCanonicalNameForSAMAccountName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsForSAMAccountName">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/GetGroupsForSAMAccountName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckGroupMembershipForSAMAccountName">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/CheckGroupMembershipForSAMAccountName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAnything">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/SearchAnything" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsersAndGroups">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/SearchUsersAndGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsersAndGroupsByTwoProperties">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/SearchUsersAndGroupsByTwoProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchBySid">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/SearchBySid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByBaseDN">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/SearchByBaseDN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsersAndGroupsOrNTAccount">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/SearchUsersAndGroupsOrNTAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsRecursivelyForObjectSID">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/GetGroupsRecursivelyForObjectSID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsRecursivelyForDistinguishedName">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/GetGroupsRecursivelyForDistinguishedName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ILDAPHelper1" type="tns:ILDAPHelper">
+    <wsp:PolicyReference URI="#BasicHttpBinding_ILDAPHelper1_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDefaultNamingContext">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/GetDefaultNamingContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCanonicalNameForSAMAccountName">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/GetCanonicalNameForSAMAccountName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsForSAMAccountName">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/GetGroupsForSAMAccountName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckGroupMembershipForSAMAccountName">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/CheckGroupMembershipForSAMAccountName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAnything">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/SearchAnything" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsersAndGroups">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/SearchUsersAndGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsersAndGroupsByTwoProperties">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/SearchUsersAndGroupsByTwoProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchBySid">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/SearchBySid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByBaseDN">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/SearchByBaseDN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsersAndGroupsOrNTAccount">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/SearchUsersAndGroupsOrNTAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsRecursivelyForObjectSID">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/GetGroupsRecursivelyForObjectSID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsRecursivelyForDistinguishedName">
+      <soap:operation soapAction="http://tempuri.org/ILDAPHelper/GetGroupsRecursivelyForDistinguishedName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LDAPHelper">
+    <wsdl:port name="BasicHttpBinding_ILDAPHelper" binding="tns:BasicHttpBinding_ILDAPHelper">
+      <soap:address location="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ILDAPHelper1" binding="tns:BasicHttpBinding_ILDAPHelper1">
+      <soap:address location="https://pcgamer/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://NetSqlAzMan/ServiceModel" elementFormDefault="qualified" targetNamespace="http://NetSqlAzMan/ServiceModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="SqlAzManDBUser">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CustomColumns" nillable="true" type="q1:ArrayOfKeyValueOfstringanyType" />
+      <xs:element minOccurs="0" name="CustomSid" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsLDAPObject" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LDAPDomain" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="SqlAzManDBUser" nillable="true" type="tns:SqlAzManDBUser" />
+  <xs:simpleType name="AuthorizationType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Neutral" />
+      <xs:enumeration value="Allow" />
+      <xs:enumeration value="Deny" />
+      <xs:enumeration value="AllowWithDelegation" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AuthorizationType" nillable="true" type="tns:AuthorizationType" />
+</xs:schema>

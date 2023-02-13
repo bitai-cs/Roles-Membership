@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" />
+  <xs:import schemaLocation="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.DirectoryServices" />
+  <xs:element name="GetDefaultNamingContext">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultNamingContextResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDefaultNamingContextResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="domainProfile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="domainUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="useGC" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AuthenticateUserResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="authenticated" type="xs:boolean" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="userProperties" nillable="true" type="q1:LDAPSearchResult" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="status" nillable="true" type="q2:StatusInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCanonicalNameForSAMAccountName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="domainProfile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sAMAccountName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="useGC" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCanonicalNameForSAMAccountNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCanonicalNameForSAMAccountNameResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="canonicalName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="status" nillable="true" type="q3:StatusInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupsForSAMAccountName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="domainProfile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sAMAccountName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="useGC" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupsForSAMAccountNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetGroupsForSAMAccountNameResult" type="xs:boolean" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="groups" nillable="true" type="q4:ArrayOfstring" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="status" nillable="true" type="q5:StatusInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckGroupMembershipForSAMAccountName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="domainProfile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sAMAccountName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="useGC" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckGroupMembershipForSAMAccountNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckGroupMembershipForSAMAccountNameResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="isMember" type="xs:boolean" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="status" nillable="true" type="q6:StatusInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAnything">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="domainProfile" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="filterProperty" type="q7:LDAPHelper.ADProperties" />
+        <xs:element minOccurs="0" name="filterValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="useGC" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAnythingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchAnythingResult" type="xs:boolean" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="result" nillable="true" type="q8:ArrayOfLDAPSearchResult" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="status" nillable="true" type="q9:StatusInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUsersAndGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="domainProfile" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="filterProperty" type="q10:LDAPHelper.ADProperties" />
+        <xs:element minOccurs="0" name="filterValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="useGC" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUsersAndGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchUsersAndGroupsResult" type="xs:boolean" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="result" nillable="true" type="q11:ArrayOfLDAPSearchResult" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="status" nillable="true" type="q12:StatusInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUsersAndGroupsByTwoProperties">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="domainProfile" nillable="true" type="xs:string" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="filterProperty" type="q13:LDAPHelper.ADProperties" />
+        <xs:element minOccurs="0" name="filterValue" nillable="true" type="xs:string" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="filterProperty2" type="q14:LDAPHelper.ADProperties" />
+        <xs:element minOccurs="0" name="filterValue2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="useGC" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUsersAndGroupsByTwoPropertiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchUsersAndGroupsByTwoPropertiesResult" type="xs:boolean" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="result" nillable="true" type="q15:ArrayOfLDAPSearchResult" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="status" nillable="true" type="q16:StatusInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchBySid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="domainProfile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="objectSid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="useGC" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchBySidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchBySidResult" type="xs:boolean" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="searchResult" nillable="true" type="q17:ArrayOfLDAPSearchResult" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="status" nillable="true" type="q18:StatusInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchByBaseDN">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="domainProfile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="baseDN" nillable="true" type="xs:string" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/System.DirectoryServices" minOccurs="0" name="scope" type="q19:SearchScope" />
+        <xs:element minOccurs="0" name="useGC" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchByBaseDNResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchByBaseDNResult" type="xs:boolean" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="searchResult" nillable="true" type="q20:ArrayOfLDAPSearchResult" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="status" nillable="true" type="q21:StatusInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUsersAndGroupsOrNTAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="domainProfile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="adObjectType" type="q22:ADObjectType" />
+        <xs:element minOccurs="0" name="useGC" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUsersAndGroupsOrNTAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchUsersAndGroupsOrNTAccountResult" type="xs:boolean" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="proposed" nillable="true" type="q23:ArrayOfADObject" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="status" nillable="true" type="q24:StatusInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupsRecursivelyForObjectSID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="domainProfile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="objectSid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="useGC" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupsRecursivelyForObjectSIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetGroupsRecursivelyForObjectSIDResult" type="xs:boolean" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="groups" nillable="true" type="q25:ArrayOfLDAPSearchResult" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="status" nillable="true" type="q26:StatusInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupsRecursivelyForDistinguishedName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="domainProfile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="distinguishedName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="useGC" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupsRecursivelyForDistinguishedNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetGroupsRecursivelyForDistinguishedNameResult" type="xs:boolean" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="groups" nillable="true" type="q27:ArrayOfLDAPSearchResult" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" minOccurs="0" name="status" nillable="true" type="q28:StatusInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

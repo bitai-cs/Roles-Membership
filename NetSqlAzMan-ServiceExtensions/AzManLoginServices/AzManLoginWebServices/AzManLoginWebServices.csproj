@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F1284250-20A0-493D-883C-2990F13029A7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AzManLoginWebServices</RootNamespace>
+    <AssemblyName>AzManLoginWebServices</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\Any\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabases>false</PublishDatabases>
+    <DeployIisAppPath>Web8181/AzManLoginWebServices</DeployIisAppPath>
+    <DocumentationFile>bin\Debug\Any\AzManLoginWebServices.XML</DocumentationFile>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <PackageAsSingleFile>true</PackageAsSingleFile>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\Any\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DeployIisAppPath>Web8181/Basgosoft.LoginAzMan.Service</DeployIisAppPath>
+    <PublishDatabases>false</PublishDatabases>
+    <DocumentationFile>bin\Release\Any\AzManLoginWebServices.xml</DocumentationFile>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AzManLoginServices.sln" />
+    <Content Include="LoginService.svc" />
+    <None Include="Properties\PublishProfiles\FileSystem_Debug.pubxml" />
+    <None Include="Properties\PublishProfiles\FileSystem_Release.pubxml" />
+    <Content Include="Service References\DirectSvcRef\AzManLoginWebServices.DirectSvcRef.AuthorizationType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DirectSvcRef\AzManLoginWebServices.DirectSvcRef.DBUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\WebDeploy_Production.pubxml" />
+    <None Include="Properties\PublishProfiles\WebDeploy_Testing.pubxml" />
+    <Content Include="Service References\DirectSvcRef\AzManLoginWebServices.DirectSvcRef.SqlAzManDBUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\DirectSvcRef\DirectService.wsdl" />
+    <None Include="Service References\DirectSvcRef\DirectService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DirectSvcRef\DirectService1.wsdl" />
+    <None Include="Service References\DirectSvcRef\DirectService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DirectSvcRef\DirectService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DirectSvcRef\DirectService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DirectSvcRef\DirectService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DirectSvcRef\DirectService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DirectSvcRef\DirectService.disco" />
+    <None Include="Service References\DirectSvcRef\configuration91.svcinfo" />
+    <None Include="Service References\DirectSvcRef\configuration.svcinfo" />
+    <None Include="Service References\DirectSvcRef\DirectService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DirectSvcRef\DirectService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DirectSvcRef\DirectService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DirectSvcRef\DirectService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DirectSvcRef\DirectService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DirectSvcRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\DirectSvcRef\DirectService1.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\BusinessObjectBase.cs" />
+    <Compile Include="Business\DataLayer\DataLayerBase.cs" />
+    <Compile Include="Business\DataLayer\LoginSql.cs" />
+    <Compile Include="Business\InvalidBusinessObjectException.cs" />
+    <Compile Include="Business\Login.cs" />
+    <Compile Include="Business\LoginFactory.cs" />
+    <Compile Include="Business\LoginKeys.cs" />
+    <Compile Include="Business\Validation\BrokenRule.cs" />
+    <Compile Include="Business\Validation\BrokenRulesList.cs" />
+    <Compile Include="Business\Validation\ValidateRuleBase.cs" />
+    <Compile Include="Business\Validation\ValidateRuleNotNull.cs" />
+    <Compile Include="Business\Validation\ValidateRuleRegexMatching.cs" />
+    <Compile Include="Business\Validation\ValidateRuleStringMaxLength.cs" />
+    <Compile Include="Business\Validation\ValidateRuleStringRequired.cs" />
+    <Compile Include="Business\Validation\ValidationRules.cs" />
+    <Compile Include="LoginInfo.cs" />
+    <Compile Include="LoginService.svc.cs">
+      <DependentUpon>LoginService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ILoginService.cs" />
+    <Compile Include="LoginStatusEnum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\DirectSvcRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DirectSvcRef\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1639</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8181/AzManLoginWebServicesVB/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://campusdemo.sise.edu.pe:8181/AzManLoginWebServices</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

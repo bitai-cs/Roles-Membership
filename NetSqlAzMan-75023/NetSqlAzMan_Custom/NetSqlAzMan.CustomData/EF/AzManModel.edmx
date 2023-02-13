@@ -1,0 +1,746 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+	<!-- EF Runtime content -->
+	<edmx:Runtime>
+		<!-- SSDL content -->
+		<edmx:StorageModels>
+		<Schema Namespace="NetSqlAzMan.CustomData.EF.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="identity_BranchOffice">
+          <Key>
+            <PropertyRef Name="BranchOfficeId" />
+          </Key>
+          <Property Name="BranchOfficeId" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="BranchOfficeName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="RelativeBranchOfficeId" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="identity_Department">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="identity_LDAPConfig">
+          <Key>
+            <PropertyRef Name="ldap_domain" />
+          </Key>
+          <Property Name="ldap_domain" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ldap_description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ldap_client_endpoint" Type="varchar" MaxLength="50" />
+          <Property Name="ldap_enabled" Type="bit" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="identity_Login">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="AppName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="LDAPDomain" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="RemoteIpV4" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LogIn" Type="datetime" Nullable="false" />
+          <Property Name="Expires" Type="datetime" Nullable="false" />
+          <Property Name="Timeout" Type="int" Nullable="false" />
+          <Property Name="Expiration" Type="datetime" />
+          <Property Name="Expired" Type="bit" Nullable="false" />
+          <Property Name="LogOff" Type="datetime" />
+          <Property Name="LoggedOut" Type="bit" Nullable="false" />
+          <Property Name="Renovated" Type="bit" Nullable="false" />
+          <Property Name="Renewal" Type="datetime" />
+          <Property Name="Expiration_Renewal" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="identity_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="2048" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="301" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="255" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="Enabled" Type="bit" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="identity_UserBranchOffice">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="BranchOfficeId" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="BranchOfficeId" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="identity_UserValidationRequest">
+          <Key>
+            <PropertyRef Name="userValRequestId" />
+          </Key>
+          <Property Name="userValRequestId" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="valRequestDate" Type="datetime" Nullable="false" />
+          <Property Name="ldapDomain" Type="nvarchar" MaxLength="50" />
+          <Property Name="userName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="clientApplication" Type="nvarchar" MaxLength="255" />
+          <Property Name="azManStore" Type="nvarchar" MaxLength="255" />
+          <Property Name="azManAplication" Type="nvarchar" MaxLength="255" />
+          <Property Name="azManItem" Type="nvarchar" MaxLength="255" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AzMan_MS_CI_AI.dbo.identity_vw_UserBranchOffices' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="identity_vw_UserBranchOffices">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="BranchOfficeId" />
+            <PropertyRef Name="BranchOfficeName" />
+            <PropertyRef Name="RelativeBranchOfficeId" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="BranchOfficeId" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="BranchOfficeName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="RelativeBranchOfficeId" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AzMan_MS_CI_AI.dbo.identity_vw_Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="identity_vw_Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="FullName" />
+            <PropertyRef Name="Enabled" />
+            <PropertyRef Name="RowVersion" />
+            <PropertyRef Name="DepartmentName" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="2048" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="301" Nullable="false" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="255" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="BranchOfficeIds" Type="nvarchar(max)" />
+          <Property Name="RelativeBranchOfficeIds" Type="nvarchar(max)" />
+          <Property Name="BranchOfficeNames" Type="nvarchar(max)" />
+          <Property Name="Enabled" Type="bit" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AzMan_MS_CI_AI.dbo.identity_vw_UsersByDepartment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="identity_vw_UsersByDepartment">
+          <Key>
+            <PropertyRef Name="Departamento" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Usuario" />
+          </Key>
+          <Property Name="Departamento" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="301" Nullable="false" />
+          <Property Name="Usuario" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Clave" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sede(s)" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AzMan_MS_CI_AI.dbo.identity_vw_WrongItemsHierarchyView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="identity_vw_WrongItemsHierarchyView">
+          <Key>
+            <PropertyRef Name="ChildId" />
+            <PropertyRef Name="ChildItemType" />
+            <PropertyRef Name="ChildName" />
+            <PropertyRef Name="ParentId" />
+            <PropertyRef Name="ParentItemType" />
+            <PropertyRef Name="ParentName" />
+          </Key>
+          <Property Name="ChildId" Type="int" Nullable="false" />
+          <Property Name="ChildItemType" Type="tinyint" Nullable="false" />
+          <Property Name="ChildName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ParentId" Type="int" Nullable="false" />
+          <Property Name="ParentItemType" Type="tinyint" Nullable="false" />
+          <Property Name="ParentName" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BranchOffice_BranchOffice">
+          <End Role="identity_BranchOffice" Type="Self.identity_BranchOffice" Multiplicity="1" />
+          <End Role="identity_BranchOffice1" Type="Self.identity_BranchOffice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="identity_BranchOffice">
+              <PropertyRef Name="BranchOfficeId" />
+            </Principal>
+            <Dependent Role="identity_BranchOffice1">
+              <PropertyRef Name="RelativeBranchOfficeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_identity_UserValidationRequest_identity_User">
+          <End Role="identity_User" Type="Self.identity_User" Multiplicity="0..1" />
+          <End Role="identity_UserValidationRequest" Type="Self.identity_UserValidationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="identity_User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="identity_UserValidationRequest">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_BranchOffice_BranchOffice">
+          <End Role="identity_BranchOffice" Type="Self.identity_BranchOffice" Multiplicity="1" />
+          <End Role="identity_UserBranchOffice" Type="Self.identity_UserBranchOffice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="identity_BranchOffice">
+              <PropertyRef Name="BranchOfficeId" />
+            </Principal>
+            <Dependent Role="identity_UserBranchOffice">
+              <PropertyRef Name="BranchOfficeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_BranchOffice_User">
+          <End Role="identity_User" Type="Self.identity_User" Multiplicity="1" />
+          <End Role="identity_UserBranchOffice" Type="Self.identity_UserBranchOffice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="identity_User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="identity_UserBranchOffice">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Department">
+          <End Role="identity_Department" Type="Self.identity_Department" Multiplicity="0..1" />
+          <End Role="identity_User" Type="Self.identity_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="identity_Department">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="identity_User">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="netsqlazman_DBVersion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
+        <EntityContainer Name="NetSqlAzManCustomDataEFStoreContainer">
+          <EntitySet Name="identity_BranchOffice" EntityType="Self.identity_BranchOffice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="identity_Department" EntityType="Self.identity_Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="identity_LDAPConfig" EntityType="Self.identity_LDAPConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="identity_Login" EntityType="Self.identity_Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="identity_User" EntityType="Self.identity_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="identity_UserBranchOffice" EntityType="Self.identity_UserBranchOffice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="identity_UserValidationRequest" EntityType="Self.identity_UserValidationRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="identity_vw_UserBranchOffices" EntityType="Self.identity_vw_UserBranchOffices" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [identity_vw_UserBranchOffices].[UserID] AS [UserID], 
+    [identity_vw_UserBranchOffices].[BranchOfficeId] AS [BranchOfficeId], 
+    [identity_vw_UserBranchOffices].[BranchOfficeName] AS [BranchOfficeName], 
+    [identity_vw_UserBranchOffices].[RelativeBranchOfficeId] AS [RelativeBranchOfficeId]
+    FROM [dbo].[identity_vw_UserBranchOffices] AS [identity_vw_UserBranchOffices]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="identity_vw_Users" EntityType="Self.identity_vw_Users" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [identity_vw_Users].[UserID] AS [UserID], 
+    [identity_vw_Users].[UserName] AS [UserName], 
+    [identity_vw_Users].[Password] AS [Password], 
+    [identity_vw_Users].[PasswordHash] AS [PasswordHash], 
+    [identity_vw_Users].[FirstName] AS [FirstName], 
+    [identity_vw_Users].[LastName] AS [LastName], 
+    [identity_vw_Users].[FullName] AS [FullName], 
+    [identity_vw_Users].[Mail] AS [Mail], 
+    [identity_vw_Users].[DepartmentId] AS [DepartmentId], 
+    [identity_vw_Users].[DepartmentName] AS [DepartmentName], 
+    [identity_vw_Users].[BranchOfficeIds] AS [BranchOfficeIds], 
+    [identity_vw_Users].[RelativeBranchOfficeIds] AS [RelativeBranchOfficeIds], 
+    [identity_vw_Users].[BranchOfficeNames] AS [BranchOfficeNames], 
+    [identity_vw_Users].[Enabled] AS [Enabled], 
+    [identity_vw_Users].[RowVersion] AS [RowVersion]
+    FROM [dbo].[identity_vw_Users] AS [identity_vw_Users]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="identity_vw_UsersByDepartment" EntityType="Self.identity_vw_UsersByDepartment" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [identity_vw_UsersByDepartment].[Departamento] AS [Departamento], 
+    [identity_vw_UsersByDepartment].[Nombre] AS [Nombre], 
+    [identity_vw_UsersByDepartment].[Usuario] AS [Usuario], 
+    [identity_vw_UsersByDepartment].[Clave] AS [Clave], 
+    [identity_vw_UsersByDepartment].[Sede(s)] AS [Sede(s)]
+    FROM [dbo].[identity_vw_UsersByDepartment] AS [identity_vw_UsersByDepartment]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="identity_vw_WrongItemsHierarchyView" EntityType="Self.identity_vw_WrongItemsHierarchyView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [identity_vw_WrongItemsHierarchyView].[ChildId] AS [ChildId], 
+    [identity_vw_WrongItemsHierarchyView].[ChildItemType] AS [ChildItemType], 
+    [identity_vw_WrongItemsHierarchyView].[ChildName] AS [ChildName], 
+    [identity_vw_WrongItemsHierarchyView].[ParentId] AS [ParentId], 
+    [identity_vw_WrongItemsHierarchyView].[ParentItemType] AS [ParentItemType], 
+    [identity_vw_WrongItemsHierarchyView].[ParentName] AS [ParentName]
+    FROM [dbo].[identity_vw_WrongItemsHierarchyView] AS [identity_vw_WrongItemsHierarchyView]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_BranchOffice_BranchOffice" Association="Self.FK_BranchOffice_BranchOffice">
+            <End Role="identity_BranchOffice" EntitySet="identity_BranchOffice" />
+            <End Role="identity_BranchOffice1" EntitySet="identity_BranchOffice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_identity_UserValidationRequest_identity_User" Association="Self.FK_identity_UserValidationRequest_identity_User">
+            <End Role="identity_User" EntitySet="identity_User" />
+            <End Role="identity_UserValidationRequest" EntitySet="identity_UserValidationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_BranchOffice_BranchOffice" Association="Self.FK_User_BranchOffice_BranchOffice">
+            <End Role="identity_BranchOffice" EntitySet="identity_BranchOffice" />
+            <End Role="identity_UserBranchOffice" EntitySet="identity_UserBranchOffice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_BranchOffice_User" Association="Self.FK_User_BranchOffice_User">
+            <End Role="identity_User" EntitySet="identity_User" />
+            <End Role="identity_UserBranchOffice" EntitySet="identity_UserBranchOffice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Department" Association="Self.FK_Users_Department">
+            <End Role="identity_Department" EntitySet="identity_Department" />
+            <End Role="identity_User" EntitySet="identity_User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+		<!-- CSDL content -->
+		<edmx:ConceptualModels>
+			<Schema Namespace="NetSqlAzMan.CustomDataLayer.EF" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+				<EntityContainer Name="AzManEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="identity_BranchOffice" EntityType="NetSqlAzMan.CustomDataLayer.EF.identity_BranchOffice" />
+          <EntitySet Name="identity_LDAPConfig" EntityType="NetSqlAzMan.CustomDataLayer.EF.identity_LDAPConfig" />
+          <EntitySet Name="identity_Login" EntityType="NetSqlAzMan.CustomDataLayer.EF.identity_Login" />
+          <EntitySet Name="identity_User" EntityType="NetSqlAzMan.CustomDataLayer.EF.identity_User" />
+          <EntitySet Name="identity_UserBranchOffice" EntityType="NetSqlAzMan.CustomDataLayer.EF.identity_UserBranchOffice" />
+          <EntitySet Name="identity_UserValidationRequest" EntityType="NetSqlAzMan.CustomDataLayer.EF.identity_UserValidationRequest" />
+          <EntitySet Name="identity_vw_UserBranchOffices" EntityType="NetSqlAzMan.CustomDataLayer.EF.identity_vw_UserBranchOffices" />
+          <EntitySet Name="identity_vw_UsersByDepartment" EntityType="NetSqlAzMan.CustomDataLayer.EF.identity_vw_UsersByDepartment" />
+          <EntitySet Name="identity_vw_WrongItemsHierarchyView" EntityType="NetSqlAzMan.CustomDataLayer.EF.identity_vw_WrongItemsHierarchyView" />
+          <AssociationSet Name="FK_BranchOffice_BranchOffice" Association="NetSqlAzMan.CustomDataLayer.EF.FK_BranchOffice_BranchOffice">
+            <End Role="identity_BranchOffice" EntitySet="identity_BranchOffice" />
+            <End Role="identity_BranchOffice1" EntitySet="identity_BranchOffice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_BranchOffice_BranchOffice" Association="NetSqlAzMan.CustomDataLayer.EF.FK_User_BranchOffice_BranchOffice">
+            <End Role="identity_BranchOffice" EntitySet="identity_BranchOffice" />
+            <End Role="identity_UserBranchOffice" EntitySet="identity_UserBranchOffice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_identity_UserValidationRequest_identity_User" Association="NetSqlAzMan.CustomDataLayer.EF.FK_identity_UserValidationRequest_identity_User">
+            <End Role="identity_User" EntitySet="identity_User" />
+            <End Role="identity_UserValidationRequest" EntitySet="identity_UserValidationRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_BranchOffice_User" Association="NetSqlAzMan.CustomDataLayer.EF.FK_User_BranchOffice_User">
+            <End Role="identity_User" EntitySet="identity_User" />
+            <End Role="identity_UserBranchOffice" EntitySet="identity_UserBranchOffice" />
+          </AssociationSet>
+          <EntitySet Name="identity_Department" EntityType="NetSqlAzMan.CustomDataLayer.EF.identity_Department" />
+          <AssociationSet Name="FK_Users_Department" Association="NetSqlAzMan.CustomDataLayer.EF.FK_Users_Department">
+            <End Role="identity_Department" EntitySet="identity_Department" />
+            <End Role="identity_User" EntitySet="identity_User" />
+          </AssociationSet>
+          <EntitySet Name="identity_vw_Users" EntityType="NetSqlAzMan.CustomDataLayer.EF.identity_vw_Users" />
+        </EntityContainer>
+        <EntityType Name="identity_BranchOffice">
+          <Key>
+            <PropertyRef Name="BranchOfficeId" />
+          </Key>
+          <Property Name="BranchOfficeId" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="BranchOfficeName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RelativeBranchOfficeId" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
+          <NavigationProperty Name="identity_BranchOffice1" Relationship="NetSqlAzMan.CustomDataLayer.EF.FK_BranchOffice_BranchOffice" FromRole="identity_BranchOffice" ToRole="identity_BranchOffice1" />
+          <NavigationProperty Name="identity_BranchOffice2" Relationship="NetSqlAzMan.CustomDataLayer.EF.FK_BranchOffice_BranchOffice" FromRole="identity_BranchOffice1" ToRole="identity_BranchOffice" />
+          <NavigationProperty Name="identity_UserBranchOffice" Relationship="NetSqlAzMan.CustomDataLayer.EF.FK_User_BranchOffice_BranchOffice" FromRole="identity_BranchOffice" ToRole="identity_UserBranchOffice" />
+        </EntityType>
+        <EntityType Name="identity_LDAPConfig">
+          <Key>
+            <PropertyRef Name="ldap_domain" />
+          </Key>
+          <Property Name="ldap_domain" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ldap_description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ldap_client_endpoint" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ldap_enabled" Type="Boolean" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
+        </EntityType>
+        <EntityType Name="identity_Login">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AppName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LDAPDomain" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RemoteIpV4" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LogIn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Expires" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Timeout" Type="Int32" Nullable="false" />
+          <Property Name="Expiration" Type="DateTime" Precision="3" />
+          <Property Name="Expired" Type="Boolean" Nullable="false" />
+          <Property Name="LogOff" Type="DateTime" Precision="3" />
+          <Property Name="LoggedOut" Type="Boolean" Nullable="false" />
+          <Property Name="Renovated" Type="Boolean" Nullable="false" />
+          <Property Name="Renewal" Type="DateTime" Precision="3" />
+          <Property Name="Expiration_Renewal" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
+        </EntityType>
+        <EntityType Name="identity_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="Binary" Nullable="false" MaxLength="50" FixedLength="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="301" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Mail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="Enabled" Type="Boolean" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
+          <NavigationProperty Name="identity_UserValidationRequest" Relationship="NetSqlAzMan.CustomDataLayer.EF.FK_identity_UserValidationRequest_identity_User" FromRole="identity_User" ToRole="identity_UserValidationRequest" />
+          <NavigationProperty Name="identity_UserBranchOffice" Relationship="NetSqlAzMan.CustomDataLayer.EF.FK_User_BranchOffice_User" FromRole="identity_User" ToRole="identity_UserBranchOffice" />
+          <NavigationProperty Name="identity_Department" Relationship="NetSqlAzMan.CustomDataLayer.EF.FK_Users_Department" FromRole="identity_User" ToRole="identity_Department" />
+        </EntityType>
+        <EntityType Name="identity_UserBranchOffice">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="BranchOfficeId" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="BranchOfficeId" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
+          <NavigationProperty Name="identity_BranchOffice" Relationship="NetSqlAzMan.CustomDataLayer.EF.FK_User_BranchOffice_BranchOffice" FromRole="identity_UserBranchOffice" ToRole="identity_BranchOffice" />
+          <NavigationProperty Name="identity_User" Relationship="NetSqlAzMan.CustomDataLayer.EF.FK_User_BranchOffice_User" FromRole="identity_UserBranchOffice" ToRole="identity_User" />
+        </EntityType>
+        <EntityType Name="identity_UserValidationRequest">
+          <Key>
+            <PropertyRef Name="userValRequestId" />
+          </Key>
+          <Property Name="userValRequestId" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="valRequestDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ldapDomain" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="clientApplication" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="azManStore" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="azManAplication" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="azManItem" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
+          <NavigationProperty Name="identity_User" Relationship="NetSqlAzMan.CustomDataLayer.EF.FK_identity_UserValidationRequest_identity_User" FromRole="identity_UserValidationRequest" ToRole="identity_User" />
+        </EntityType>
+        <EntityType Name="identity_vw_UserBranchOffices">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="BranchOfficeId" />
+            <PropertyRef Name="BranchOfficeName" />
+            <PropertyRef Name="RelativeBranchOfficeId" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="BranchOfficeId" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="BranchOfficeName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RelativeBranchOfficeId" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="identity_vw_UsersByDepartment">
+          <Key>
+            <PropertyRef Name="Departamento" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Usuario" />
+          </Key>
+          <Property Name="Departamento" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="301" FixedLength="false" Unicode="true" />
+          <Property Name="Usuario" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sede_s_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="identity_vw_WrongItemsHierarchyView">
+          <Key>
+            <PropertyRef Name="ChildId" />
+            <PropertyRef Name="ChildItemType" />
+            <PropertyRef Name="ChildName" />
+            <PropertyRef Name="ParentId" />
+            <PropertyRef Name="ParentItemType" />
+            <PropertyRef Name="ParentName" />
+          </Key>
+          <Property Name="ChildId" Type="Int32" Nullable="false" />
+          <Property Name="ChildItemType" Type="Byte" Nullable="false" />
+          <Property Name="ChildName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int32" Nullable="false" />
+          <Property Name="ParentItemType" Type="Byte" Nullable="false" />
+          <Property Name="ParentName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_BranchOffice_BranchOffice">
+          <End Type="NetSqlAzMan.CustomDataLayer.EF.identity_BranchOffice" Role="identity_BranchOffice" Multiplicity="1" />
+          <End Type="NetSqlAzMan.CustomDataLayer.EF.identity_BranchOffice" Role="identity_BranchOffice1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="identity_BranchOffice">
+              <PropertyRef Name="BranchOfficeId" />
+            </Principal>
+            <Dependent Role="identity_BranchOffice1">
+              <PropertyRef Name="RelativeBranchOfficeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_BranchOffice_BranchOffice">
+          <End Type="NetSqlAzMan.CustomDataLayer.EF.identity_BranchOffice" Role="identity_BranchOffice" Multiplicity="1" />
+          <End Type="NetSqlAzMan.CustomDataLayer.EF.identity_UserBranchOffice" Role="identity_UserBranchOffice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="identity_BranchOffice">
+              <PropertyRef Name="BranchOfficeId" />
+            </Principal>
+            <Dependent Role="identity_UserBranchOffice">
+              <PropertyRef Name="BranchOfficeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_identity_UserValidationRequest_identity_User">
+          <End Type="NetSqlAzMan.CustomDataLayer.EF.identity_User" Role="identity_User" Multiplicity="0..1" />
+          <End Type="NetSqlAzMan.CustomDataLayer.EF.identity_UserValidationRequest" Role="identity_UserValidationRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="identity_User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="identity_UserValidationRequest">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_BranchOffice_User">
+          <End Type="NetSqlAzMan.CustomDataLayer.EF.identity_User" Role="identity_User" Multiplicity="1" />
+          <End Type="NetSqlAzMan.CustomDataLayer.EF.identity_UserBranchOffice" Role="identity_UserBranchOffice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="identity_User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="identity_UserBranchOffice">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="identity_Department">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
+          <NavigationProperty Name="identity_User" Relationship="NetSqlAzMan.CustomDataLayer.EF.FK_Users_Department" FromRole="identity_Department" ToRole="identity_User" />
+        </EntityType>
+        <Association Name="FK_Users_Department">
+          <End Type="NetSqlAzMan.CustomDataLayer.EF.identity_Department" Role="identity_Department" Multiplicity="0..1" />
+          <End Type="NetSqlAzMan.CustomDataLayer.EF.identity_User" Role="identity_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="identity_Department">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="identity_User">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="identity_vw_Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="FullName" />
+            <PropertyRef Name="DepartmentName" />
+            <PropertyRef Name="Enabled" />
+            <PropertyRef Name="RowVersion" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="301" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BranchOfficeIds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RelativeBranchOfficeIds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BranchOfficeNames" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Enabled" Type="Boolean" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        </Schema>
+		</edmx:ConceptualModels>
+		<!-- C-S mapping content -->
+		<edmx:Mappings>
+			<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+				<EntityContainerMapping StorageEntityContainer="NetSqlAzManCustomDataEFStoreContainer" CdmEntityContainer="AzManEntities">
+          <EntitySetMapping Name="identity_BranchOffice">
+            <EntityTypeMapping TypeName="NetSqlAzMan.CustomDataLayer.EF.identity_BranchOffice">
+              <MappingFragment StoreEntitySet="identity_BranchOffice">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="RelativeBranchOfficeId" ColumnName="RelativeBranchOfficeId" />
+                <ScalarProperty Name="BranchOfficeName" ColumnName="BranchOfficeName" />
+                <ScalarProperty Name="BranchOfficeId" ColumnName="BranchOfficeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="identity_LDAPConfig">
+            <EntityTypeMapping TypeName="NetSqlAzMan.CustomDataLayer.EF.identity_LDAPConfig">
+              <MappingFragment StoreEntitySet="identity_LDAPConfig">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="ldap_enabled" ColumnName="ldap_enabled" />
+                <ScalarProperty Name="ldap_client_endpoint" ColumnName="ldap_client_endpoint" />
+                <ScalarProperty Name="ldap_description" ColumnName="ldap_description" />
+                <ScalarProperty Name="ldap_domain" ColumnName="ldap_domain" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="identity_Login">
+            <EntityTypeMapping TypeName="NetSqlAzMan.CustomDataLayer.EF.identity_Login">
+              <MappingFragment StoreEntitySet="identity_Login">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="Expiration_Renewal" ColumnName="Expiration_Renewal" />
+                <ScalarProperty Name="Renewal" ColumnName="Renewal" />
+                <ScalarProperty Name="Renovated" ColumnName="Renovated" />
+                <ScalarProperty Name="LoggedOut" ColumnName="LoggedOut" />
+                <ScalarProperty Name="LogOff" ColumnName="LogOff" />
+                <ScalarProperty Name="Expired" ColumnName="Expired" />
+                <ScalarProperty Name="Expiration" ColumnName="Expiration" />
+                <ScalarProperty Name="Timeout" ColumnName="Timeout" />
+                <ScalarProperty Name="Expires" ColumnName="Expires" />
+                <ScalarProperty Name="LogIn" ColumnName="LogIn" />
+                <ScalarProperty Name="RemoteIpV4" ColumnName="RemoteIpV4" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LDAPDomain" ColumnName="LDAPDomain" />
+                <ScalarProperty Name="AppName" ColumnName="AppName" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="identity_User">
+            <EntityTypeMapping TypeName="NetSqlAzMan.CustomDataLayer.EF.identity_User">
+              <MappingFragment StoreEntitySet="identity_User">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="identity_UserBranchOffice">
+            <EntityTypeMapping TypeName="NetSqlAzMan.CustomDataLayer.EF.identity_UserBranchOffice">
+              <MappingFragment StoreEntitySet="identity_UserBranchOffice">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="BranchOfficeId" ColumnName="BranchOfficeId" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="identity_UserValidationRequest">
+            <EntityTypeMapping TypeName="NetSqlAzMan.CustomDataLayer.EF.identity_UserValidationRequest">
+              <MappingFragment StoreEntitySet="identity_UserValidationRequest">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="azManItem" ColumnName="azManItem" />
+                <ScalarProperty Name="azManAplication" ColumnName="azManAplication" />
+                <ScalarProperty Name="azManStore" ColumnName="azManStore" />
+                <ScalarProperty Name="clientApplication" ColumnName="clientApplication" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="ldapDomain" ColumnName="ldapDomain" />
+                <ScalarProperty Name="valRequestDate" ColumnName="valRequestDate" />
+                <ScalarProperty Name="userValRequestId" ColumnName="userValRequestId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="identity_vw_UserBranchOffices">
+            <EntityTypeMapping TypeName="NetSqlAzMan.CustomDataLayer.EF.identity_vw_UserBranchOffices">
+              <MappingFragment StoreEntitySet="identity_vw_UserBranchOffices">
+                <ScalarProperty Name="RelativeBranchOfficeId" ColumnName="RelativeBranchOfficeId" />
+                <ScalarProperty Name="BranchOfficeName" ColumnName="BranchOfficeName" />
+                <ScalarProperty Name="BranchOfficeId" ColumnName="BranchOfficeId" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="identity_vw_UsersByDepartment">
+            <EntityTypeMapping TypeName="NetSqlAzMan.CustomDataLayer.EF.identity_vw_UsersByDepartment">
+              <MappingFragment StoreEntitySet="identity_vw_UsersByDepartment">
+                <ScalarProperty Name="Sede_s_" ColumnName="Sede(s)" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="identity_vw_WrongItemsHierarchyView">
+            <EntityTypeMapping TypeName="NetSqlAzMan.CustomDataLayer.EF.identity_vw_WrongItemsHierarchyView">
+              <MappingFragment StoreEntitySet="identity_vw_WrongItemsHierarchyView">
+                <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+                <ScalarProperty Name="ParentItemType" ColumnName="ParentItemType" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="ChildName" ColumnName="ChildName" />
+                <ScalarProperty Name="ChildItemType" ColumnName="ChildItemType" />
+                <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="identity_Department">
+            <EntityTypeMapping TypeName="NetSqlAzMan.CustomDataLayer.EF.identity_Department">
+              <MappingFragment StoreEntitySet="identity_Department">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="identity_vw_Users">
+            <EntityTypeMapping TypeName="NetSqlAzMan.CustomDataLayer.EF.identity_vw_Users">
+              <MappingFragment StoreEntitySet="identity_vw_Users">
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="BranchOfficeNames" ColumnName="BranchOfficeNames" />
+                <ScalarProperty Name="RelativeBranchOfficeIds" ColumnName="RelativeBranchOfficeIds" />
+                <ScalarProperty Name="BranchOfficeIds" ColumnName="BranchOfficeIds" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+			</Mapping>
+		</edmx:Mappings>
+	</edmx:Runtime>
+	<!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+	<Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+		<Connection>
+			<DesignerInfoPropertySet>
+				<DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+			</DesignerInfoPropertySet>
+		</Connection>
+		<Options>
+			<DesignerInfoPropertySet>
+				<DesignerProperty Name="ValidateOnBuild" Value="true" />
+				<DesignerProperty Name="EnablePluralization" Value="false" />
+				<DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+				<DesignerProperty Name="UseLegacyProvider" Value="false" />
+				<DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+			</DesignerInfoPropertySet>
+		</Options>
+		<!-- Diagram content (shape and connector positions) -->
+		<Diagrams></Diagrams>
+	</Designer>
+</edmx:Edmx>

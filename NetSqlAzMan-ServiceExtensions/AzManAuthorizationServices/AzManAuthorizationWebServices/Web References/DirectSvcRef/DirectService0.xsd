@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" />
+  <xs:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+  <xs:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd4" namespace="http://NetSqlAzMan/ServiceModel" />
+  <xs:element name="DirectTest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="input" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DirectTestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DirectTestResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="output" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DirectGetDBUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DirectGetDBUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" minOccurs="0" name="DirectGetDBUserResult" nillable="true" type="q1:DBUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DirectValidatePassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DirectValidatePasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DirectValidatePasswordResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DirectCheckAccessForDatabaseUsersWithoutAttributesRetrieve">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="store" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="app" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="item" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DBuserSSid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="validFor" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="operationsOnly" type="xs:boolean" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="contextParameters" nillable="true" type="q2:ArrayOfKeyValuePairOfstringanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DirectCheckAccessForDatabaseUsersWithoutAttributesRetrieveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://NetSqlAzMan/ServiceModel" minOccurs="0" name="DirectCheckAccessForDatabaseUsersWithoutAttributesRetrieveResult" type="q3:AuthorizationType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

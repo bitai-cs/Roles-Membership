@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1d8b1593-865e-46d4-8b4a-1b908450d1ae" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LDAPHelper.wsdl" MetadataType="Wsdl" ID="de96a1c2-058b-4200-97fc-67ed5c67c2f9" SourceId="1" SourceUrl="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?wsdl" />
+    <MetadataFile FileName="LDAPHelper.xsd" MetadataType="Schema" ID="c99c9deb-e038-4132-a696-e27d7be4d316" SourceId="1" SourceUrl="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?xsd=xsd3" />
+    <MetadataFile FileName="LDAPHelper1.xsd" MetadataType="Schema" ID="1555637d-e5f8-4121-b00b-e09ac26ee219" SourceId="1" SourceUrl="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?xsd=xsd0" />
+    <MetadataFile FileName="LDAPHelper2.xsd" MetadataType="Schema" ID="38d31a5e-455c-494b-89ea-155dfc44fabe" SourceId="1" SourceUrl="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?xsd=xsd4" />
+    <MetadataFile FileName="LDAPHelper.disco" MetadataType="Disco" ID="8e5f592e-ca47-4eb7-b23c-e7783a809186" SourceId="1" SourceUrl="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?disco" />
+    <MetadataFile FileName="LDAPHelper3.xsd" MetadataType="Schema" ID="887ce281-ddc1-45ff-9901-6499320f6135" SourceId="1" SourceUrl="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?xsd=xsd2" />
+    <MetadataFile FileName="LDAPHelper4.xsd" MetadataType="Schema" ID="81025ac8-d108-4ae3-9630-2259ba744d8d" SourceId="1" SourceUrl="http://localhost:448/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,205 @@
+{
+  "front-version": "2.17.1",
+  "version": 3,
+  "nodes": [
+    {
+      "type": "Project",
+      "id": "a454a17c-fe98-4f83-8352-a105fa524566",
+      "lastModified": "2018-04-11T15:44:36.480-05:00",
+      "name": "AzManStructureMgtWebApi"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.5",
+        "name": "DELETE"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": [
+            {
+              "enabled": true,
+              "name": "store",
+              "value": "SISE"
+            }
+          ]
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost",
+        "path": "/_rootvb/AzManStructureMgtWebApi/api/AzManApplications/App3"
+      },
+      "id": "1a586372-47e3-4201-a83d-11b49efb6585",
+      "lastModified": "2018-04-11T15:44:36.480-05:00",
+      "name": "AzManApplications: DELETE",
+      "headers": [],
+      "metaInfo": {
+        "ownerId": "google-oauth2|118254773386382125792"
+      },
+      "parentId": "a454a17c-fe98-4f83-8352-a105fa524566"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": [
+            {
+              "enabled": true,
+              "name": "store",
+              "value": "SISE"
+            },
+            {
+              "enabled": true,
+              "name": "loadAttributes",
+              "value": "true"
+            }
+          ]
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost",
+        "path": "/_rootvb/AzManStructureMgtWebApi/api/AzManApplications"
+      },
+      "id": "2919b2af-38c3-4206-87d7-9a7d26cda4c9",
+      "lastModified": "2018-04-11T15:43:57.034-05:00",
+      "name": "AzManApplications: GET",
+      "headers": [],
+      "metaInfo": {
+        "ownerId": "google-oauth2|118254773386382125792"
+      },
+      "parentId": "a454a17c-fe98-4f83-8352-a105fa524566"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "{\n  \"name\": \"App3\",\n  \"description\": \"Dummy description\"\n}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": [
+            {
+              "enabled": true,
+              "name": "store",
+              "value": "SISE"
+            }
+          ]
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost",
+        "path": "/_rootvb/AzManStructureMgtWebApi/api/AzManApplications"
+      },
+      "id": "c2bb8057-6e7d-4d0c-90f4-75ce6d16862f",
+      "lastModified": "2018-04-11T15:06:38.462-05:00",
+      "name": "AzManApplications: POST",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "google-oauth2|118254773386382125792"
+      },
+      "parentId": "a454a17c-fe98-4f83-8352-a105fa524566"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.4",
+        "name": "PUT"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "{\n  \"name\": \"App1b\",\n  \"description\": \"Dummy descriptionccc\"\n}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": [
+            {
+              "enabled": true,
+              "name": "store",
+              "value": "SISE"
+            }
+          ]
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost",
+        "path": "/_rootvb/AzManStructureMgtWebApi/api/AzManApplications/App1"
+      },
+      "id": "33f3e8ff-2e39-420e-91b8-7e0a8c9c0092",
+      "lastModified": "2018-04-11T15:13:18.739-05:00",
+      "name": "AzManApplications: PUT",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "google-oauth2|118254773386382125792"
+      },
+      "parentId": "a454a17c-fe98-4f83-8352-a105fa524566"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e5a3ac60-e42e-48b7-aeae-69e06f876bdf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DirectService.wsdl" MetadataType="Wsdl" ID="36ed159e-2cc3-4016-828a-5466adc0090c" SourceId="1" SourceUrl="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?wsdl" />
+    <MetadataFile FileName="DirectService.xsd" MetadataType="Schema" ID="5ebedf5f-25bb-455f-8122-850b6fec48c4" SourceId="1" SourceUrl="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd4" />
+    <MetadataFile FileName="DirectService.disco" MetadataType="Disco" ID="d2b7e095-082c-4bba-8810-c12a3c7984ef" SourceId="1" SourceUrl="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?disco" />
+    <MetadataFile FileName="DirectService2.xsd" MetadataType="Schema" ID="4b743d52-aa17-41a4-8451-e60ea9739adb" SourceId="1" SourceUrl="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DirectService3.xsd" MetadataType="Schema" ID="af955359-8a09-4964-9db9-6ec49bb7f3c3" SourceId="1" SourceUrl="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DirectService4.xsd" MetadataType="Schema" ID="879150fb-4ae6-41d9-8b89-dec1f88eb408" SourceId="1" SourceUrl="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DirectService5.xsd" MetadataType="Schema" ID="06b530ac-b59f-4d02-9df5-9df1cebe420b" SourceId="1" SourceUrl="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

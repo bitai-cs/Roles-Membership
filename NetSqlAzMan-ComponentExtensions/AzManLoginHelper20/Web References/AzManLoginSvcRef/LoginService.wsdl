@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LoginService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" />
+      <xsd:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc?xsd=xsd3" namespace="http://NetSqlAzMan/ServiceModel" />
+      <xsd:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/AzManLoginWebServices" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILoginService_Test_InputMessage">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_Test_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_StartLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartLogin" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_StartLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_StartLoginEnc_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartLoginEnc" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_StartLoginEnc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartLoginEncResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_CreateLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLogin" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_CreateLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_GetLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogin" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_GetLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_GetLoginByIdAndUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoginByIdAndUser" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_GetLoginByIdAndUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoginByIdAndUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_RevalidateLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:RevalidateLogin" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_RevalidateLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RevalidateLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_StartLogOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartLogOut" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_StartLogOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartLogOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_CheckLoginAccess_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckLoginAccess" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_CheckLoginAccess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckLoginAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_CheckLoginStatusAndAuthorization_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckLoginStatusAndAuthorization" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_CheckLoginStatusAndAuthorization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckLoginStatusAndAuthorizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_ChangePwd_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePwd" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_ChangePwd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePwdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_ChangePwdEx_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePwdEx" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_ChangePwdEx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePwdExResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILoginService">
+    <wsdl:operation name="Test">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/Test" message="tns:ILoginService_Test_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/TestResponse" message="tns:ILoginService_Test_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/StartLogin" message="tns:ILoginService_StartLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/StartLoginResponse" message="tns:ILoginService_StartLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartLoginEnc">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/StartLoginEnc" message="tns:ILoginService_StartLoginEnc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/StartLoginEncResponse" message="tns:ILoginService_StartLoginEnc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/CreateLogin" message="tns:ILoginService_CreateLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/CreateLoginResponse" message="tns:ILoginService_CreateLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/GetLogin" message="tns:ILoginService_GetLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/GetLoginResponse" message="tns:ILoginService_GetLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginByIdAndUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/GetLoginByIdAndUser" message="tns:ILoginService_GetLoginByIdAndUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/GetLoginByIdAndUserResponse" message="tns:ILoginService_GetLoginByIdAndUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RevalidateLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/RevalidateLogin" message="tns:ILoginService_RevalidateLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/RevalidateLoginResponse" message="tns:ILoginService_RevalidateLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartLogOut">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/StartLogOut" message="tns:ILoginService_StartLogOut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/StartLogOutResponse" message="tns:ILoginService_StartLogOut_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckLoginAccess">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/CheckLoginAccess" message="tns:ILoginService_CheckLoginAccess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/CheckLoginAccessResponse" message="tns:ILoginService_CheckLoginAccess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckLoginStatusAndAuthorization">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/CheckLoginStatusAndAuthorization" message="tns:ILoginService_CheckLoginStatusAndAuthorization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/CheckLoginStatusAndAuthorizationResponse" message="tns:ILoginService_CheckLoginStatusAndAuthorization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwd">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/ChangePwd" message="tns:ILoginService_ChangePwd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/ChangePwdResponse" message="tns:ILoginService_ChangePwd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwdEx">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/ChangePwdEx" message="tns:ILoginService_ChangePwdEx_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/ChangePwdExResponse" message="tns:ILoginService_ChangePwdEx_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILoginService" type="tns:ILoginService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartLogin">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/StartLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartLoginEnc">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/StartLoginEnc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateLogin">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/CreateLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogin">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/GetLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginByIdAndUser">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/GetLoginByIdAndUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevalidateLogin">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/RevalidateLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartLogOut">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/StartLogOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLoginAccess">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/CheckLoginAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLoginStatusAndAuthorization">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/CheckLoginStatusAndAuthorization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwd">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/ChangePwd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwdEx">
+      <soap:operation soapAction="http://tempuri.org/ILoginService/ChangePwdEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LoginService">
+    <wsdl:port name="BasicHttpBinding_ILoginService" binding="tns:BasicHttpBinding_ILoginService">
+      <soap:address location="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
