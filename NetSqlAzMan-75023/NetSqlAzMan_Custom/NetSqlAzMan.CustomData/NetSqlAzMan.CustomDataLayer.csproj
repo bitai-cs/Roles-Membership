@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A2B9A650-C613-445C-BE0B-F10EAF5713D4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NetSqlAzMan.CustomDataLayer</RootNamespace>
+    <AssemblyName>NetSqlAzMan.CustomDataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Functions, Version=1.3.1.0, Culture=neutral, PublicKeyToken=dbe58f97a0872a64, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.Functions.1.4.1\lib\net45\EntityFramework.Functions.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EFCF\ldapwac_DataLayerBase.cs" />
+    <Compile Include="DataLayerBase.cs" />
+    <Compile Include="EFCF\AzManEntities.cs" />
+    <Compile Include="EFCF\AzManEntities_Custom.cs" />
+    <Compile Include="EFCF\identity_BranchOffice.cs" />
+    <Compile Include="EFCF\identity_BranchOffice_DAL.cs" />
+    <Compile Include="EFCF\identity_Department.cs" />
+    <Compile Include="EFCF\identity_Department_DAL.cs" />
+    <Compile Include="EFCF\ldapwac_DomainProfile_DAL.cs" />
+    <Compile Include="EFCF\ldapwac_DomainProfile.cs" />
+    <Compile Include="EFCF\identity_LDAPConfig_DAL.cs" />
+    <Compile Include="EFCF\identity_LDAPConfig.cs" />
+    <Compile Include="EFCF\ldapwac_ServerBaseDN_DAL.cs" />
+    <Compile Include="EFCF\ldapwac_ServerBaseDN.cs" />
+    <Compile Include="EFCF\identity_Login.cs" />
+    <Compile Include="EFCF\identity_User.cs" />
+    <Compile Include="EFCF\identity_UserBranchOffice.cs" />
+    <Compile Include="EFCF\identity_UserBranchOffice_DAL.cs" />
+    <Compile Include="EFCF\identity_UserValidationRequest.cs" />
+    <Compile Include="EFCF\identity_User_DAL.cs" />
+    <Compile Include="EFCF\identity_vw_UserBranchOffices.cs" />
+    <Compile Include="EFCF\identity_vw_Users.cs" />
+    <Compile Include="EFCF\identity_vw_UsersByDepartment.cs" />
+    <Compile Include="EFCF\identity_vw_WrongItemsHierarchyView.cs" />
+    <Compile Include="ConnectionManager.cs" />
+    <Compile Include="EFCF\ldapwac_vw_LdapProfilesWithConfiguredBaseDNs.cs" />
+    <Compile Include="EF\AzManModel.AzManEntities.cs" />
+    <Compile Include="EF\AzManModel.Context.cs" />
+    <Compile Include="EF\AzManModel.Context1.cs">
+      <DependentUpon>AzManModel.Context.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="EF\AzManModel.cs" />
+    <Compile Include="EF\AzManModel.Designer.cs">
+      <DependentUpon>AzManModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EF\AzManModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AzManModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\AzManModel1.Designer.cs">
+      <DependentUpon>AzManModel.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="EF\identity_BranchOffice.cs">
+      <DependentUpon>AzManModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\identity_BranchOffice_dal.cs" />
+    <Compile Include="EF\identity_Department.cs">
+      <DependentUpon>AzManModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\identity_Department_dal.cs" />
+    <Compile Include="EF\identity_LDAPConfig.cs">
+      <DependentUpon>AzManModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\identity_Login.cs">
+      <DependentUpon>AzManModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\identity_User.cs">
+      <DependentUpon>AzManModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\identity_UserBranchOffice.cs">
+      <DependentUpon>AzManModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\identity_UserBranchOffice_dal.cs" />
+    <Compile Include="EF\identity_UserValidationRequest.cs">
+      <DependentUpon>AzManModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\identity_User_dal.cs" />
+    <Compile Include="EF\identity_vw_UserBranchOffices.cs">
+      <DependentUpon>AzManModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\identity_vw_Users.cs">
+      <DependentUpon>AzManModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\identity_vw_UsersByDepartment.cs">
+      <DependentUpon>AzManModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\identity_vw_WrongItemsHierarchyView.cs">
+      <DependentUpon>AzManModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="LINQ\DBUsersModel.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBUsersModel.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="EF\AzManModel.edmx.diagram">
+      <DependentUpon>AzManModel.edmx</DependentUpon>
+    </None>
+    <None Include="LINQ\DBUsersModel.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DBUsersModel.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LINQ\DBUsersModel.dbml.layout">
+      <DependentUpon>DBUsersModel.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Docs\identity_sp_InitializeDatabaseData.sql" />
+    <Content Include="EF\AzManModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AzManModel.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\AzManModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AzManModel1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\.sql2k14.AzMan_MS_CI_AI-.sql2k14.AzMan_MS_CI_AI_CF-20180109-1740.sql" />
+    <Content Include="Scripts\.sql2k14.AzMan_MS_CI_AI-.sql2k14.AzMan_MS_CI_AI_CF-20180109-1741.sql" />
+    <Content Include="Scripts\01.1.AzMan Tables.sql" />
+    <Content Include="Scripts\02.1.Populate Identity Tables.sql" />
+    <Content Include="Scripts\03.1.Populate Stores Table.sql" />
+    <Content Include="Scripts\03.2. Populate Store Groups Table.sql" />
+    <Content Include="Scripts\03.3.Populate Store Groups Members.sql" />
+    <Content Include="Scripts\03.4.Populate Applications Table.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="EF\AzManModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AzManModel1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /y "$(TargetDir)*.*" "$(ProjectDir)..\..\..\..\_bin\"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LDAPProxyWebSvc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/_rootvb/LDAPProxyWebSvc/LDAPHelper.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="LDAPSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DirectoryEntryPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DomainProfile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResultFromGC" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="c" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="canonicalName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="createTimeStamp" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="defaultClassStore" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="department" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="displayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="distinguishedName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="givenName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isDeleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="lastLogon" type="xs:long" />
+      <xs:element minOccurs="0" name="mail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="manager" nillable="true" type="tns:LDAPSearchResult" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="member" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="memberOf" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="objectCategory" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="objectClass" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element minOccurs="0" name="objectGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="objectGuidBytes" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="objectSid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="objectSidBytes" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="samAccountName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="telephoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userPrincipalName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LDAPSearchResult" nillable="true" type="tns:LDAPSearchResult" />
+  <xs:complexType name="StatusInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExceptionType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsException" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatusMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StatusInfo" nillable="true" type="tns:StatusInfo" />
+  <xs:simpleType name="LDAPHelper.ADProperties">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="objectGuid" />
+      <xs:enumeration value="objectSid" />
+      <xs:enumeration value="telephoneNumber" />
+      <xs:enumeration value="samAccountName" />
+      <xs:enumeration value="manager" />
+      <xs:enumeration value="title" />
+      <xs:enumeration value="givenName" />
+      <xs:enumeration value="sn" />
+      <xs:enumeration value="cn" />
+      <xs:enumeration value="canonicalName" />
+      <xs:enumeration value="userPrincipalName" />
+      <xs:enumeration value="c" />
+      <xs:enumeration value="company" />
+      <xs:enumeration value="createTimeStamp" />
+      <xs:enumeration value="defaultClassStore" />
+      <xs:enumeration value="department" />
+      <xs:enumeration value="description" />
+      <xs:enumeration value="displayName" />
+      <xs:enumeration value="distinguishedName" />
+      <xs:enumeration value="isDeleted" />
+      <xs:enumeration value="lastLogon" />
+      <xs:enumeration value="objectCategory" />
+      <xs:enumeration value="objectClass" />
+      <xs:enumeration value="member" />
+      <xs:enumeration value="memberOf" />
+      <xs:enumeration value="mail" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LDAPHelper.ADProperties" nillable="true" type="tns:LDAPHelper.ADProperties" />
+  <xs:complexType name="ArrayOfLDAPSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LDAPSearchResult" nillable="true" type="tns:LDAPSearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLDAPSearchResult" nillable="true" type="tns:ArrayOfLDAPSearchResult" />
+  <xs:simpleType name="ADObjectType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UsersAndGroups" />
+      <xs:enumeration value="UsersOnly" />
+      <xs:enumeration value="OneUserOnly" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ADObjectType" nillable="true" type="tns:ADObjectType" />
+  <xs:complexType name="ArrayOfADObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ADObject" nillable="true" type="tns:ADObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfADObject" nillable="true" type="tns:ArrayOfADObject" />
+  <xs:complexType name="ADObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADsPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClassName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DomainProfile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsGroup" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="tns:ADObjectState" />
+      <xs:element minOccurs="0" name="UPN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ADObject" nillable="true" type="tns:ADObject" />
+  <xs:simpleType name="ADObjectState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Resolved" />
+      <xs:enumeration value="NotFound" />
+      <xs:enumeration value="Multiple" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ADObjectState" nillable="true" type="tns:ADObjectState" />
+</xs:schema>

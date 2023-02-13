@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6A5A86D1-0A4B-469C-B740-9D45808D84F3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NetSqlAzMan.CustomBussinessLogic.TestUI</RootNamespace>
+    <AssemblyName>NetSqlAzMan.CustomBussinessLogic.TestUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LDAPHelperDTO, Version=1.1.2.1234, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\_bin\LDAPHelperDTO.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebApiStandard.WebApiCommon">
+      <HintPath>..\..\..\..\_bin\WebApiStandard.WebApiCommon.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBUserBOTestUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DBUserBOTestUI.Designer.cs">
+      <DependentUpon>DBUserBOTestUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DBUserPropertiesUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DBUserPropertiesUI.Designer.cs">
+      <DependentUpon>DBUserPropertiesUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentBOTestUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepartmentBOTestUI.Designer.cs">
+      <DependentUpon>DepartmentBOTestUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BranchOfficeBOTestUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BranchOfficeBOTestUI.Designer.cs">
+      <DependentUpon>BranchOfficeBOTestUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LDAPClientBOTestUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LDAPClientBOTestUI.Designer.cs">
+      <DependentUpon>LDAPClientBOTestUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainUI.Designer.cs">
+      <DependentUpon>MainUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DBUserBOTestUI.resx">
+      <DependentUpon>DBUserBOTestUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DBUserPropertiesUI.resx">
+      <DependentUpon>DBUserPropertiesUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepartmentBOTestUI.resx">
+      <DependentUpon>DepartmentBOTestUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BranchOfficeBOTestUI.resx">
+      <DependentUpon>BranchOfficeBOTestUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LDAPClientBOTestUI.resx">
+      <DependentUpon>LDAPClientBOTestUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainUI.resx">
+      <DependentUpon>MainUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\AzManServicesDataTransferObjects.BranchOffice.datasource" />
+    <None Include="Properties\DataSources\AzManServicesDataTransferObjects.DBUser.datasource" />
+    <None Include="Properties\DataSources\AzManServicesDataTransferObjects.Department.datasource" />
+    <None Include="Properties\DataSources\LDAPHelperDTO.ILdapEntry.datasource" />
+    <None Include="Properties\DataSources\LDAPHelperDTO.LdapEntry.datasource" />
+    <None Include="Properties\DataSources\NetSqlAzMan.CustomBussinessLogic.LDAPHelperSvcRef.ADObject.datasource" />
+    <None Include="Properties\DataSources\NetSqlAzMan.CustomBussinessLogic.LDAPHelperSvcRef.LDAPSearchResult.datasource" />
+    <None Include="Properties\DataSources\NetSqlAzMan.CustomBussinessLogic.LDAPHelperSvcRef.StatusInfo.datasource" />
+    <None Include="Properties\DataSources\NetSqlAzMan.ServiceBusinessObjects.LDAPConfig.datasource" />
+    <None Include="Properties\DataSources\NetSqlAzMan.ServiceBusinessObjects.LdapDomainProfile.datasource" />
+    <None Include="Properties\DataSources\NetSqlAzMan.ServiceBusinessObjects.LdapProfile.datasource" />
+    <None Include="Properties\DataSources\NetSqlAzMan.ServiceBusinessObjects.LDAPResult.datasource" />
+    <None Include="Properties\DataSources\NetSqlAzMan.ServiceBusinessObjects.LdapServerBaseDN.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\NetSqlAzMan-ServiceExtensions\NetSqlAzMan.ServiceBusinessObjects\NetSqlAzMan.ServiceBusinessObjects.csproj">
+      <Project>{304ae7fc-d45a-4b9b-b070-8579feafd3ef}</Project>
+      <Name>NetSqlAzMan.ServiceBusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NetSqlAzMan_Solution\NetSqlAzMan.2\NetSqlAzMan.2.csproj">
+      <Project>{49cb5903-f446-4926-8fda-3ab96dfee099}</Project>
+      <Name>NetSqlAzMan.2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetSqlAzMan.CustomBussinessLogic\NetSqlAzMan.CustomBussinessLogic.csproj">
+      <Project>{898cbdae-617f-4eab-95b2-592443acbcf4}</Project>
+      <Name>NetSqlAzMan.CustomBussinessLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

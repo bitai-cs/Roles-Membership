@@ -1,0 +1,742 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AADFE4DC-DB56-4B4B-820E-2ED66AF417E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NetSqlAzMan.SnapIn</RootNamespace>
+    <AssemblyName>NetSqlAzMan.SnapIn</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Interop.Security.AzRoles, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
+      <HintPath>.\AzRoles\${Platform}\Microsoft.Interop.Security.AzRoles.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="microsoft.managementconsole, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Reference Assemblies\Microsoft\mmc\v3.0\microsoft.managementconsole.dll</HintPath>
+    </Reference>
+    <Reference Include="SqlAudit">
+      <HintPath>..\..\..\..\..\..\_bin\SqlAudit.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DirectoryServices\ADObjectPicker\ADObject.cs" />
+    <None Include="DirectoryServices\ADObjectPicker\StructsFlags.cs" />
+    <Compile Include="DirectoryServices\DirectoryServicesUtils.cs" />
+    <None Include="Forms\BizRuleCSharpTemplate.cs" />
+    <None Include="Forms\BizRuleVBNetTemplate.vb" />
+    <Compile Include="Forms\frmInvalidateWCFCacheService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmInvalidateWCFCacheService.Designer.cs">
+      <DependentUpon>frmInvalidateWCFCacheService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSQLAudit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSQLAudit.Designer.cs">
+      <DependentUpon>frmSQLAudit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStorePermissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStorePermissions.Designer.cs">
+      <DependentUpon>frmStorePermissions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmApplicationPermissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmApplicationPermissions.Designer.cs">
+      <DependentUpon>frmApplicationPermissions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPrint.Designer.cs">
+      <DependentUpon>frmPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCheckAccessTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCheckAccessTest.Designer.cs">
+      <DependentUpon>frmCheckAccessTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDBUsersList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDBUsersList.Designer.cs">
+      <DependentUpon>frmDBUsersList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBizRule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBizRule.Designer.cs">
+      <DependentUpon>frmBizRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmGenerateCheckAccessHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGenerateCheckAccessHelper.Designer.cs">
+      <DependentUpon>frmGenerateCheckAccessHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmItemAttributes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmItemAttributes.Designer.cs">
+      <DependentUpon>frmItemAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmApplicationAttributes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmApplicationAttributes.Designer.cs">
+      <DependentUpon>frmApplicationAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStoreAttributes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStoreAttributes.Designer.cs">
+      <DependentUpon>frmStoreAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmItemsHierarchyView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmItemsHierarchyView.Designer.cs">
+      <DependentUpon>frmItemsHierarchyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmItemsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmItemsList.Designer.cs">
+      <DependentUpon>frmItemsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmImportFromAzMan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmImportFromAzMan.Designer.cs">
+      <DependentUpon>frmImportFromAzMan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmActiveDirectoryObjectsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmActiveDirectoryObjectsList.Designer.cs">
+      <DependentUpon>frmActiveDirectoryObjectsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmImport.Designer.cs">
+      <DependentUpon>frmImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmImportOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmImportOptions.Designer.cs">
+      <DependentUpon>frmImportOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmExport.Designer.cs">
+      <DependentUpon>frmExport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmExportOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmExportOptions.Designer.cs">
+      <DependentUpon>frmExportOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOptions.Designer.cs">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAttributeProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAttributeProperties.Designer.cs">
+      <DependentUpon>frmAttributeProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAuthorizationAttributes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAuthorizationAttributes.Designer.cs">
+      <DependentUpon>frmAuthorizationAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmItemAuthorizations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmItemAuthorizations.Designer.cs">
+      <DependentUpon>frmItemAuthorizations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplash.Designer.cs">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListViews\ApplicationGroupListView.cs" />
+    <Compile Include="ListViews\ItemMembersListView.cs" />
+    <Compile Include="ListViews\StoreGroupListView.cs" />
+    <Compile Include="ListViews\ListViewBase.cs" />
+    <Compile Include="ListViews\StoreGroupsAndApplicationsListView.cs" />
+    <Compile Include="Globalization\MultilanguageResource.cs" />
+    <Compile Include="Globalization\ResourcesManager.cs" />
+    <Compile Include="Printing\ptEffectivePermissions.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Printing\PrintDocumentBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Printing\ptItemAuthorizations.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Printing\ptItemsHierarchy.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ScopeNodes\ApplicationScopeNode.cs" />
+    <Compile Include="ScopeNodes\ApplicationGroupsScopeNode.cs" />
+    <Compile Include="ScopeNodes\ApplicationGroupScopeNode.cs" />
+    <Compile Include="ScopeNodes\OperationAuthorizationsScopeNode.cs" />
+    <Compile Include="ScopeNodes\TaskAuthorizationsScopeNode.cs" />
+    <Compile Include="ScopeNodes\RoleAuthorizationsScopeNode.cs" />
+    <Compile Include="ScopeNodes\OperationDefinitionsScopeNode.cs" />
+    <Compile Include="ScopeNodes\TaskDefinitionsScopeNode.cs" />
+    <Compile Include="ScopeNodes\RoleDefinitionsScopeNode.cs" />
+    <Compile Include="ScopeNodes\ItemAuthorizationScopeNode.cs" />
+    <Compile Include="ScopeNodes\ItemAuthorizationsScopeNode.cs" />
+    <Compile Include="ScopeNodes\ItemDefinitionScopeNode.cs" />
+    <Compile Include="ScopeNodes\ItemDefinitionsScopeNode.cs" />
+    <Compile Include="ScopeNodes\ScopeNodeChangedHandler.cs" />
+    <Compile Include="ScopeNodes\StoreGroupScopeNode.cs" />
+    <Compile Include="ScopeNodes\StoreGroupsScopeNode.cs" />
+    <Compile Include="ScopeNodes\StoreScopeNode.cs" />
+    <Compile Include="ScopeNodes\ScopeNodeBase.cs" />
+    <Compile Include="ScopeNodes\StorageScopeNode.cs" />
+    <Compile Include="Forms\frmItemProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmItemProperties.Designer.cs">
+      <DependentUpon>frmItemProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmNewApplicationGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNewApplicationGroup.Designer.cs">
+      <DependentUpon>frmNewApplicationGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmApplicationGroupsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmApplicationGroupsList.Designer.cs">
+      <DependentUpon>frmApplicationGroupsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmApplicationGroupsProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmApplicationGroupsProperties.Designer.cs">
+      <DependentUpon>frmApplicationGroupsProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmApplicationProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmApplicationProperties.Designer.cs">
+      <DependentUpon>frmApplicationProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStoreGroupsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStoreGroupsList.Designer.cs">
+      <DependentUpon>frmStoreGroupsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmNewStoreGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNewStoreGroup.Designer.cs">
+      <DependentUpon>frmNewStoreGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStoreGroupsProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStoreGroupsProperties.Designer.cs">
+      <DependentUpon>frmStoreGroupsProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStoreProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStoreProperties.Designer.cs">
+      <DependentUpon>frmStoreProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmNetSqlAzManBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNetSqlAzManBase.Designer.cs">
+      <DependentUpon>frmNetSqlAzManBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStorageConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStorageConnection.Designer.cs">
+      <DependentUpon>frmStorageConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageIndexes.cs" />
+    <Compile Include="ListViews\ApplicationGroupsListView.cs" />
+    <Compile Include="ListViews\AuthorizationsListView.cs" />
+    <Compile Include="ListViews\ItemDefinitionsListView.cs" />
+    <Compile Include="ListViews\StoreGroupsListView.cs" />
+    <Compile Include="ListViews\StoresListView.cs" />
+    <Compile Include="NetSqlAzManSnapIn.cs" />
+    <Compile Include="NetSqlAzManSnapInInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GenericMember.cs" />
+    <Compile Include="Forms\GenericMemberCollection.cs" />
+    <Compile Include="Service References\wcf\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SQLAudit\StorageAuditGenerator.cs" />
+    <Compile Include="Utilities\ConsoleUtilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mmc.exe.config" />
+    <None Include="Images\Stores.ico" />
+    <EmbeddedResource Include="Forms\frmImport.resx">
+      <DependentUpon>frmImport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmImportOptions.resx">
+      <DependentUpon>frmImportOptions.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmExport.resx">
+      <DependentUpon>frmExport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmExportOptions.resx">
+      <DependentUpon>frmExportOptions.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOptions.resx">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAttributeProperties.resx">
+      <DependentUpon>frmAttributeProperties.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAuthorizationAttributes.resx">
+      <DependentUpon>frmAuthorizationAttributes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmItemAuthorizations.resx">
+      <DependentUpon>frmItemAuthorizations.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmItemProperties.resx">
+      <DependentUpon>frmItemProperties.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNewApplicationGroup.resx">
+      <DependentUpon>frmNewApplicationGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmApplicationGroupsList.resx">
+      <DependentUpon>frmApplicationGroupsList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmApplicationGroupsProperties.resx">
+      <DependentUpon>frmApplicationGroupsProperties.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmApplicationProperties.resx">
+      <DependentUpon>frmApplicationProperties.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStoreGroupsList.resx">
+      <DependentUpon>frmStoreGroupsList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNewStoreGroup.resx">
+      <DependentUpon>frmNewStoreGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStoreGroupsProperties.resx">
+      <DependentUpon>frmStoreGroupsProperties.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStoreProperties.resx">
+      <DependentUpon>frmStoreProperties.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNetSqlAzManBase.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNetSqlAzManBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStorageConnection.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmStorageConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Anonymous.ico" />
+    <EmbeddedResource Include="NetSqlAzManSnapInInstaller.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NetSqlAzManSnapInInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Images\Application.ico" />
+    <None Include="Images\Folder.ico" />
+    <None Include="Images\Group-Basic.ico" />
+    <None Include="Images\Group-LDap.ico" />
+    <None Include="Images\NetSqlAzMan.ico" />
+    <None Include="Images\Operation.ico" />
+    <None Include="Images\Role.ico" />
+    <None Include="Images\RoleAssignment.ico" />
+    <None Include="Images\Store.ico" />
+    <None Include="Images\Task.ico" />
+    <None Include="Images\WindowsComputer.ico" />
+    <None Include="Images\WindowsGroup.ico" />
+    <None Include="Images\WindowsUser.ico" />
+    <None Include="Properties\DataSources\NetSqlAzMan.Cache.AuthorizedItem1.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AzRoles\x64\Microsoft.Interop.Security.AzRoles.dll" />
+    <Content Include="AzRoles\x86\Microsoft.Interop.Security.AzRoles.dll" />
+    <Content Include="Icons\16x16\Application_16x16.ico" />
+    <Content Include="Icons\16x16\AuthorizationAttribute_16x16.ico" />
+    <Content Include="Icons\16x16\DBUser_16x16.ico" />
+    <Content Include="Icons\16x16\Hierarchy_16x16.ico" />
+    <Content Include="Icons\16x16\ItemAuthorization_16x16.ico" />
+    <Content Include="Icons\16x16\Options_16x16.ico" />
+    <Content Include="Icons\16x16\Task_16x16.ico" />
+    <Content Include="Icons\16x16\Folder_16x16.ico" />
+    <Content Include="Icons\16x16\Role_16x16.ico" />
+    <Content Include="Icons\16x16\NetSqlAzMan_16x16.ico" />
+    <Content Include="Icons\16x16\Operation_16x16.ico" />
+    <Content Include="Icons\16x16\SIDNotFound_16x16.ico" />
+    <Content Include="Icons\16x16\StoreApplicationGroup_16x16.ico" />
+    <Content Include="Icons\16x16\Store_16x16.ico" />
+    <Content Include="Icons\16x16\WindowsBasicGroup_16x16.ico" />
+    <Content Include="Icons\16x16\WindowsQueryLDAPGroup_16x16.ico" />
+    <Content Include="Icons\16x16\WindowsUser_16x16.ico" />
+    <Content Include="Icons\32x32\Application_32x32.ico" />
+    <Content Include="Icons\32x32\AuthorizationAttribute_32x32.ico" />
+    <Content Include="Icons\32x32\BizRule.ico" />
+    <Content Include="Icons\32x32\BuildDDLScript.ico" />
+    <Content Include="Icons\32x32\db.ico" />
+    <Content Include="Icons\32x32\DBUser_32x32.ico" />
+    <Content Include="Icons\32x32\GrantAccess.ico" />
+    <Content Include="Icons\32x32\Hierarchy_32x32.ico" />
+    <Content Include="Icons\32x32\ItemAuthorization_32x32.ico" />
+    <Content Include="Icons\32x32\Logins.ico" />
+    <Content Include="Icons\32x32\NetSqlAzMan_Managers.ico" />
+    <Content Include="Icons\32x32\NetSqlAzMan_Readers.ico" />
+    <Content Include="Icons\32x32\NetSqlAzMan_Users.ico" />
+    <Content Include="Icons\32x32\Options_32x32.ico" />
+    <Content Include="Icons\32x32\RevokeAccess.ico" />
+    <Content Include="Icons\32x32\SqlAudit.gif" />
+    <Content Include="Icons\32x32\SqlAudit.ico" />
+    <Content Include="Icons\32x32\Task_32x32.ico" />
+    <Content Include="Icons\32x32\Folder_32x32.ico" />
+    <Content Include="Icons\32x32\Role_32x32.ico" />
+    <EmbeddedResource Include="Forms\frmInvalidateWCFCacheService.resx">
+      <DependentUpon>frmInvalidateWCFCacheService.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSQLAudit.resx">
+      <DependentUpon>frmSQLAudit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStorePermissions.resx">
+      <DependentUpon>frmStorePermissions.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmApplicationPermissions.resx">
+      <DependentUpon>frmApplicationPermissions.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPrint.resx">
+      <DependentUpon>frmPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCheckAccessTest.resx">
+      <DependentUpon>frmCheckAccessTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBase.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDBUsersList.resx">
+      <DependentUpon>frmDBUsersList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBizRule.resx">
+      <DependentUpon>frmBizRule.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmGenerateCheckAccessHelper.resx">
+      <DependentUpon>frmGenerateCheckAccessHelper.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmItemAttributes.resx">
+      <DependentUpon>frmItemAttributes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmApplicationAttributes.resx">
+      <DependentUpon>frmApplicationAttributes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStoreAttributes.resx">
+      <DependentUpon>frmStoreAttributes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmItemsHierarchyView.resx">
+      <DependentUpon>frmItemsHierarchyView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmItemsList.resx">
+      <DependentUpon>frmItemsList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmImportFromAzMan.resx">
+      <DependentUpon>frmImportFromAzMan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmActiveDirectoryObjectsList.resx">
+      <DependentUpon>frmActiveDirectoryObjectsList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplash.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Globalization\Resource_RU.resx" />
+    <EmbeddedResource Include="Globalization\Resource_SQ.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons\32x32\NetSqlAzMan_32x32.ico">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Globalization\Resource_ES.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Globalization\Resource_IT.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Globalization\Resource_EN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printing\PrintDocumentBase.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PrintDocumentBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Icons\32x32\Operation_32x32.ico" />
+    <Content Include="Icons\32x32\SIDNotFound_32x32.ico" />
+    <Content Include="Icons\32x32\StoreApplicationGroup_32x32.ico" />
+    <Content Include="Icons\32x32\Store_32x32.ico" />
+    <Content Include="Icons\32x32\WindowsBasicGroup_32x32.ico" />
+    <Content Include="Icons\32x32\WindowsQueryLDAPGroup_32x32.ico" />
+    <Content Include="Icons\32x32\WindowsUser_32x32.ico" />
+    <Content Include="Images\Allow.bmp" />
+    <Content Include="Images\AllowForDelegation.bmp" />
+    <Content Include="Images\Deny.bmp" />
+    <Content Include="Images\GrantAccess.bmp" />
+    <Content Include="Images\Logins.bmp" />
+    <Content Include="Images\NetSqlAzMan_Managers.bmp" />
+    <Content Include="Images\NetSqlAzMan_Readers.bmp" />
+    <Content Include="Images\NetSqlAzMan_Users.bmp" />
+    <Content Include="Images\Neutral.bmp" />
+    <Content Include="Images\RevokeAccess.bmp" />
+    <Content Include="Images\SplashBitmap.bmp" />
+    <Content Include="Images\SplashBitmap.jpg" />
+    <Content Include="Images\SplashBitmap2.bmp" />
+    <Content Include="Libs\SqlAudit.dll" />
+    <Content Include="ObjectPikerHelper2\ReadMe.txt" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\NetSqlAzMan.Cache.AuthorizedItem.datasource" />
+    <None Include="Service References\wcf\NetSqlAzMan.Cache.xsd" />
+    <None Include="Service References\wcf\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wcf\configuration.svcinfo" />
+    <None Include="Service References\wcf\configuration91.svcinfo" />
+    <None Include="Service References\wcf\Arrays.xsd" />
+    <None Include="Service References\wcf\service.wsdl" />
+    <None Include="Service References\wcf\service.xsd" />
+    <None Include="Service References\wcf\service1.xsd" />
+    <None Include="Service References\wcf\ServiceModel.xsd" />
+    <None Include="Service References\wcf\System.Collections.Generic.xsd" />
+    <None Include="SQLAudit\SqlAudit.dll" />
+    <None Include="SQLAudit\SqlAudit.XML" />
+    <None Include="BuildHistory.rtf" />
+    <None Include="NetSqlAzMan.SnapIn.cd" />
+    <None Include="ObjectPikerHelper2\RegisterObjectPickerHelper2.bat" />
+    <None Include="Resources\NetSqlAzMan_32x32.png" />
+    <None Include="Resources\FILECOPY_16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\wcf\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CubicOrange.Windows.Forms.ActiveDirectory\DirectoryObjectPicker.csproj">
+      <Project>{AD25BE24-8A42-44E0-9588-3767F572C338}</Project>
+      <Name>DirectoryObjectPicker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetSqlAzMan.2\NetSqlAzMan.2.csproj">
+      <Project>{49cb5903-f446-4926-8fda-3ab96dfee099}</Project>
+      <Name>NetSqlAzMan.2</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!--<Import Project="C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\Microsoft.CSharp.targets" />-->
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

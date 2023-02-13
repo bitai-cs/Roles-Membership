@@ -1,0 +1,952 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{28E8C91B-37E0-45CD-A73F-56B8C88BAE30}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AzManWinUI</RootNamespace>
+    <AssemblyName>AzManWinUIv4</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>..\..\..\..\..\..\Temp\_publish\AzManWinUI4\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\backsw01\Temp\_publish\AzManWinUI4\</InstallUrl>
+    <SupportUrl>http://pcgamer/soporte</SupportUrl>
+    <ErrorReportUrl>http://pcgamer/soporte</ErrorReportUrl>
+    <ProductName>Administrador de Seguridad</ProductName>
+    <PublisherName>Oficina de TI</PublisherName>
+    <SuiteName>Membresia &amp; Seguridad</SuiteName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>default.html</WebPage>
+    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationVersion>2.5.8.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>User.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\Any\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Basgosoft.NetSqlAzManWinUI.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\Any\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Basgosoft.NetSqlAzManWinUI.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>8D77BA7504911E020112F129CF279AD746061921</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Basgosoft.Configuration, Version=1.0.0.25379, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\_bin\Basgosoft.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Basgosoft.Data.Factory">
+      <HintPath>..\..\..\..\_bin\Basgosoft.Data.Factory.dll</HintPath>
+    </Reference>
+    <Reference Include="Basgosoft.Data.Factory.DescendantFactory, Version=1.0.2.30212, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\_bin\Basgosoft.Data.Factory.DescendantFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="Basgosoft.Environment.Configuration">
+      <HintPath>..\..\..\..\_bin\Basgosoft.Environment.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Basgosoft.ManagementConsoleLib, Version=1.0.7011.42557, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\_bin\Basgosoft.ManagementConsoleLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Basgosoft.Reflection">
+      <HintPath>..\..\..\..\_bin\Basgosoft.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.5.8.6\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.4.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.11.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DotNetZip.1.11.0\lib\net20\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ExceptionReporter.NET, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ExceptionReporter.2.3.0\lib\net40\ExceptionReporter.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.ActiveDs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa06657db59055d7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\_bin\Interop.ActiveDs.dll</HintPath>
+    </Reference>
+    <Reference Include="LDAPHelperDTO, Version=1.1.2.1234, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\_bin\LDAPHelperDTO.dll</HintPath>
+    </Reference>
+    <Reference Include="microsoft.managementconsole">
+      <HintPath>..\..\..\..\Archivos de programa\Reference Assemblies\Microsoft\mmc\v3.0\microsoft.managementconsole.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\NetSqlAzMan-ServiceExtensions\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleMapi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Simple-MAPI.NET.1.1.0\lib\net20\SimpleMapi.dll</HintPath>
+    </Reference>
+    <Reference Include="SqlAudit">
+      <HintPath>Libraries\SqlAudit.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Abstractions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.5.8.6\lib\net45\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.2.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.5.8.6\lib\net45\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.8.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.5.8.6\lib\net45\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.5.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.Interception.5.5.3\lib\net45\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.1.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.5.8.6\lib\net45\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.1.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.5.8.6\lib\net45\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=2.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.5.8.6\lib\net45\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppUI.Designer.cs">
+      <DependentUpon>AppUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePwdUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePwdUI.Designer.cs">
+      <DependentUpon>ChangePwdUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DirectoryServices\ADObjectPicker\ADObject.cs" />
+    <Compile Include="DirectoryServices\ADObjectPicker\StructsFlags.cs" />
+    <Compile Include="DirectoryServices\DirectoryServicesUtils.cs" />
+    <Compile Include="Enumerations.cs" />
+    <Compile Include="Forms\frmCheckAccessTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCheckAccessTest.Designer.cs">
+      <DependentUpon>frmCheckAccessTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LdapWacDomainProfilesUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LdapWacDomainProfilesUI.Designer.cs">
+      <DependentUpon>LdapWacDomainProfilesUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserUI.Designer.cs">
+      <DependentUpon>UserUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="HtmlRequestExceptionModelViewerUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HtmlRequestExceptionModelViewerUI.Designer.cs">
+      <DependentUpon>HtmlRequestExceptionModelViewerUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HttpWebApiRequestException.cs" />
+    <Compile Include="LDAPServices\LdapWebApiUserAndGroupSearchUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LDAPServices\LdapWebApiUserAndGroupSearchUI.Designer.cs">
+      <DependentUpon>LdapWebApiUserAndGroupSearchUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginUI.Designer.cs">
+      <DependentUpon>LoginUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmActiveDirectoryObjectsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmActiveDirectoryObjectsList.Designer.cs">
+      <DependentUpon>frmActiveDirectoryObjectsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmApplicationAttributes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmApplicationAttributes.Designer.cs">
+      <DependentUpon>frmApplicationAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmApplicationGroupsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmApplicationGroupsList.Designer.cs">
+      <DependentUpon>frmApplicationGroupsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmApplicationGroupsProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmApplicationGroupsProperties.Designer.cs">
+      <DependentUpon>frmApplicationGroupsProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmApplicationPermissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmApplicationPermissions.Designer.cs">
+      <DependentUpon>frmApplicationPermissions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmApplicationProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmApplicationProperties.Designer.cs">
+      <DependentUpon>frmApplicationProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAuthorizationAttributes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAuthorizationAttributes.Designer.cs">
+      <DependentUpon>frmAuthorizationAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBizRule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBizRule.Designer.cs">
+      <DependentUpon>frmBizRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCheckAccessTestOLD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCheckAccessTestOLD.Designer.cs">
+      <DependentUpon>frmCheckAccessTestOLD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDBUsersList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDBUsersList.Designer.cs">
+      <DependentUpon>frmDBUsersList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmGenerateCheckAccessHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGenerateCheckAccessHelper.Designer.cs">
+      <DependentUpon>frmGenerateCheckAccessHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmImport.Designer.cs">
+      <DependentUpon>frmImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmImportOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmImportOptions.Designer.cs">
+      <DependentUpon>frmImportOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmItemAttributes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmItemAttributes.Designer.cs">
+      <DependentUpon>frmItemAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmItemAuthorizations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmItemAuthorizations.Designer.cs">
+      <DependentUpon>frmItemAuthorizations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmItemProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmItemProperties.Designer.cs">
+      <DependentUpon>frmItemProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmItemsHierarchyView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmItemsHierarchyView.Designer.cs">
+      <DependentUpon>frmItemsHierarchyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmItemsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmItemsList.Designer.cs">
+      <DependentUpon>frmItemsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmNewApplicationGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNewApplicationGroup.Designer.cs">
+      <DependentUpon>frmNewApplicationGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmNewStoreGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNewStoreGroup.Designer.cs">
+      <DependentUpon>frmNewStoreGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOptions.Designer.cs">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPrint.Designer.cs">
+      <DependentUpon>frmPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSQLAudit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSQLAudit.Designer.cs">
+      <DependentUpon>frmSQLAudit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStorageConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStorageConnection.Designer.cs">
+      <DependentUpon>frmStorageConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStoreGroupsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStoreGroupsList.Designer.cs">
+      <DependentUpon>frmStoreGroupsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStoreGroupsProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStoreGroupsProperties.Designer.cs">
+      <DependentUpon>frmStoreGroupsProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GenericMember.cs" />
+    <Compile Include="Forms\GenericMemberCollection.cs" />
+    <Compile Include="ListView\ManagerListview.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\AppJsonResponseHttpRequestExceptionModel.cs" />
+    <Compile Include="Models\EmptyContentResponseHttpRequestExceptionModel.cs" />
+    <Compile Include="Models\TextHtmlResponseHttpRequestExceptionModel.cs" />
+    <Compile Include="Nodes\ApplicationGroupNode.cs" />
+    <Compile Include="Nodes\ApplicationGroupsNode.cs" />
+    <Compile Include="Nodes\BasicStoreGroupMemberNode.cs" />
+    <Compile Include="Nodes\BasicApplicationGroupMember.cs" />
+    <Compile Include="Nodes\ItemAuthorizationMemberNode.cs" />
+    <Compile Include="Nodes\ItemAuthorizationNode.cs" />
+    <Compile Include="Nodes\ItemDefinitionMemberNode.cs" />
+    <Compile Include="Nodes\ItemDefinitionNode.cs" />
+    <Compile Include="Nodes\OperationAuthorizationsNode.cs" />
+    <Compile Include="Nodes\TaskAuthorizationsNode.cs" />
+    <Compile Include="Nodes\RoleAuthorizationsNode.cs" />
+    <Compile Include="Nodes\OperationDefinitionsNode.cs" />
+    <Compile Include="Nodes\TaskDefinitionsNode.cs" />
+    <Compile Include="Nodes\LDAPApplicationGroupMember.cs" />
+    <Compile Include="Nodes\ItemAuthorizationsNode.cs" />
+    <Compile Include="Nodes\ItemDefinitionsNode.cs" />
+    <Compile Include="Nodes\LDAPStoreGroupMember.cs" />
+    <Compile Include="Nodes\RoleDefinitionsNode.cs" />
+    <Compile Include="Nodes\StoreGroupNode.cs" />
+    <Compile Include="Nodes\MembershipNode.cs" />
+    <Compile Include="Forms\frmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBase.Designer.cs">
+      <DependentUpon>frmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAttributeProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAttributeProperties.Designer.cs">
+      <DependentUpon>frmAttributeProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmExport.Designer.cs">
+      <DependentUpon>frmExport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmExportOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmExportOptions.Designer.cs">
+      <DependentUpon>frmExportOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStoreAttributes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStoreAttributes.Designer.cs">
+      <DependentUpon>frmStoreAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStorePermissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStorePermissions.Designer.cs">
+      <DependentUpon>frmStorePermissions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStoreProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStoreProperties.designer.cs">
+      <DependentUpon>frmStoreProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Globalization\MultilanguageResource.cs" />
+    <Compile Include="Globalization\ResourcesManager.cs" />
+    <Compile Include="Icons\ImageIndexes.cs" />
+    <Compile Include="Nodes\ApplicationNode.cs" />
+    <Compile Include="Nodes\StorageNode.cs" />
+    <Compile Include="ManagerUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerUI.Designer.cs">
+      <DependentUpon>ManagerUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\StoreGroupsNode.cs" />
+    <Compile Include="Nodes\StoreNode.cs" />
+    <Compile Include="Nodes\UserNode.cs" />
+    <Compile Include="Printing\PrintDocumentBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Printing\ptEffectivePermissions.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Printing\ptItemAuthorizations.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Printing\ptItemsHierarchy.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsUI.Designer.cs">
+      <DependentUpon>SettingsUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SplashUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashUI.Designer.cs">
+      <DependentUpon>SplashUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQLAudit\StorageAuditGenerator.cs" />
+    <EmbeddedResource Include="AppUI.resx">
+      <DependentUpon>AppUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePwdUI.resx">
+      <DependentUpon>ChangePwdUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCheckAccessTest.resx">
+      <DependentUpon>frmCheckAccessTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LdapWacDomainProfilesUI.resx">
+      <DependentUpon>LdapWacDomainProfilesUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserUI.resx">
+      <DependentUpon>UserUI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlRequestExceptionModelViewerUI.resx">
+      <DependentUpon>HtmlRequestExceptionModelViewerUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LDAPServices\LdapWebApiUserAndGroupSearchUI.resx">
+      <DependentUpon>LdapWebApiUserAndGroupSearchUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginUI.resx">
+      <DependentUpon>LoginUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmActiveDirectoryObjectsList.resx">
+      <DependentUpon>frmActiveDirectoryObjectsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmApplicationAttributes.resx">
+      <DependentUpon>frmApplicationAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmApplicationGroupsList.resx">
+      <DependentUpon>frmApplicationGroupsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmApplicationGroupsProperties.resx">
+      <DependentUpon>frmApplicationGroupsProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmApplicationPermissions.resx">
+      <DependentUpon>frmApplicationPermissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmApplicationProperties.resx">
+      <DependentUpon>frmApplicationProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAttributeProperties.resx">
+      <DependentUpon>frmAttributeProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAuthorizationAttributes.resx">
+      <DependentUpon>frmAuthorizationAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBizRule.resx">
+      <DependentUpon>frmBizRule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCheckAccessTestOLD.resx">
+      <DependentUpon>frmCheckAccessTestOLD.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDBUsersList.resx">
+      <DependentUpon>frmDBUsersList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmExport.resx">
+      <DependentUpon>frmExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmExportOptions.resx">
+      <DependentUpon>frmExportOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmGenerateCheckAccessHelper.resx">
+      <DependentUpon>frmGenerateCheckAccessHelper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmImport.resx">
+      <DependentUpon>frmImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmImportOptions.resx">
+      <DependentUpon>frmImportOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmItemAttributes.resx">
+      <DependentUpon>frmItemAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmItemAuthorizations.resx">
+      <DependentUpon>frmItemAuthorizations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmItemProperties.resx">
+      <DependentUpon>frmItemProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmItemsHierarchyView.resx">
+      <DependentUpon>frmItemsHierarchyView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmItemsList.resx">
+      <DependentUpon>frmItemsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNewApplicationGroup.resx">
+      <DependentUpon>frmNewApplicationGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNewStoreGroup.resx">
+      <DependentUpon>frmNewStoreGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOptions.resx">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPrint.resx">
+      <DependentUpon>frmPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSQLAudit.resx">
+      <DependentUpon>frmSQLAudit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStorageConnection.resx">
+      <DependentUpon>frmStorageConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStoreAttributes.resx">
+      <DependentUpon>frmStoreAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStoreGroupsList.resx">
+      <DependentUpon>frmStoreGroupsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStoreGroupsProperties.resx">
+      <DependentUpon>frmStoreGroupsProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStorePermissions.resx">
+      <DependentUpon>frmStorePermissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStoreProperties.resx">
+      <DependentUpon>frmStoreProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Globalization\Resource_EN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Globalization\Resource_ES.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Globalization\Resource_IT.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Globalization\Resource_RU.resx" />
+    <EmbeddedResource Include="Globalization\Resource_SQ.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerUI.resx">
+      <DependentUpon>ManagerUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printing\PrintDocumentBase.resx">
+      <DependentUpon>PrintDocumentBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>NetSqlAzMan.SnapIn.Properties</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsUI.resx">
+      <DependentUpon>SettingsUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashUI.resx">
+      <DependentUpon>SplashUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Documents\environment.config" />
+    <None Include="ManagerUI_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\NetSqlAzMan.ServiceBusinessObjects.LdapDomainProfile.datasource" />
+    <None Include="Properties\DataSources\NetSqlAzMan.ServiceBusinessObjects.LdapProfile.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Cadenas.ico" />
+    <Content Include="Icons\16x16\Application_16x16.ico" />
+    <Content Include="Icons\16x16\AuthorizationAttribute_16x16.ico" />
+    <Content Include="Icons\16x16\DBUser_16x16.ico" />
+    <Content Include="Icons\16x16\Folder_16x16.ico" />
+    <Content Include="Icons\16x16\Hierarchy_16x16.ico" />
+    <Content Include="Icons\16x16\ItemAuthorization_16x16.ico" />
+    <Content Include="Icons\16x16\NetSqlAzMan_16x16.ico" />
+    <Content Include="Icons\16x16\Operation_16x16.ico" />
+    <Content Include="Icons\16x16\Options_16x16.ico" />
+    <Content Include="Icons\16x16\Role_16x16.ico" />
+    <Content Include="Icons\16x16\SIDNotFound_16x16.ico" />
+    <Content Include="Icons\16x16\StoreApplicationGroup_16x16.ico" />
+    <Content Include="Icons\16x16\Store_16x16.ico" />
+    <Content Include="Icons\16x16\Task_16x16.ico" />
+    <Content Include="Icons\16x16\WindowsBasicGroup_16x16.ico" />
+    <Content Include="Icons\16x16\WindowsQueryLDAPGroup_16x16.ico" />
+    <Content Include="Icons\16x16\WindowsUser_16x16.ico" />
+    <Content Include="Icons\32x32\Application_32x32.ico" />
+    <Content Include="Icons\32x32\AuthorizationAttribute_32x32.ico" />
+    <Content Include="Icons\32x32\BizRule.ico" />
+    <Content Include="Icons\32x32\BuildDDLScript.ico" />
+    <Content Include="Icons\32x32\db.ico" />
+    <Content Include="Icons\32x32\DBUser_32x32.ico" />
+    <Content Include="Icons\32x32\Folder_32x32.ico" />
+    <Content Include="Icons\32x32\GrantAccess.ico" />
+    <Content Include="Icons\32x32\Hierarchy_32x32.ico" />
+    <Content Include="Icons\32x32\ItemAuthorization_32x32.ico" />
+    <Content Include="Icons\32x32\Logins.ico" />
+    <Content Include="Icons\32x32\NetSqlAzMan_32x32.ico" />
+    <Content Include="Icons\32x32\NetSqlAzMan_Managers.ico" />
+    <Content Include="Icons\32x32\NetSqlAzMan_Readers.ico" />
+    <Content Include="Icons\32x32\NetSqlAzMan_Users.ico" />
+    <Content Include="Icons\32x32\Operation_32x32.ico" />
+    <Content Include="Icons\32x32\Options_32x32.ico" />
+    <Content Include="Icons\32x32\RevokeAccess.ico" />
+    <Content Include="Icons\32x32\Role_32x32.ico" />
+    <Content Include="Icons\32x32\SIDNotFound_32x32.ico" />
+    <Content Include="Icons\32x32\SqlAudit.gif" />
+    <Content Include="Icons\32x32\SqlAudit.ico" />
+    <Content Include="Icons\32x32\StoreApplicationGroup_32x32.ico" />
+    <Content Include="Icons\32x32\Store_32x32.ico" />
+    <Content Include="Icons\32x32\Task_32x32.ico" />
+    <Content Include="Icons\32x32\WindowsBasicGroup_32x32.ico" />
+    <Content Include="Icons\32x32\WindowsQueryLDAPGroup_32x32.ico" />
+    <Content Include="Icons\32x32\WindowsUser_32x32.ico" />
+    <Content Include="Images\Allow.bmp" />
+    <Content Include="Images\AllowForDelegation.bmp" />
+    <Content Include="Images\Anonymous.ico" />
+    <Content Include="Images\Application.ico" />
+    <Content Include="Images\Deny.bmp" />
+    <Content Include="Images\Folder.ico" />
+    <Content Include="Images\GrantAccess.bmp" />
+    <Content Include="Images\Group-Basic.ico" />
+    <Content Include="Images\Group-LDap.ico" />
+    <Content Include="Images\Logins.bmp" />
+    <Content Include="Images\NetSqlAzMan.ico" />
+    <Content Include="Images\NetSqlAzMan_Managers.bmp" />
+    <Content Include="Images\NetSqlAzMan_Readers.bmp" />
+    <Content Include="Images\NetSqlAzMan_Users.bmp" />
+    <Content Include="Images\Neutral.bmp" />
+    <Content Include="Images\Operation.ico" />
+    <Content Include="Images\RevokeAccess.bmp" />
+    <Content Include="Images\Role.ico" />
+    <Content Include="Images\RoleAssignment.ico" />
+    <Content Include="Images\SplashBitmap.bmp" />
+    <Content Include="Images\SplashBitmap.jpg" />
+    <Content Include="Images\SplashBitmap2.bmp" />
+    <Content Include="Images\Store.ico" />
+    <Content Include="Images\Stores.ico" />
+    <Content Include="Images\Task.ico" />
+    <Content Include="Images\WindowsComputer.ico" />
+    <Content Include="Images\WindowsGroup.ico" />
+    <Content Include="Images\WindowsUser.ico" />
+    <Content Include="Libs\ComponentFactory.Krypton.Toolkit.dll" />
+    <Content Include="Libs\SqlAudit.dll" />
+    <Content Include="Libs\SqlAudit.XML" />
+    <Content Include="User.ico" />
+    <None Include="Resources\bigRoller.gif" />
+    <Content Include="lock.ico" />
+    <Content Include="Resources\FILECOPY_16.gif" />
+    <None Include="Resources\NetSqlAzManWinUI_Splash.png" />
+    <None Include="Resources\hierarchy_24x24n.png" />
+    <None Include="Resources\hierarchy_32x32n.png" />
+    <None Include="Resources\hierarchy_48x48n.png" />
+    <None Include="Resources\gear48x48n.png" />
+    <Content Include="Resources\NetSqlAzMan_32x32.png" />
+    <Content Include="NetSqlAzManWinUI.ico" />
+    <None Include="Resources\users3Help132x32n.png" />
+    <None Include="Resources\users3Help1.ico" />
+    <None Include="Resources\row_add_after32x32n.png" />
+    <None Include="Resources\users132x32n.png" />
+    <None Include="Resources\WindowsLogo16x16n.png" />
+    <None Include="Resources\WindowsLogo24x24n.png" />
+    <None Include="Resources\WindowsLogo32x32n.png" />
+    <None Include="Resources\WindowsLogo48x48n.png" />
+    <None Include="Resources\user-data16x16n.png" />
+    <None Include="Resources\user-data24x24n.png" />
+    <None Include="Resources\user-data32x32n.png" />
+    <None Include="Resources\user-data48x48n.png" />
+    <None Include="Resources\users_roles16x16n.png" />
+    <None Include="Resources\users_roles32x32n.png" />
+    <None Include="Resources\users_roles48x48n.png" />
+    <None Include="Resources\users_roles64x64n.png" />
+    <None Include="Resources\Task16x16n.png" />
+    <None Include="Resources\Task24x24n.png" />
+    <None Include="Resources\Task32x32n.png" />
+    <None Include="Resources\Task48x48n.png" />
+    <None Include="Resources\operation2_32x32n.png" />
+    <None Include="Resources\operation2_48x48n.png" />
+    <None Include="Resources\users148x48n.png" />
+    <None Include="Resources\users3Help148x48n.png" />
+    <None Include="Resources\users132x32n1.png" />
+    <None Include="Resources\users148x48n1.png" />
+    <None Include="Resources\users116x16n.png" />
+    <None Include="Resources\users124x24n.png" />
+    <None Include="Resources\users132x32n2.png" />
+    <None Include="Resources\users148x48n2.png" />
+    <Content Include="unlock.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\NetSqlAzMan-ServiceExtensions\AzManWebApiClientHelpers\AzManWebApiClientHelpers.csproj">
+      <Project>{5a0898f8-60f5-4a78-8947-1b59fea53697}</Project>
+      <Name>AzManWebApiClientHelpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NetSqlAzMan-ServiceExtensions\NetSqlAzMan.ServiceBusinessObjects\NetSqlAzMan.ServiceBusinessObjects.csproj">
+      <Project>{304ae7fc-d45a-4b9b-b070-8579feafd3ef}</Project>
+      <Name>NetSqlAzMan.ServiceBusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NetSqlAzMan_Solution\CubicOrange.Windows.Forms.ActiveDirectory\DirectoryObjectPicker.csproj">
+      <Project>{ad25be24-8a42-44e0-9588-3767f572c338}</Project>
+      <Name>DirectoryObjectPicker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NetSqlAzMan_Solution\NetSqlAzMan.2\NetSqlAzMan.2.csproj">
+      <Project>{49cb5903-f446-4926-8fda-3ab96dfee099}</Project>
+      <Name>NetSqlAzMan.2</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="MIMEEDIT">
+      <Guid>{1C82EAD8-508E-11D1-8DCF-00C04FB951F9}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.ManagementConsole">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.VisualBasic.PowerPacks.Vs">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="MMCFxCommon">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="stdole">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

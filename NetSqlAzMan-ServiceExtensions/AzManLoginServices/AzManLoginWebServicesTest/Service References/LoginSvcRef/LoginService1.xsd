@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" />
+  <xs:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc?xsd=xsd3" namespace="http://NetSqlAzMan/ServiceModel" />
+  <xs:import schemaLocation="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/AzManLoginWebServices" />
+  <xs:element name="Test">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="input" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TestResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="output" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="store" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="app" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="requiredItem" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StartLoginResult" type="xs:boolean" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" minOccurs="0" name="user" nillable="true" type="q1:DBUser" />
+        <xs:element xmlns:q2="http://NetSqlAzMan/ServiceModel" minOccurs="0" name="aut" type="q2:AuthorizationType" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AzManLoginWebServices" minOccurs="0" name="login" nillable="true" type="q3:LoginInfo" />
+        <xs:element minOccurs="0" name="attributeString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartLoginEnc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="encodedUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="store" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="app" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="requiredItem" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartLoginEncResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StartLoginEncResult" type="xs:boolean" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" minOccurs="0" name="user" nillable="true" type="q4:DBUser" />
+        <xs:element xmlns:q5="http://NetSqlAzMan/ServiceModel" minOccurs="0" name="aut" type="q5:AuthorizationType" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/AzManLoginWebServices" minOccurs="0" name="login" nillable="true" type="q6:LoginInfo" />
+        <xs:element minOccurs="0" name="attributeString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="clientApplication" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="azManStore" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="azManApplication" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="azManItem" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateLoginResult" type="xs:boolean" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" minOccurs="0" name="dbUser" nillable="true" type="q7:DBUser" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/AzManLoginWebServices" minOccurs="0" name="loginInfo" nillable="true" type="q8:LoginInfo" />
+        <xs:element xmlns:q9="http://NetSqlAzMan/ServiceModel" minOccurs="0" name="authorizationType" type="q9:AuthorizationType" />
+        <xs:element minOccurs="0" name="outputString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLoginResult" type="xs:boolean" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" minOccurs="0" name="user" nillable="true" type="q10:DBUser" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/AzManLoginWebServices" minOccurs="0" name="login" nillable="true" type="q11:LoginInfo" />
+        <xs:element minOccurs="0" name="attributeString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLoginByIdAndUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLoginByIdAndUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLoginByIdAndUserResult" type="xs:boolean" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" minOccurs="0" name="dbUser" nillable="true" type="q12:DBUser" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/AzManLoginWebServices" minOccurs="0" name="loginInfo" nillable="true" type="q13:LoginInfo" />
+        <xs:element minOccurs="0" name="outputString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RevalidateLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RevalidateLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RevalidateLoginResult" type="xs:boolean" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/NetSqlAzMan.Cache" minOccurs="0" name="user" nillable="true" type="q14:DBUser" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/AzManLoginWebServices" minOccurs="0" name="login" nillable="true" type="q15:LoginInfo" />
+        <xs:element minOccurs="0" name="attributeString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartLogOut">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/AzManLoginWebServices" minOccurs="0" name="login" nillable="true" type="q16:LoginInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartLogOutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StartLogOutResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="attributeString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckLoginAccess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="store" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="app" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="item" nillable="true" type="xs:string" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/AzManLoginWebServices" minOccurs="0" name="loginInfo" nillable="true" type="q17:LoginInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckLoginAccessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckLoginAccessResult" type="xs:boolean" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/AzManLoginWebServices" minOccurs="0" name="loginStatus" type="q18:LoginStatusEnum" />
+        <xs:element xmlns:q19="http://NetSqlAzMan/ServiceModel" minOccurs="0" name="aut" type="q19:AuthorizationType" />
+        <xs:element minOccurs="0" name="attributeString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckLoginStatusAndAuthorization">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="azManStore" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="azManApplication" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="azManItem" nillable="true" type="xs:string" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/AzManLoginWebServices" minOccurs="0" name="loginInfo" nillable="true" type="q20:LoginInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckLoginStatusAndAuthorizationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckLoginStatusAndAuthorizationResult" type="xs:boolean" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/AzManLoginWebServices" minOccurs="0" name="loginStatus" type="q21:LoginStatusEnum" />
+        <xs:element xmlns:q22="http://NetSqlAzMan/ServiceModel" minOccurs="0" name="authorizationType" type="q22:AuthorizationType" />
+        <xs:element minOccurs="0" name="outputString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePwd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/AzManLoginWebServices" minOccurs="0" name="login" nillable="true" type="q23:LoginInfo" />
+        <xs:element minOccurs="0" name="current" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="renewed" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="confirmation" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePwdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ChangePwdResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="statusMessages" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePwdEx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/AzManLoginWebServices" minOccurs="0" name="login" nillable="true" type="q24:LoginInfo" />
+        <xs:element minOccurs="0" name="current" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="renewed" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="confirmation" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePwdExResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ChangePwdExResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="statusType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="statusMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="statusTrace" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

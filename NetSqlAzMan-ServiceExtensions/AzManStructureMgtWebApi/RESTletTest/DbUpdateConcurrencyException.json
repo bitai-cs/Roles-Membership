@@ -1,0 +1,22 @@
+{
+    "ClassName": "System.Data.Entity.Infrastructure.DbUpdateConcurrencyException",
+    "Message": "Error de concurrencia de datos.",
+    "Data": null,
+    "InnerException": null,
+    "HelpURL": null,
+    "StackTraceString": " en AzManStructureMgtWebApi.Controllers.DBUserController.<Post>d__2.MoveNext() en D:\\_vbastidas\\Gd\\Coding\\Membresia\\NetSqlAzMan-ServiceExtensions\\AzManStructureMgtWebApi\\Controllers\\DBUserController.cs:línea 55",
+    "RemoteStackTraceString": null,
+    "RemoteStackIndex": 0,
+    "ExceptionMethod": "8\nMoveNext\nAzManStructureMgtWebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\nAzManStructureMgtWebApi.Controllers.DBUserController+<Post>d__2\nVoid MoveNext()",
+    "HResult": -2146232032,
+    "Source": "AzManStructureMgtWebApi",
+    "WatsonBuckets": null,
+    "SafeSerializationManager": {
+        "m_serializedStates": [
+            {
+                "<InvolvesIndependentAssociations>k__BackingField": false
+            }
+        ]
+    },
+    "CLR_SafeSerializationManager_RealType": "System.Data.Entity.Infrastructure.DbUpdateConcurrencyException, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+}

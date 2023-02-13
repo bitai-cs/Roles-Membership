@@ -1,0 +1,1220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="azMan" EntityNamespace="AzMan.Linq" ContextNamespace="AzMan.Linq" Class="AzMan" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="Basgosoft.BranchOffice" Member="Basgosoft_BranchOffice">
+    <Type Name="Basgosoft_BranchOffice">
+      <Column Name="BranchOfficeId" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BranchOfficeName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="RelativeBranchOfficeId" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_BranchOffice_BranchOffice" Member="RelativeBranchOffice" ThisKey="RelativeBranchOfficeId" OtherKey="BranchOfficeId" Type="Basgosoft_BranchOffice" IsForeignKey="true" />
+      <Association Name="FK_BranchOffice_BranchOffice" Member="BranchOffice" ThisKey="BranchOfficeId" OtherKey="RelativeBranchOfficeId" Type="Basgosoft_BranchOffice" DeleteRule="NO ACTION" />
+      <Association Name="FK_User_BranchOffice_BranchOffice" Member="Basgosoft_UserBranchOffice" ThisKey="BranchOfficeId" OtherKey="BranchOfficeId" Type="Basgosoft_UserBranchOffice" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="Basgosoft.Department" Member="Basgosoft_Department">
+    <Type Name="Basgosoft_Department">
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_Users_Department" Member="Basgosoft_User" ThisKey="DepartmentId" OtherKey="DepartmentId" Type="Basgosoft_User" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="Basgosoft.LDAPConfig" Member="Basgosoft_LDAPConfig">
+    <Type Name="Basgosoft_LDAPConfig">
+      <Column Name="ldap_description" Member="Ldap_description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ldap_domain" Member="Ldap_domain" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ldap_client_endpoint" Member="Ldap_client_endpoint" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ldap_enabled" Member="Ldap_enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Basgosoft.Login" Member="Basgosoft_Login">
+    <Type Name="Basgosoft_Login">
+      <Column Name="LoginId" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AppName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="RemoteIpV4" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="LogIn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Expires" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Timeout" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Expiration" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Expired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LogOff" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LoggedOut" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Renovated" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Renewal" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Expiration-Renewal" Member="Expiration_Renewal" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" Expression="(datediff(second,[Renewal],[Expiration]))" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_ApplicationAttributesTable" Member="Netsqlazman_ApplicationAttributesTable">
+    <Type Name="Netsqlazman_ApplicationAttributesTable">
+      <Column Name="ApplicationAttributeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeKey" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeValue" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_ApplicationAttributes_Applications" Member="Netsqlazman_ApplicationsTable" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Netsqlazman_ApplicationsTable" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_ApplicationAttributesView" Member="Netsqlazman_ApplicationAttributesView">
+    <Type Name="Netsqlazman_ApplicationAttributesView">
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StoreId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationAttributeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeKey" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeValue" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_ApplicationGroupMembersTable" Member="Netsqlazman_ApplicationGroupMembersTable">
+    <Type Name="Netsqlazman_ApplicationGroupMembersTable">
+      <Column Name="ApplicationGroupMemberId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApplicationGroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="objectSid" Member="ObjectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85) NOT NULL" CanBeNull="false" />
+      <Column Name="WhereDefined" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="IsMember" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LDAPDomain" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="FK_ApplicationGroupMembers_ApplicationGroup" Member="Netsqlazman_ApplicationGroupsTable" ThisKey="ApplicationGroupId" OtherKey="ApplicationGroupId" Type="Netsqlazman_ApplicationGroupsTable" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_ApplicationGroupMembersView" Member="Netsqlazman_ApplicationGroupMembersView">
+    <Type Name="Netsqlazman_ApplicationGroupMembersView">
+      <Column Name="StoreId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationGroupMemberId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationGroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationGroup" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="objectSid" Member="ObjectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85) NOT NULL" CanBeNull="false" />
+      <Column Name="WhereDefined" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="MemberType" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_ApplicationGroupsTable" Member="Netsqlazman_ApplicationGroupsTable">
+    <Type Name="Netsqlazman_ApplicationGroupsTable">
+      <Column Name="ApplicationGroupId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="objectSid" Member="ObjectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="LDapQuery" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="GroupType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="FK_ApplicationGroupMembers_ApplicationGroup" Member="Netsqlazman_ApplicationGroupMembersTable" ThisKey="ApplicationGroupId" OtherKey="ApplicationGroupId" Type="Netsqlazman_ApplicationGroupMembersTable" DeleteRule="CASCADE" />
+      <Association Name="FK_ApplicationGroups_Applications" Member="Netsqlazman_ApplicationsTable" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Netsqlazman_ApplicationsTable" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_ApplicationPermissionsTable" Member="Netsqlazman_ApplicationPermissionsTable">
+    <Type Name="Netsqlazman_ApplicationPermissionsTable">
+      <Column Name="ApplicationPermissionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SqlUserOrRole" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="IsSqlRole" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NetSqlAzManFixedServerRole" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="FK_ApplicationPermissions_ApplicationsTable" Member="Netsqlazman_ApplicationsTable" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Netsqlazman_ApplicationsTable" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_ApplicationsTable" Member="Netsqlazman_ApplicationsTable">
+    <Type Name="Netsqlazman_ApplicationsTable">
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StoreId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_ApplicationAttributes_Applications" Member="Netsqlazman_ApplicationAttributesTable" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Netsqlazman_ApplicationAttributesTable" DeleteRule="CASCADE" />
+      <Association Name="FK_ApplicationGroups_Applications" Member="Netsqlazman_ApplicationGroupsTable" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Netsqlazman_ApplicationGroupsTable" DeleteRule="CASCADE" />
+      <Association Name="FK_ApplicationPermissions_ApplicationsTable" Member="Netsqlazman_ApplicationPermissionsTable" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Netsqlazman_ApplicationPermissionsTable" DeleteRule="CASCADE" />
+      <Association Name="FK_Applications_Stores" Member="Netsqlazman_StoresTable" ThisKey="StoreId" OtherKey="StoreId" Type="Netsqlazman_StoresTable" IsForeignKey="true" DeleteOnNull="true" />
+      <Association Name="FK_Items_Applications" Member="Netsqlazman_ItemsTable" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Netsqlazman_ItemsTable" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_ApplicationsView" Member="Netsqlazman_ApplicationsView">
+    <Type Name="Netsqlazman_ApplicationsView">
+      <Column Name="StoreId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreDescription" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationDescription" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_AuthorizationAttributesTable" Member="Netsqlazman_AuthorizationAttributesTable">
+    <Type Name="Netsqlazman_AuthorizationAttributesTable">
+      <Column Name="AuthorizationAttributeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AuthorizationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeKey" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeValue" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_AuthorizationAttributes_Authorizations" Member="Netsqlazman_AuthorizationsTable" ThisKey="AuthorizationId" OtherKey="AuthorizationId" Type="Netsqlazman_AuthorizationsTable" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_AuthorizationAttributesView" Member="Netsqlazman_AuthorizationAttributesView">
+    <Type Name="Netsqlazman_AuthorizationAttributesView">
+      <Column Name="AuthorizationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Owner" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="objectSid" Member="ObjectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85) NOT NULL" CanBeNull="false" />
+      <Column Name="SidWhereDefined" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="AuthorizationType" Type="System.String" DbType="VarChar(19)" CanBeNull="true" />
+      <Column Name="ValidFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ValidTo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AuthorizationAttributeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeKey" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeValue" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_AuthorizationsTable" Member="Netsqlazman_AuthorizationsTable">
+    <Type Name="Netsqlazman_AuthorizationsTable">
+      <Column Name="AuthorizationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ownerSid" Member="OwnerSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85) NOT NULL" CanBeNull="false" />
+      <Column Name="ownerSidWhereDefined" Member="OwnerSidWhereDefined" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="objectSid" Member="ObjectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85) NOT NULL" CanBeNull="false" />
+      <Column Name="objectSidWhereDefined" Member="ObjectSidWhereDefined" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="AuthorizationType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="ValidFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ValidTo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDAPDomain" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="FK_AuthorizationAttributes_Authorizations" Member="Netsqlazman_AuthorizationAttributesTable" ThisKey="AuthorizationId" OtherKey="AuthorizationId" Type="Netsqlazman_AuthorizationAttributesTable" DeleteRule="CASCADE" />
+      <Association Name="FK_Authorizations_Items" Member="Netsqlazman_ItemsTable" ThisKey="ItemId" OtherKey="ItemId" Type="Netsqlazman_ItemsTable" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_AuthorizationView" Member="Netsqlazman_AuthorizationView">
+    <Type Name="Netsqlazman_AuthorizationView">
+      <Column Name="AuthorizationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Owner" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="objectSid" Member="ObjectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85) NOT NULL" CanBeNull="false" />
+      <Column Name="SidWhereDefined" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="AuthorizationType" Type="System.String" DbType="VarChar(19)" CanBeNull="true" />
+      <Column Name="ValidFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ValidTo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_BizRulesTable" Member="Netsqlazman_BizRulesTable">
+    <Type Name="Netsqlazman_BizRulesTable">
+      <Column Name="BizRuleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BizRuleSource" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="BizRuleLanguage" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="CompiledAssembly" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="FK_Items_BizRules" Member="Netsqlazman_ItemsTable" ThisKey="BizRuleId" OtherKey="BizRuleId" Type="Netsqlazman_ItemsTable" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_BizRuleView" Member="Netsqlazman_BizRuleView">
+    <Type Name="Netsqlazman_BizRuleView">
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="BizRuleSource" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="BizRuleLanguage" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="CompiledAssembly" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_DatabaseUsers" Member="Netsqlazman_DatabaseUsers">
+    <Type Name="Netsqlazman_DatabaseUsers">
+      <Column Name="DBUserSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" CanBeNull="true" />
+      <Column Name="DBUserName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(301) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentId" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BranchOfficeId" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BranchOfficeName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Enabled" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OtherFields" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_ItemAttributesTable" Member="Netsqlazman_ItemAttributesTable">
+    <Type Name="Netsqlazman_ItemAttributesTable">
+      <Column Name="ItemAttributeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeKey" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeValue" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_ItemAttributes_Items" Member="Netsqlazman_ItemsTable" ThisKey="ItemId" OtherKey="ItemId" Type="Netsqlazman_ItemsTable" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_ItemAttributesView" Member="Netsqlazman_ItemAttributesView">
+    <Type Name="Netsqlazman_ItemAttributesView">
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemType" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="ItemAttributeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeKey" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeValue" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_ItemsHierarchyTable" Member="Netsqlazman_ItemsHierarchyTable">
+    <Type Name="Netsqlazman_ItemsHierarchyTable">
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MemberOfItemId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_ItemsHierarchyView" Member="Netsqlazman_ItemsHierarchyView">
+    <Type Name="Netsqlazman_ItemsHierarchyView">
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemType" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="MemberItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MemberApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MemberName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MemberDescription" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="MemberType" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_ItemsTable" Member="Netsqlazman_ItemsTable">
+    <Type Name="Netsqlazman_ItemsTable">
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="BizRuleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="FK_Authorizations_Items" Member="Netsqlazman_AuthorizationsTable" ThisKey="ItemId" OtherKey="ItemId" Type="Netsqlazman_AuthorizationsTable" DeleteRule="CASCADE" />
+      <Association Name="FK_ItemAttributes_Items" Member="Netsqlazman_ItemAttributesTable" ThisKey="ItemId" OtherKey="ItemId" Type="Netsqlazman_ItemAttributesTable" DeleteRule="CASCADE" />
+      <Association Name="FK_Items_Applications" Member="Netsqlazman_ApplicationsTable" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Netsqlazman_ApplicationsTable" IsForeignKey="true" DeleteOnNull="true" />
+      <Association Name="FK_Items_BizRules" Member="Netsqlazman_BizRulesTable" ThisKey="BizRuleId" OtherKey="BizRuleId" Type="Netsqlazman_BizRulesTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_LogTable" Member="Netsqlazman_LogTable">
+    <Type Name="Netsqlazman_LogTable">
+      <Column Name="LogId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LogDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="WindowsIdentity" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="SqlIdentity" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="MachineName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="InstanceGuid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="TransactionGuid" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="OperationCounter" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ENSType" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ENSDescription" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="LogType" Type="System.String" DbType="Char(1) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_Settings" Member="Netsqlazman_Settings">
+    <Type Name="Netsqlazman_Settings">
+      <Column Name="SettingName" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SettingValue" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_StoreAttributesTable" Member="Netsqlazman_StoreAttributesTable">
+    <Type Name="Netsqlazman_StoreAttributesTable">
+      <Column Name="StoreAttributeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StoreId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeKey" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeValue" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_StoreAttributes_Stores" Member="Netsqlazman_StoresTable" ThisKey="StoreId" OtherKey="StoreId" Type="Netsqlazman_StoresTable" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_StoreAttributesView" Member="Netsqlazman_StoreAttributesView">
+    <Type Name="Netsqlazman_StoreAttributesView">
+      <Column Name="StoreId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreAttributeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeKey" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeValue" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_StoreGroupMembersTable" Member="Netsqlazman_StoreGroupMembersTable">
+    <Type Name="Netsqlazman_StoreGroupMembersTable">
+      <Column Name="StoreGroupMemberId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StoreGroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="objectSid" Member="ObjectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85) NOT NULL" CanBeNull="false" />
+      <Column Name="WhereDefined" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="IsMember" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LDAPDomain" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="FK_StoreGroupMembers_StoreGroup" Member="Netsqlazman_StoreGroupsTable" ThisKey="StoreGroupId" OtherKey="StoreGroupId" Type="Netsqlazman_StoreGroupsTable" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_StoreGroupMembersView" Member="Netsqlazman_StoreGroupMembersView">
+    <Type Name="Netsqlazman_StoreGroupMembersView">
+      <Column Name="StoreGroupMemberId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StoreGroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StoreGroup" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="objectSid" Member="ObjectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85) NOT NULL" CanBeNull="false" />
+      <Column Name="WhereDefined" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="MemberType" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_StoreGroupsTable" Member="Netsqlazman_StoreGroupsTable">
+    <Type Name="Netsqlazman_StoreGroupsTable">
+      <Column Name="StoreGroupId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StoreId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="objectSid" Member="ObjectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="LDapQuery" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="GroupType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="FK_StoreGroupMembers_StoreGroup" Member="Netsqlazman_StoreGroupMembersTable" ThisKey="StoreGroupId" OtherKey="StoreGroupId" Type="Netsqlazman_StoreGroupMembersTable" DeleteRule="CASCADE" />
+      <Association Name="FK_StoreGroups_Stores" Member="Netsqlazman_StoresTable" ThisKey="StoreId" OtherKey="StoreId" Type="Netsqlazman_StoresTable" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_StorePermissionsTable" Member="Netsqlazman_StorePermissionsTable">
+    <Type Name="Netsqlazman_StorePermissionsTable">
+      <Column Name="StorePermissionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StoreId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SqlUserOrRole" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="IsSqlRole" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NetSqlAzManFixedServerRole" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="FK_StorePermissions_StoresTable" Member="Netsqlazman_StoresTable" ThisKey="StoreId" OtherKey="StoreId" Type="Netsqlazman_StoresTable" IsForeignKey="true" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.netsqlazman_StoresTable" Member="Netsqlazman_StoresTable">
+    <Type Name="Netsqlazman_StoresTable">
+      <Column Name="StoreId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_Applications_Stores" Member="Netsqlazman_ApplicationsTable" ThisKey="StoreId" OtherKey="StoreId" Type="Netsqlazman_ApplicationsTable" DeleteRule="CASCADE" />
+      <Association Name="FK_StoreAttributes_Stores" Member="Netsqlazman_StoreAttributesTable" ThisKey="StoreId" OtherKey="StoreId" Type="Netsqlazman_StoreAttributesTable" DeleteRule="CASCADE" />
+      <Association Name="FK_StoreGroups_Stores" Member="Netsqlazman_StoreGroupsTable" ThisKey="StoreId" OtherKey="StoreId" Type="Netsqlazman_StoreGroupsTable" DeleteRule="CASCADE" />
+      <Association Name="FK_StorePermissions_StoresTable" Member="Netsqlazman_StorePermissionsTable" ThisKey="StoreId" OtherKey="StoreId" Type="Netsqlazman_StorePermissionsTable" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="Basgosoft.netsqlazman_WrongItemsHierarchyView" Member="Basgosoft_Netsqlazman_WrongItemsHierarchyView">
+    <Type Name="Basgosoft_Netsqlazman_WrongItemsHierarchyView">
+      <Column Name="ChildId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ChildItemType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="ChildName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ParentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParentItemType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="ParentName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Basgosoft.User" Member="Basgosoft_User">
+    <Type Name="Basgosoft_User">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.Data.Linq.Binary" DbType="VarBinary(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(301) NOT NULL" CanBeNull="false" Expression="(([FirstName]+' ')+[LastName])" />
+      <Column Name="Mail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="_RowVersion" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="FK_User_BranchOffice_User" Member="Basgosoft_UserBranchOffice" ThisKey="UserID" OtherKey="UserID" Type="Basgosoft_UserBranchOffice" DeleteRule="NO ACTION" />
+      <Association Name="FK_Users_Department" Member="Basgosoft_Department" ThisKey="DepartmentId" OtherKey="DepartmentId" Type="Basgosoft_Department" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Basgosoft.UserBranchOffice" Member="Basgosoft_UserBranchOffice">
+    <Type Name="Basgosoft_UserBranchOffice">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BranchOfficeId" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="FK_User_BranchOffice_BranchOffice" Member="Basgosoft_BranchOffice" ThisKey="BranchOfficeId" OtherKey="BranchOfficeId" Type="Basgosoft_BranchOffice" IsForeignKey="true" />
+      <Association Name="FK_User_BranchOffice_User" Member="Basgosoft_User" ThisKey="UserID" OtherKey="UserID" Type="Basgosoft_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Basgosoft.vw_Users" Member="Basgosoft_Vw_Users">
+    <Type Name="Basgosoft_Vw_Users">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(301) NOT NULL" CanBeNull="false" />
+      <Column Name="Mail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="BranchOfficeIds" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RelativeBranchOfficeIds" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BranchOfficeNames" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="_RowVersion" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" IsDbGenerated="false" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="Basgosoft.vw_UsersByDepartment" Member="Basgosoft_Vw_UsersByDepartment">
+    <Type Name="Basgosoft_Vw_UsersByDepartment">
+      <Column Name="Departamento" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(301) NOT NULL" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Clave" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sede(s)" Member="SedeS" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Function Name="Basgosoft.ChangeDBUserPassword" Method="Basgosoft_ChangeDBUserPassword">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="currentPassword" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="renewedPassword" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="passwordConfirmation" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="Basgosoft.DeleteUserBranchOffice_1" Method="Basgosoft_DeleteUserBranchOffice_1">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="deleted" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="Basgosoft.GetBranchOffice_1" Method="Basgosoft_GetBranchOffice_1">
+    <ElementType Name="Basgosoft_GetBranchOffice_1Result">
+      <Column Name="BranchOfficeId" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="BranchOfficeName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Basgosoft.GetBranchOfficeIdsString" Method="Basgosoft_GetBranchOfficeIdsString" IsComposable="true">
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" DbType="NVarChar(MAX)" />
+  </Function>
+  <Function Name="Basgosoft.GetBranchOfficeNamesString" Method="Basgosoft_GetBranchOfficeNamesString" IsComposable="true">
+    <Parameter Name="User_ID" Parameter="user_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" DbType="NVarChar(MAX)" />
+  </Function>
+  <Function Name="Basgosoft.GetDepartment_1" Method="Basgosoft_GetDepartment_1">
+    <ElementType Name="Basgosoft_GetDepartment_1Result">
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Basgosoft.GetRelativeBranchOfficeIdsString" Method="Basgosoft_GetRelativeBranchOfficeIdsString" IsComposable="true">
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" DbType="NVarChar(MAX)" />
+  </Function>
+  <Function Name="Basgosoft.GetUser_1" Method="Basgosoft_GetUser_1">
+    <ElementType Name="Basgosoft_GetUser_1Result">
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(301)" CanBeNull="true" />
+      <Column Name="Mail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="BranchOfficeIds" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RelativeBranchOfficeIds" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BranchOfficeNames" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="_RowVersion" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Basgosoft.GetUser_2" Method="Basgosoft_GetUser_2">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Basgosoft_GetUser_2Result">
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(301)" CanBeNull="true" />
+      <Column Name="Mail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="BranchOfficeIds" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BranchOfficeNames" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="_RowVersion" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Basgosoft.InsertUser_1" Method="Basgosoft_InsertUser_1">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="userName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="firstName" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="lastName" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="mail" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="departmentId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="enabled" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="Basgosoft.InsertUserBranchOffice" Method="Basgosoft_InsertUserBranchOffice">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="branchOfficeId" Type="System.String" DbType="VarChar(2)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="Basgosoft.Login_pa_DeleteByField" Method="Basgosoft_Login_pa_DeleteByField">
+    <Parameter Name="FieldName" Parameter="fieldName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Value" Parameter="value" Type="System.String" DbType="VarChar(1000)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="Basgosoft.Login_pa_DeleteByPrimaryKey" Method="Basgosoft_Login_pa_DeleteByPrimaryKey">
+    <Parameter Name="LoginId" Parameter="loginId" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="Basgosoft.Login_pa_Insert" Method="Basgosoft_Login_pa_Insert">
+    <Parameter Name="LoginId" Parameter="loginId" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="AppName" Parameter="appName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="RemoteIpV4" Parameter="remoteIpV4" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="LogIn" Parameter="logIn" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Expires" Parameter="expires" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Timeout" Parameter="timeout" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Expiration" Parameter="expiration" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Expired" Parameter="expired" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="LogOff" Parameter="logOff" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="LoggedOut" Parameter="loggedOut" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Renovated" Parameter="renovated" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Renewal" Parameter="renewal" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="Basgosoft.Login_pa_SelectByField" Method="Basgosoft_Login_pa_SelectByField">
+    <Parameter Name="FieldName" Parameter="fieldName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Value" Parameter="value" Type="System.String" DbType="VarChar(1000)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="Basgosoft.Login_pa_SelectByPrimaryKey" Method="Basgosoft_Login_pa_SelectByPrimaryKey">
+    <Parameter Name="LoginId" Parameter="loginId" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="Basgosoft_Login_pa_SelectByPrimaryKeyResult">
+      <Column Name="LoginId" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AppName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RemoteIpV4" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="LogIn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Expires" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Timeout" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Expiration" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Expired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LogOff" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LoggedOut" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Renovated" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Renewal" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Basgosoft.Login_pa_SetExpiredLogins" Method="Basgosoft_Login_pa_SetExpiredLogins">
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="Basgosoft.Login_pa_Update" Method="Basgosoft_Login_pa_Update">
+    <Parameter Name="LoginId" Parameter="loginId" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="AppName" Parameter="appName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="RemoteIpV4" Parameter="remoteIpV4" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="LogIn" Parameter="logIn" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Expires" Parameter="expires" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Timeout" Parameter="timeout" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Expiration" Parameter="expiration" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Expired" Parameter="expired" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="LogOff" Parameter="logOff" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="LoggedOut" Parameter="loggedOut" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Renovated" Parameter="renovated" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Renewal" Parameter="renewal" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="Basgosoft.UpdateUser_1" Method="Basgosoft_UpdateUser_1">
+    <Parameter Name="userID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="userName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="firstName" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="lastName" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="mail" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="departmentId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="enabled" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="_rowVersion" Type="System.Data.Linq.Binary" DbType="rowversion" />
+    <Parameter Name="Updated" Parameter="updated" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.fn_diagramobjects" Method="Fn_diagramobjects" IsComposable="true">
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationAttributeDelete" Method="Netsqlazman_ApplicationAttributeDelete">
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationAttributeId" Parameter="applicationAttributeId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationAttributeInsert" Method="Netsqlazman_ApplicationAttributeInsert">
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AttributeKey" Parameter="attributeKey" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="AttributeValue" Parameter="attributeValue" Type="System.String" DbType="NVarChar(4000)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationAttributes" Method="Netsqlazman_ApplicationAttributes" IsComposable="true">
+    <ElementType Name="Netsqlazman_ApplicationAttributesResult">
+      <Column Name="ApplicationAttributeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AttributeKey" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AttributeValue" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationAttributeUpdate" Method="Netsqlazman_ApplicationAttributeUpdate">
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AttributeKey" Parameter="attributeKey" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="AttributeValue" Parameter="attributeValue" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="Original_ApplicationAttributeId" Parameter="original_ApplicationAttributeId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationDelete" Method="Netsqlazman_ApplicationDelete">
+    <Parameter Name="StoreId" Parameter="storeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationGroupDelete" Method="Netsqlazman_ApplicationGroupDelete">
+    <Parameter Name="ApplicationGroupId" Parameter="applicationGroupId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationGroupInsert" Method="Netsqlazman_ApplicationGroupInsert">
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="objectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(1024)" />
+    <Parameter Name="LDapQuery" Parameter="lDapQuery" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="GroupType" Parameter="groupType" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationGroupMemberDelete" Method="Netsqlazman_ApplicationGroupMemberDelete">
+    <Parameter Name="ApplicationGroupMemberId" Parameter="applicationGroupMemberId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationGroupMemberInsert" Method="Netsqlazman_ApplicationGroupMemberInsert">
+    <Parameter Name="ApplicationGroupId" Parameter="applicationGroupId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="objectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="WhereDefined" Parameter="whereDefined" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="IsMember" Parameter="isMember" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LDAPDomain" Parameter="lDAPDomain" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationGroupMembers" Method="Netsqlazman_ApplicationGroupMembers" IsComposable="true">
+    <ElementType Name="Netsqlazman_ApplicationGroupMembersResult">
+      <Column Name="ApplicationGroupMemberId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApplicationGroupId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="objectSid" Member="ObjectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" CanBeNull="true" />
+      <Column Name="WhereDefined" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="IsMember" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LDAPDomain" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationGroupMemberUpdate" Method="Netsqlazman_ApplicationGroupMemberUpdate">
+    <Parameter Name="ApplicationGroupId" Parameter="applicationGroupId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="objectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="WhereDefined" Parameter="whereDefined" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="IsMember" Parameter="isMember" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Original_ApplicationGroupMemberId" Parameter="original_ApplicationGroupMemberId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationGroups" Method="Netsqlazman_ApplicationGroups" IsComposable="true">
+    <ElementType Name="Netsqlazman_ApplicationGroupsResult">
+      <Column Name="ApplicationGroupId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="objectSid" Member="ObjectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+      <Column Name="LDapQuery" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="GroupType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationGroupUpdate" Method="Netsqlazman_ApplicationGroupUpdate">
+    <Parameter Name="objectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(1024)" />
+    <Parameter Name="LDapQuery" Parameter="lDapQuery" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="GroupType" Parameter="groupType" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="Original_ApplicationGroupId" Parameter="original_ApplicationGroupId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationInsert" Method="Netsqlazman_ApplicationInsert">
+    <Parameter Name="StoreId" Parameter="storeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(1024)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationPermissionDelete" Method="Netsqlazman_ApplicationPermissionDelete">
+    <Parameter Name="ApplicationPermissionId" Parameter="applicationPermissionId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationPermissionInsert" Method="Netsqlazman_ApplicationPermissionInsert">
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SqlUserOrRole" Parameter="sqlUserOrRole" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="IsSqlRole" Parameter="isSqlRole" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NetSqlAzManFixedServerRole" Parameter="netSqlAzManFixedServerRole" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationPermissions" Method="Netsqlazman_ApplicationPermissions" IsComposable="true">
+    <ElementType Name="Netsqlazman_ApplicationPermissionsResult">
+      <Column Name="ApplicationPermissionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SqlUserOrRole" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="IsSqlRole" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NetSqlAzManFixedServerRole" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_Applications" Method="Netsqlazman_Applications" IsComposable="true">
+    <ElementType Name="Netsqlazman_ApplicationsResult">
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StoreId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_ApplicationUpdate" Method="Netsqlazman_ApplicationUpdate">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(1024)" />
+    <Parameter Name="Original_ApplicationId" Parameter="original_ApplicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_AuthorizationAttributeDelete" Method="Netsqlazman_AuthorizationAttributeDelete">
+    <Parameter Name="AuthorizationAttributeId" Parameter="authorizationAttributeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_AuthorizationAttributeInsert" Method="Netsqlazman_AuthorizationAttributeInsert">
+    <Parameter Name="AuthorizationId" Parameter="authorizationId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AttributeKey" Parameter="attributeKey" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="AttributeValue" Parameter="attributeValue" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_AuthorizationAttributes" Method="Netsqlazman_AuthorizationAttributes" IsComposable="true">
+    <ElementType Name="Netsqlazman_AuthorizationAttributesResult">
+      <Column Name="AuthorizationAttributeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuthorizationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AttributeKey" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AttributeValue" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_AuthorizationAttributeUpdate" Method="Netsqlazman_AuthorizationAttributeUpdate">
+    <Parameter Name="AttributeKey" Parameter="attributeKey" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="AttributeValue" Parameter="attributeValue" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="Original_AuthorizationAttributeId" Parameter="original_AuthorizationAttributeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_AuthorizationDelete" Method="Netsqlazman_AuthorizationDelete">
+    <Parameter Name="AuthorizationId" Parameter="authorizationId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_AuthorizationInsert" Method="Netsqlazman_AuthorizationInsert">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ownerSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="ownerSidWhereDefined" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="objectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="objectSidWhereDefined" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="AuthorizationType" Parameter="authorizationType" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="ValidFrom" Parameter="validFrom" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ValidTo" Parameter="validTo" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LDAPDomain" Parameter="lDAPDomain" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_Authorizations" Method="Netsqlazman_Authorizations" IsComposable="true">
+    <ElementType Name="Netsqlazman_AuthorizationsResult">
+      <Column Name="AuthorizationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ownerSid" Member="OwnerSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" CanBeNull="true" />
+      <Column Name="ownerSidWhereDefined" Member="OwnerSidWhereDefined" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="objectSid" Member="ObjectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" CanBeNull="true" />
+      <Column Name="objectSidWhereDefined" Member="ObjectSidWhereDefined" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="AuthorizationType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ValidFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ValidTo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDAPDomain" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_AuthorizationUpdate" Method="Netsqlazman_AuthorizationUpdate">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ownerSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="ownerSidWhereDefined" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="objectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="objectSidWhereDefined" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="AuthorizationType" Parameter="authorizationType" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="ValidFrom" Parameter="validFrom" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ValidTo" Parameter="validTo" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Original_AuthorizationId" Parameter="original_AuthorizationId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_BizRuleDelete" Method="Netsqlazman_BizRuleDelete">
+    <Parameter Name="BizRuleId" Parameter="bizRuleId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_BizRuleInsert" Method="Netsqlazman_BizRuleInsert">
+    <Parameter Name="BizRuleSource" Parameter="bizRuleSource" Type="System.String" DbType="Text" />
+    <Parameter Name="BizRuleLanguage" Parameter="bizRuleLanguage" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="CompiledAssembly" Parameter="compiledAssembly" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_BizRules" Method="Netsqlazman_BizRules" IsComposable="true">
+    <ElementType Name="Netsqlazman_BizRulesResult">
+      <Column Name="BizRuleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BizRuleSource" Type="System.String" DbType="Text" CanBeNull="true" />
+      <Column Name="BizRuleLanguage" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="CompiledAssembly" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_BizRuleUpdate" Method="Netsqlazman_BizRuleUpdate">
+    <Parameter Name="BizRuleSource" Parameter="bizRuleSource" Type="System.String" DbType="Text" />
+    <Parameter Name="BizRuleLanguage" Parameter="bizRuleLanguage" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="CompiledAssembly" Parameter="compiledAssembly" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="Original_BizRuleId" Parameter="original_BizRuleId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_BuildUserPermissionCache" Method="Netsqlazman_BuildUserPermissionCache">
+    <Parameter Name="STORENAME" Parameter="sTORENAME" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="APPLICATIONNAME" Parameter="aPPLICATIONNAME" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="Netsqlazman_BuildUserPermissionCacheResult1">
+      <Column Name="ItemName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ParentItemName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+    <ElementType Name="Netsqlazman_BuildUserPermissionCacheResult2">
+      <Column Name="ItemName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ValidFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ValidTo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_CheckApplicationPermissions" Method="Netsqlazman_CheckApplicationPermissions" IsComposable="true">
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ROLEID" Parameter="rOLEID" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Boolean" DbType="Bit" />
+  </Function>
+  <Function Name="dbo.netsqlazman_CheckStorePermissions" Method="Netsqlazman_CheckStorePermissions" IsComposable="true">
+    <Parameter Name="STOREID" Parameter="sTOREID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ROLEID" Parameter="rOLEID" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Boolean" DbType="Bit" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ClearBizRule" Method="Netsqlazman_ClearBizRule">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_CreateDelegate" Method="Netsqlazman_CreateDelegate">
+    <Parameter Name="ITEMID" Parameter="iTEMID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OWNERSID" Parameter="oWNERSID" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="OWNERSIDWHEREDEFINED" Parameter="oWNERSIDWHEREDEFINED" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="DELEGATEDUSERSID" Parameter="dELEGATEDUSERSID" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="SIDWHEREDEFINED" Parameter="sIDWHEREDEFINED" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="AUTHORIZATIONTYPE" Parameter="aUTHORIZATIONTYPE" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="VALIDFROM" Parameter="vALIDFROM" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="VALIDTO" Parameter="vALIDTO" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="AUTHORIZATIONID" Parameter="aUTHORIZATIONID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_DBVersion" Method="Netsqlazman_DBVersion" IsComposable="true">
+    <Return Type="System.String" DbType="NVarChar(200)" />
+  </Function>
+  <Function Name="dbo.netsqlazman_DeleteDelegate" Method="Netsqlazman_DeleteDelegate">
+    <Parameter Name="AUTHORIZATIONID" Parameter="aUTHORIZATIONID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OWNERSID" Parameter="oWNERSID" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_GetDBUsers" Method="Netsqlazman_GetDBUsers" IsComposable="true">
+    <Parameter Name="StoreName" Parameter="storeName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="ApplicationName" Parameter="applicationName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="DBUserSid" Parameter="dBUserSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="DBUserName" Parameter="dBUserName" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="Netsqlazman_GetDBUsersResult">
+      <Column Name="DBUserSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" CanBeNull="true" />
+      <Column Name="DBUserName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(301)" CanBeNull="true" />
+      <Column Name="Mail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BranchOfficeIds" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RelativeBranchOfficeIds" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BranchOfficeNames" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_GetNameFromSid" Method="Netsqlazman_GetNameFromSid" IsComposable="true">
+    <Parameter Name="StoreName" Parameter="storeName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="ApplicationName" Parameter="applicationName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="sid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="SidWhereDefined" Parameter="sidWhereDefined" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.String" DbType="NVarChar(255)" />
+  </Function>
+  <Function Name="dbo.netsqlazman_GrantApplicationAccess" Method="Netsqlazman_GrantApplicationAccess">
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SqlUserOrRole" Parameter="sqlUserOrRole" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="NetSqlAzManFixedServerRole" Parameter="netSqlAzManFixedServerRole" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_GrantStoreAccess" Method="Netsqlazman_GrantStoreAccess">
+    <Parameter Name="StoreId" Parameter="storeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SqlUserOrRole" Parameter="sqlUserOrRole" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="NetSqlAzManFixedServerRole" Parameter="netSqlAzManFixedServerRole" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_IAmAdmin" Method="Netsqlazman_IAmAdmin" IsComposable="true">
+    <Return Type="System.Boolean" DbType="Bit" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ItemAttributeDelete" Method="Netsqlazman_ItemAttributeDelete">
+    <Parameter Name="ItemAttributeId" Parameter="itemAttributeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ItemAttributeInsert" Method="Netsqlazman_ItemAttributeInsert">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AttributeKey" Parameter="attributeKey" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="AttributeValue" Parameter="attributeValue" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ItemAttributes" Method="Netsqlazman_ItemAttributes" IsComposable="true">
+    <ElementType Name="Netsqlazman_ItemAttributesResult">
+      <Column Name="ItemAttributeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AttributeKey" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AttributeValue" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_ItemAttributeUpdate" Method="Netsqlazman_ItemAttributeUpdate">
+    <Parameter Name="AttributeKey" Parameter="attributeKey" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="AttributeValue" Parameter="attributeValue" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="Original_ItemAttributeId" Parameter="original_ItemAttributeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ItemDelete" Method="Netsqlazman_ItemDelete">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ItemInsert" Method="Netsqlazman_ItemInsert">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(1024)" />
+    <Parameter Name="ItemType" Parameter="itemType" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="BizRuleId" Parameter="bizRuleId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_Items" Method="Netsqlazman_Items" IsComposable="true">
+    <ElementType Name="Netsqlazman_ItemsResult">
+      <Column Name="ItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+      <Column Name="ItemType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="BizRuleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_ItemsHierarchy" Method="Netsqlazman_ItemsHierarchy" IsComposable="true">
+    <ElementType Name="Netsqlazman_ItemsHierarchyResult">
+      <Column Name="ItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MemberOfItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_ItemsHierarchyDelete" Method="Netsqlazman_ItemsHierarchyDelete">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MemberOfItemId" Parameter="memberOfItemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ItemsHierarchyInsert" Method="Netsqlazman_ItemsHierarchyInsert">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MemberOfItemId" Parameter="memberOfItemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ItemUpdate" Method="Netsqlazman_ItemUpdate">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(1024)" />
+    <Parameter Name="ItemType" Parameter="itemType" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="Original_ItemId" Parameter="original_ItemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_MergeAuthorizations" Method="Netsqlazman_MergeAuthorizations" IsComposable="true">
+    <Parameter Name="AUTH1" Parameter="aUTH1" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="AUTH2" Parameter="aUTH2" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Byte" DbType="TinyInt" />
+  </Function>
+  <Function Name="dbo.netsqlazman_ReloadBizRule" Method="Netsqlazman_ReloadBizRule">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BizRuleId" Parameter="bizRuleId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_RevokeApplicationAccess" Method="Netsqlazman_RevokeApplicationAccess">
+    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SqlUserOrRole" Parameter="sqlUserOrRole" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="NetSqlAzManFixedServerRole" Parameter="netSqlAzManFixedServerRole" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_RevokeStoreAccess" Method="Netsqlazman_RevokeStoreAccess">
+    <Parameter Name="StoreId" Parameter="storeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SqlUserOrRole" Parameter="sqlUserOrRole" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="NetSqlAzManFixedServerRole" Parameter="netSqlAzManFixedServerRole" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_StoreAttributeDelete" Method="Netsqlazman_StoreAttributeDelete">
+    <Parameter Name="StoreId" Parameter="storeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StoreAttributeId" Parameter="storeAttributeId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_StoreAttributeInsert" Method="Netsqlazman_StoreAttributeInsert">
+    <Parameter Name="StoreId" Parameter="storeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AttributeKey" Parameter="attributeKey" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="AttributeValue" Parameter="attributeValue" Type="System.String" DbType="NVarChar(4000)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_StoreAttributes" Method="Netsqlazman_StoreAttributes" IsComposable="true">
+    <ElementType Name="Netsqlazman_StoreAttributesResult">
+      <Column Name="StoreAttributeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StoreId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AttributeKey" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AttributeValue" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_StoreAttributeUpdate" Method="Netsqlazman_StoreAttributeUpdate">
+    <Parameter Name="StoreId" Parameter="storeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AttributeKey" Parameter="attributeKey" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="AttributeValue" Parameter="attributeValue" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="Original_StoreAttributeId" Parameter="original_StoreAttributeId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_StoreDelete" Method="Netsqlazman_StoreDelete">
+    <Parameter Name="Original_StoreId" Parameter="original_StoreId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_StoreGroupDelete" Method="Netsqlazman_StoreGroupDelete">
+    <Parameter Name="Original_StoreGroupId" Parameter="original_StoreGroupId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StoreId" Parameter="storeId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_StoreGroupInsert" Method="Netsqlazman_StoreGroupInsert">
+    <Parameter Name="StoreId" Parameter="storeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="objectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(1024)" />
+    <Parameter Name="LDapQuery" Parameter="lDapQuery" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="GroupType" Parameter="groupType" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_StoreGroupMemberDelete" Method="Netsqlazman_StoreGroupMemberDelete">
+    <Parameter Name="StoreId" Parameter="storeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StoreGroupMemberId" Parameter="storeGroupMemberId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_StoreGroupMemberInsert" Method="Netsqlazman_StoreGroupMemberInsert">
+    <Parameter Name="StoreId" Parameter="storeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StoreGroupId" Parameter="storeGroupId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="objectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="WhereDefined" Parameter="whereDefined" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="IsMember" Parameter="isMember" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="LDAPDomain" Parameter="lDAPDomain" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_StoreGroupMembers" Method="Netsqlazman_StoreGroupMembers" IsComposable="true">
+    <ElementType Name="Netsqlazman_StoreGroupMembersResult">
+      <Column Name="StoreGroupMemberId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StoreGroupId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="objectSid" Member="ObjectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" CanBeNull="true" />
+      <Column Name="WhereDefined" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="IsMember" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LDAPDomain" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_StoreGroupMemberUpdate" Method="Netsqlazman_StoreGroupMemberUpdate">
+    <Parameter Name="StoreId" Parameter="storeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StoreGroupId" Parameter="storeGroupId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="objectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="WhereDefined" Parameter="whereDefined" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="IsMember" Parameter="isMember" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Original_StoreGroupMemberId" Parameter="original_StoreGroupMemberId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_StoreGroups" Method="Netsqlazman_StoreGroups" IsComposable="true">
+    <ElementType Name="Netsqlazman_StoreGroupsResult">
+      <Column Name="StoreGroupId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StoreId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="objectSid" Member="ObjectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+      <Column Name="LDapQuery" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="GroupType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_StoreGroupUpdate" Method="Netsqlazman_StoreGroupUpdate">
+    <Parameter Name="StoreId" Parameter="storeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="objectSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(1024)" />
+    <Parameter Name="LDapQuery" Parameter="lDapQuery" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="GroupType" Parameter="groupType" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="Original_StoreGroupId" Parameter="original_StoreGroupId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_StoreInsert" Method="Netsqlazman_StoreInsert">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(1024)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_StorePermissionDelete" Method="Netsqlazman_StorePermissionDelete">
+    <Parameter Name="StorePermissionId" Parameter="storePermissionId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StoreId" Parameter="storeId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_StorePermissionInsert" Method="Netsqlazman_StorePermissionInsert">
+    <Parameter Name="StoreId" Parameter="storeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SqlUserOrRole" Parameter="sqlUserOrRole" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="IsSqlRole" Parameter="isSqlRole" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NetSqlAzManFixedServerRole" Parameter="netSqlAzManFixedServerRole" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.netsqlazman_StorePermissions" Method="Netsqlazman_StorePermissions" IsComposable="true">
+    <ElementType Name="Netsqlazman_StorePermissionsResult">
+      <Column Name="StorePermissionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StoreId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SqlUserOrRole" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="IsSqlRole" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NetSqlAzManFixedServerRole" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_Stores" Method="Netsqlazman_Stores" IsComposable="true">
+    <ElementType Name="Netsqlazman_StoresResult">
+      <Column Name="StoreId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.netsqlazman_StoreUpdate" Method="Netsqlazman_StoreUpdate">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(1024)" />
+    <Parameter Name="Original_StoreId" Parameter="original_StoreId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.sp_alterdiagram" Method="Sp_alterdiagram">
+    <Parameter Name="diagramname" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="owner_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="version" Type="System.Int32" DbType="Int" />
+    <Parameter Name="definition" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.sp_creatediagram" Method="Sp_creatediagram">
+    <Parameter Name="diagramname" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="owner_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="version" Type="System.Int32" DbType="Int" />
+    <Parameter Name="definition" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.sp_dropdiagram" Method="Sp_dropdiagram">
+    <Parameter Name="diagramname" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="owner_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+  <Function Name="dbo.sp_helpdiagramdefinition" Method="Sp_helpdiagramdefinition">
+    <Parameter Name="diagramname" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="owner_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Sp_helpdiagramdefinitionResult">
+      <Column Name="version" Member="Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="definition" Member="Definition" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_helpdiagrams" Method="Sp_helpdiagrams">
+    <Parameter Name="diagramname" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="owner_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Sp_helpdiagramsResult">
+      <Column Name="Database" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Owner" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="OwnerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_renamediagram" Method="Sp_renamediagram">
+    <Parameter Name="diagramname" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="owner_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="new_diagramname" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" DbType="Int" />
+  </Function>
+</Database>

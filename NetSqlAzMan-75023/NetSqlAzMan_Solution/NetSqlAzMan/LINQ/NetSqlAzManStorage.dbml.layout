@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 20, 20.875" name="NetSqlAzManStorage">
+  <DataContextMoniker Name="/NetSqlAzManStorageDataContext" />
+  <nestedChildShapes>
+    <classShape Id="189e027b-96e7-4b80-b7ab-24d36d9d6854" absoluteBounds="6.25, 4.75, 2, 1.5733361543218294">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/ApplicationAttributesTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="40cc0d8d-c9f9-4841-ab26-5198c3cf366d" absoluteBounds="6.265, 5.21, 1.9700000000000002, 1.0133361543218293" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="319fca92-7d8f-4120-947a-f6f28391a95d" absoluteBounds="9, 15.75, 2, 1.7646813641985268">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/ApplicationGroupMembersTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="512df0a8-305e-4ddc-8038-d5086d8b44d4" absoluteBounds="9.015, 16.21, 1.9700000000000002, 1.2046813641985257" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="04af0c38-d4de-48cc-9722-6bfc845944db" absoluteBounds="6.25, 15.5, 2, 2.1473717839519217">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/ApplicationGroupsTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5a587478-3d25-4468-aa39-7331889d5c38" absoluteBounds="6.265, 15.96, 1.9700000000000002, 1.5873717839519181" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7b8280a4-34ae-4695-9194-b8f5fe2eb33a" absoluteBounds="6.25, 7.125, 2, 1.7646813641985251">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/ApplicationPermissionsTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="19ecbbe3-6ab0-408b-b1e7-4c93af95b97b" absoluteBounds="6.265, 7.585, 1.9700000000000002, 1.2046813641985257" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="99148fe2-f050-4f00-ac10-fb1b17486392" absoluteBounds="3.5, 7.5, 2, 1.5733361543218294">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/ApplicationsTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="deb238fb-cc5b-4ce2-b8fe-d554c0587761" absoluteBounds="3.515, 7.96, 1.9700000000000002, 1.0133361543218293" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4e5c380b-3c64-4e14-9478-42064a68959e" absoluteBounds="11.75, 11.75, 2, 1.5733361543218294">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/AuthorizationAttributesTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="72d959e0-d221-46d8-963a-408b0f054b8c" absoluteBounds="11.765, 12.21, 1.9700000000000002, 1.0133361543218293" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="52b54890-70b0-442d-9a33-fe76ca6be09b" absoluteBounds="9, 11.125, 2, 2.721407413582007">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/AuthorizationsTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5c1d403c-30a9-4d8c-9b41-0aae21f35a24" absoluteBounds="9.015, 11.585, 1.9700000000000002, 2.1614074135820069" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="494d14a0-3386-452e-b1da-6d1f88a5ba84" absoluteBounds="3.5, 4.5, 2, 1.5733361543218294">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/BizRulesTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ee16f731-3460-471b-8602-c11261ec4be8" absoluteBounds="3.515, 4.96, 1.9700000000000002, 1.0133361543218293" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="129d8979-6a8d-4e99-8086-b7cdee32fc7f" absoluteBounds="9, 8.75, 2, 1.5733361543218294">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/ItemAttributesTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="86c5cf9a-f28e-47bb-aa7d-448f57e05c8e" absoluteBounds="9.0150000005960464, 9.21000000089407, 1.9700000000000002, 1.0133361543218293" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5bedcc7d-d185-499e-bdab-212e2d4641e6" absoluteBounds="3.75, 0.75, 2, 1.1906457345684369">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/ItemsHierarchyTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="96da76a5-0661-4104-b0fb-a18e946ec228" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.63064573456843687" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="29619822-e61c-426b-92e0-0133a7f1dd49" absoluteBounds="6.25, 10.375, 2, 1.9560265740752225">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/ItemsTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7c5375f2-836f-4410-a3de-c3727107879e" absoluteBounds="6.265, 10.835, 1.9700000000000002, 1.396026574075222" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="abe58858-aadc-41bd-9a49-649a0a02c712" absoluteBounds="6.75, 0.75, 2, 2.9127526234587031">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/LogTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="18521d69-27fe-43ba-95ff-0e130f0bc503" absoluteBounds="6.765, 1.21, 1.9700000000000002, 2.3527526234587031" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="75bad4ec-04e8-4ecd-bec1-97f223d0dad2" absoluteBounds="3.5, 12.625, 2, 1.5733361543218294">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/StoreAttributesTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b64365a9-bc6d-4bf8-bcd8-37b4df7f64bb" absoluteBounds="3.515, 13.085, 1.9700000000000002, 1.0133361543218293" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c792e7ad-072c-4908-b9c9-25774248607b" absoluteBounds="6.25, 18.75, 2, 1.7646813641985268">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/StoreGroupMembersTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9bbe412f-0243-4e6d-bb2b-f182af5ff127" absoluteBounds="6.265, 19.21, 1.9700000000000002, 1.2046813641985257" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6dd02b8b-d57c-4676-947a-6d83f7b33a45" absoluteBounds="3.5, 18.5, 2, 2.1473717839519217">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/StoreGroupsTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2927beb9-5cbc-4737-bcbb-eac3256858ad" absoluteBounds="3.515, 18.96, 1.9700000000000002, 1.5873717839519181" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9bea689f-8e09-4f95-915f-397d04f5bcab" absoluteBounds="3.5, 15, 2, 1.7646813641985268">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/StorePermissionsTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ced146d-26c5-49e6-8c86-70cd1fbf33b6" absoluteBounds="3.515, 15.46, 1.9700000000000002, 1.2046813641985257" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bb87cfc7-ad2d-4ea9-a87f-5b100eef4230" absoluteBounds="0.75, 11.5, 2, 1.3819909444451337">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/StoresTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f8e07ae8-13d4-403b-96b5-5bc6b75b7158" absoluteBounds="0.765, 11.96, 1.9700000000000002, 0.82199094444513321" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 16.6461160046856); (9 : 16.6461160046856)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NetSqlAzManStorageDataContext/ApplicationGroupsTable/ApplicationGroupsTable_ApplicationGroupMembersTable" />
+      <nodes>
+        <classShapeMoniker Id="04af0c38-d4de-48cc-9722-6bfc845944db" />
+        <classShapeMoniker Id="319fca92-7d8f-4120-947a-f6f28391a95d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7.5); (5.875 : 7.125); (5.875 : 5.54832411934932); (6.25 : 5.54832411934932)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NetSqlAzManStorageDataContext/ApplicationsTable/ApplicationsTable_ApplicationAttributesTable" />
+      <nodes>
+        <classShapeMoniker Id="99148fe2-f050-4f00-ac10-fb1b17486392" />
+        <classShapeMoniker Id="189e027b-96e7-4b80-b7ab-24d36d9d6854" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 9.09664823869864); (5.875 : 9.47164823869864); (5.875 : 16.591699775358); (6.25 : 16.591699775358)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NetSqlAzManStorageDataContext/ApplicationsTable/ApplicationsTable_ApplicationGroupsTable" />
+      <nodes>
+        <classShapeMoniker Id="99148fe2-f050-4f00-ac10-fb1b17486392" />
+        <classShapeMoniker Id="04af0c38-d4de-48cc-9722-6bfc845944db" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.23986850468556); (6.25 : 8.23986850468556)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NetSqlAzManStorageDataContext/ApplicationsTable/ApplicationsTable_ApplicationPermissionsTable" />
+      <nodes>
+        <classShapeMoniker Id="99148fe2-f050-4f00-ac10-fb1b17486392" />
+        <classShapeMoniker Id="7b8280a4-34ae-4695-9194-b8f5fe2eb33a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 12.5483241193493); (11.75 : 12.5483241193493)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NetSqlAzManStorageDataContext/AuthorizationsTable/AuthorizationsTable_AuthorizationAttributesTable" />
+      <nodes>
+        <classShapeMoniker Id="52b54890-70b0-442d-9a33-fe76ca6be09b" />
+        <classShapeMoniker Id="4e5c380b-3c64-4e14-9478-42064a68959e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 11.7439078900218); (9 : 11.7439078900218)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NetSqlAzManStorageDataContext/ItemsTable/ItemsTable_AuthorizationsTable" />
+      <nodes>
+        <classShapeMoniker Id="29619822-e61c-426b-92e0-0133a7f1dd49" />
+        <classShapeMoniker Id="52b54890-70b0-442d-9a33-fe76ca6be09b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 10.375); (8.625 : 10); (8.625 : 10.721648238649); (8.99999999995033 : 10.3466482386986)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NetSqlAzManStorageDataContext/ItemsTable/ItemsTable_ItemAttributesTable" />
+      <nodes>
+        <classShapeMoniker Id="29619822-e61c-426b-92e0-0133a7f1dd49" />
+        <classShapeMoniker Id="129d8979-6a8d-4e99-8086-b7cdee32fc7f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.4687475 : 9.09664823869864); (4.4687475 : 11.3689078900218); (6.25 : 11.3689078900218)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NetSqlAzManStorageDataContext/ApplicationsTable/ApplicationsTable_ItemsTable" />
+      <nodes>
+        <classShapeMoniker Id="99148fe2-f050-4f00-ac10-fb1b17486392" />
+        <classShapeMoniker Id="29619822-e61c-426b-92e0-0133a7f1dd49" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.03523769105639); (5.81607443490112 : 6.35131212595751 : JumpStart); (5.93392556509888 : 6.46916325615527 : JumpEnd); (6.0625 : 6.59773769105639); (6.0625 : 10.8407019450109); (6.25 : 10.8407019450109)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NetSqlAzManStorageDataContext/BizRulesTable/BizRulesTable_ItemsTable" />
+      <nodes>
+        <classShapeMoniker Id="494d14a0-3386-452e-b1da-6d1f88a5ba84" />
+        <classShapeMoniker Id="29619822-e61c-426b-92e0-0133a7f1dd49" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 19.6461160046856); (6.25 : 19.6461160046856)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NetSqlAzManStorageDataContext/StoreGroupsTable/StoreGroupsTable_StoreGroupMembersTable" />
+      <nodes>
+        <classShapeMoniker Id="6dd02b8b-d57c-4676-947a-6d83f7b33a45" />
+        <classShapeMoniker Id="c792e7ad-072c-4908-b9c9-25774248607b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 11.5); (1.75 : 8.29832411934932); (3.5 : 8.29832411934932)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NetSqlAzManStorageDataContext/StoresTable/StoresTable_ApplicationsTable" />
+      <nodes>
+        <classShapeMoniker Id="bb87cfc7-ad2d-4ea9-a87f-5b100eef4230" />
+        <classShapeMoniker Id="99148fe2-f050-4f00-ac10-fb1b17486392" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 12.0624995); (4.5 : 12.0624995); (4.5 : 12.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NetSqlAzManStorageDataContext/StoresTable/StoresTable_StoreAttributesTable" />
+      <nodes>
+        <classShapeMoniker Id="bb87cfc7-ad2d-4ea9-a87f-5b100eef4230" />
+        <classShapeMoniker Id="75bad4ec-04e8-4ecd-bec1-97f223d0dad2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 12.9010644680262); (1.75 : 19.591699775358); (3.5 : 19.591699775358)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NetSqlAzManStorageDataContext/StoresTable/StoresTable_StoreGroupsTable" />
+      <nodes>
+        <classShapeMoniker Id="bb87cfc7-ad2d-4ea9-a87f-5b100eef4230" />
+        <classShapeMoniker Id="6dd02b8b-d57c-4676-947a-6d83f7b33a45" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2812525 : 12.9010644680262); (2.2812525 : 15.8961160046856); (3.5 : 15.8961160046856)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NetSqlAzManStorageDataContext/StoresTable/StoresTable_StorePermissionsTable" />
+      <nodes>
+        <classShapeMoniker Id="bb87cfc7-ad2d-4ea9-a87f-5b100eef4230" />
+        <classShapeMoniker Id="9bea689f-8e09-4f95-915f-397d04f5bcab" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ed8d8f73-aca8-45fe-a355-c6598b879ce3" absoluteBounds="8.75, 4.75, 2, 2.1473717839519182">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/ApplicationAttributesView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ff0420c-fe35-4c52-b935-68838d3da372" absoluteBounds="8.765, 5.21, 1.9700000000000002, 1.5873717839519181" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9ee23972-ceaa-41e4-8f37-41bab34e9a5c" absoluteBounds="9.75, 0.75, 2, 2.1473717839519182">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/StoreGroupMembersView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9693c48d-0bcb-411d-a381-96d606f1cba4" absoluteBounds="9.765, 1.21, 1.9700000000000002, 1.5873717839519181" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a6259199-edef-4d5a-8a09-1eb075a71f35" absoluteBounds="11.75, 3.75, 2, 2.5300622037053104">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/ApplicationGroupMembersView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="139c1f7e-e861-42b3-bbab-b03c3a4dee8d" absoluteBounds="11.765, 4.21, 1.9700000000000002, 1.9700622037053108" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c13eecf9-0328-4aef-97c2-f8ab37407033" absoluteBounds="11.75, 7.75, 2, 1.9560265740752225">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/ApplicationsView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e54bf02-278f-4e43-aea5-f52156c52d4e" absoluteBounds="11.765, 8.21, 1.9700000000000002, 1.396026574075222" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0ad73f1b-81b4-46bf-847a-cb661e5ece65" absoluteBounds="14.75, 0.75, 2, 3.1040978333353997">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/AuthorizationAttributesView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="78a00ea0-b2a2-4958-879c-da763f0015cf" absoluteBounds="14.765, 1.2100000000000009, 1.9700000000000002, 2.5440978333353996" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9a15f396-3ded-4a18-814e-88e06c9ce40a" absoluteBounds="14.75, 4.75, 2, 2.5300622037053104">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/AuthorizationView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7480b97e-682e-4da7-b7cd-7babddb185b3" absoluteBounds="14.765, 5.2100000000000009, 1.9700000000000002, 1.9700622037053108" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="af2c791f-f90a-406e-b788-36a685b4d3bd" absoluteBounds="14.75, 8.75, 2, 2.3387169938286156">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/BizRuleView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6922709f-5d6b-435f-95bb-77dd00f0a0c7" absoluteBounds="14.765, 9.21, 1.9700000000000002, 1.7787169938286145" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a978701-ecda-4d7d-a29e-fec469fcca54" absoluteBounds="11.75, 14.75, 2, 2.3387169938286156">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/ItemAttributesView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="958244c4-35e7-4b59-a048-f5109b6e90b9" absoluteBounds="11.765, 15.21, 1.9700000000000002, 1.7787169938286145" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="91ed0caa-4cac-44f2-84ec-a8728f4a2542" absoluteBounds="14.75, 12.75, 2, 2.721407413582007">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/ItemsHierarchyView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="77b72276-5f58-4391-87bd-48ce14d75463" absoluteBounds="14.765, 13.21, 1.9700000000000002, 2.1614074135820069" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="707557c8-e2ff-4aaa-aae0-c14a6f638390" absoluteBounds="14.75, 16.75, 2, 1.9560265740752243">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/StoreAttributesView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a89ad8a9-f28b-4a59-9922-bf75e848eab4" absoluteBounds="14.765, 17.21, 1.9700000000000002, 1.396026574075222" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d6d905bc-2b10-409d-8387-c279b423471f" absoluteBounds="17.75, 0.75, 2, 1.1906457345684369">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/DatabaseUsers" />
+      <nestedChildShapes>
+        <elementListCompartment Id="668910c0-cc63-40f1-a16e-afcfc0ef565c" absoluteBounds="17.765, 1.21, 1.9700000000000002, 0.63064573456843687" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="53b5c9d9-f181-49f6-adcf-9689451af748" absoluteBounds="17.75, 2.75, 2, 1.1906457345684367">
+      <DataClassMoniker Name="/NetSqlAzManStorageDataContext/Settings" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8895d003-6d38-4647-a3f4-55f789ef0b3d" absoluteBounds="17.765, 3.21, 1.9700000000000002, 0.63064573456843687" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

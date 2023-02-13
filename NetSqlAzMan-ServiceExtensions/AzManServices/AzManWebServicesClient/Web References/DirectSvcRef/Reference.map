@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?wsdl" filename="DirectService.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd4" filename="DirectService.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd5" filename="DirectService0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?disco" filename="DirectService.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd0" filename="DirectService1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd1" filename="DirectService2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd2" filename="DirectService3.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://logindemo.sise.edu.pe:8181/AzManWebServices/DirectService.svc?xsd=xsd3" filename="DirectService4.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

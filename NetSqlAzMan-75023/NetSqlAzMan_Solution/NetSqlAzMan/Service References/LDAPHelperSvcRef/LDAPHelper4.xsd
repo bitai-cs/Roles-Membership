@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System.DirectoryServices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.DirectoryServices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="SearchScope">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Base" />
+      <xs:enumeration value="OneLevel" />
+      <xs:enumeration value="Subtree" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SearchScope" nillable="true" type="tns:SearchScope" />
+</xs:schema>

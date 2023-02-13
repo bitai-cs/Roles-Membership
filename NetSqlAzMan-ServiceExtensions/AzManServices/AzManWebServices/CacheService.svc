@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Basgosoft.NetSqlAzManCacheWS.CacheService" CodeBehind="CacheService.svc.cs" %>

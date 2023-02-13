@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="00fee9f4-c889-490e-adba-7395e931885d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>true</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LoginService.xsd" MetadataType="Schema" ID="7f0deec1-ff6f-4723-b5b5-6e32a9841f4c" SourceId="1" SourceUrl="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc?xsd=xsd4" />
+    <MetadataFile FileName="LoginService.disco" MetadataType="Disco" ID="775d958b-a32b-4fe1-8cb1-02cd1e18aa12" SourceId="1" SourceUrl="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc?disco" />
+    <MetadataFile FileName="LoginService.wsdl" MetadataType="Wsdl" ID="38a180cb-396e-47d8-bd96-641438b57195" SourceId="1" SourceUrl="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc?wsdl" />
+    <MetadataFile FileName="LoginService1.xsd" MetadataType="Schema" ID="8fce2b69-058b-4c72-b724-f37c66e05ecb" SourceId="1" SourceUrl="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc?xsd=xsd0" />
+    <MetadataFile FileName="LoginService2.xsd" MetadataType="Schema" ID="f51b78fc-f06f-416e-a336-6e40088b11e8" SourceId="1" SourceUrl="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LoginService3.xsd" MetadataType="Schema" ID="fdc8766a-2526-4072-b69e-d0aa86aea937" SourceId="1" SourceUrl="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc?xsd=xsd2" />
+    <MetadataFile FileName="LoginService4.xsd" MetadataType="Schema" ID="75f21475-effe-4af5-8094-4a85ecef46ec" SourceId="1" SourceUrl="http://logindemo.sise.edu.pe:8181/AzManLoginWebServices/LoginService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
