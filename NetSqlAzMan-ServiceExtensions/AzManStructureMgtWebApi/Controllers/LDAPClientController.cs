@@ -20,11 +20,11 @@ namespace AzManStructureMgtWebApi.Controllers
 		[HttpGet]
 		[ResponseType(typeof(IEnumerable<NetSqlAzMan.ServiceBusinessObjects.LDAPResult>))]
 		public async Task<IHttpActionResult> SearchUsersAndGroupsAsync(string domainProfile, string searchCriteria) {
-			var _bol = new NetSqlAzMan.CustomBussinessLogic.LDAPWebSvcBusinessFactory();
-			var _result = await _bol.SearchUsersAndGroupsWithWSvcAsync(domainProfile, searchCriteria);
-
-			//Devolver OK asi no haya encontrado datos y la lista este con 0 elementos
-			return Ok(_result);
+            throw new InvalidOperationException("Review next lines of code...");
+			//var _bol = new NetSqlAzMan.CustomBussinessLogic.LDAPWebSvcBusinessFactory();
+			//var _result = await _bol.SearchUsersAndGroupsWithWSvcAsync(domainProfile, searchCriteria);
+			////Devolver OK asi no haya encontrado datos y la lista este con 0 elementos
+			//return Ok(_result);
 		}
 	}
 }

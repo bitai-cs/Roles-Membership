@@ -47,22 +47,21 @@ namespace AzManStructureMgtWebApi.Controllers
 					return GetResponseMessageForForbidden(null, "Contraseña incorrecta.");
 			}
 			else { //Validar las credenciales para un usuario Ldap
-				_user = await Task.Run(() => {
-					try {
-						return _storage.GetLDAPUserByValidatingPassword(credential.DomainProfile, false, credential.UserName, credential.Password);
-					}
-					catch (NetSqlAzMan.SqlAzManException) {
-						return null;
-					}
-					catch {
-						throw;
-					}
-				});
-
-				if (_user == null)
-					return GetResponseMessageForForbidden(null, "Usuario y/o contraseña incorrecto(s).");
-
-				return GetResponseMessageForOK(_user, "La credencial es válida.");
+				throw new InvalidOperationException("Review next lines of code...");
+				//_user = await Task.Run(() => {
+				//	try {
+				//		return _storage.GetLDAPUserByValidatingPassword(credential.DomainProfile, false, credential.UserName, credential.Password);
+				//	}
+				//	catch (NetSqlAzMan.SqlAzManException) {
+				//		return null;
+				//	}
+				//	catch {
+				//		throw;
+				//	}
+				//});
+				//if (_user == null)
+				//	return GetResponseMessageForForbidden(null, "Usuario y/o contraseña incorrecto(s).");
+				//return GetResponseMessageForOK(_user, "La credencial es válida.");
 			}
 		}
 	}

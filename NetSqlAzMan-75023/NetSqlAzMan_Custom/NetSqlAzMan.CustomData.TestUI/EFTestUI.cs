@@ -41,8 +41,8 @@ namespace NetSqlAzMan.CustomDataLayer.TestUI {
 					DepartmentId = 16
 				};
 
-				_user.identity_UserBranchOffice.Add(new Identity_UserBranchOffice() { UserID = -1, BranchOfficeId = "1" });
-				_user.identity_UserBranchOffice.Add(new Identity_UserBranchOffice() { UserID = -1, BranchOfficeId = "2" });
+				_user.identity_UserBranchOffice.Add(new identity_UserBranchOffice() { UserID = -1, BranchOfficeId = "1" });
+				_user.identity_UserBranchOffice.Add(new identity_UserBranchOffice() { UserID = -1, BranchOfficeId = "2" });
 
 				NetSqlAzMan.CustomDataLayer.EF.identity_User _userDal = new identity_User();
 
@@ -54,7 +54,7 @@ namespace NetSqlAzMan.CustomDataLayer.TestUI {
 		}
 
 		private async void button1_Click(object sender, EventArgs e) {
-			CustomDataLayer.EF.Identity_UserBranchOffice _dal = new Identity_UserBranchOffice();
+			CustomDataLayer.EF.identity_UserBranchOffice _dal = new identity_UserBranchOffice();
 			var _cm = _dal.GetConnectionManager(false);
 			var _created = await _dal.InsertAsync(2342, 55.ToString(), _cm);
 			System.Diagnostics.Debugger.Break();

@@ -28,13 +28,13 @@ namespace AzManStructureMgtWebApi.Controllers
 		[HttpGet]
 		[ResponseType(typeof(LdapHelperDTO.AsyncResult))]
 		public async Task<HttpResponseMessage> SearchUsersAndGroupsAsync(string domainProfile, Nullable<bool> useGC, Nullable<byte> baseDNOrder, string searchCriteria, Nullable<LdapHelperDTO.RequiredEntryAttributes> requiredEntryAttributes) {
-			var _bol = new NetSqlAzMan.CustomBussinessLogic.LdapWebApiBusinessFactory();
-			var _result = await _bol.SearchUsersAndGroupsAsyncModeAsync(domainProfile, useGC, baseDNOrder, searchCriteria, requiredEntryAttributes);
+            throw new InvalidOperationException("Review next lines of code...");
+			//var _bol = new NetSqlAzMan.CustomBussinessLogic.LdapWebApiBusinessFactory();
+			//var _result = await _bol.SearchUsersAndGroupsAsyncModeAsync(domainProfile, useGC, baseDNOrder, searchCriteria, requiredEntryAttributes);
 
-			var _resp = this.GetResponseMessageForOK(_result, string.Format("La búsqueda devolvió {0} " +
-				"entradas Ldap.", _result.Entries.Count()));
-
-			return _resp;
+			//var _resp = this.GetResponseMessageForOK(_result, string.Format("La búsqueda devolvió {0} " +
+			//	"entradas Ldap.", _result.Entries.Count()));
+			//return _resp;
 		}
 	}
 }

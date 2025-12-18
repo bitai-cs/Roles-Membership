@@ -7,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace NetSqlAzMan.CustomDataLayer.EF {
-	public partial class Identity_UserBranchOffice : DataLayerBase<Identity_UserBranchOffice> {
-		protected override bool loadRelatedEntityData(Identity_UserBranchOffice entity) {
+	public partial class identity_UserBranchOffice : DataLayerBase<identity_UserBranchOffice> {
+		protected override bool loadRelatedEntityData(identity_UserBranchOffice entity) {
 			return true;
 		}
 
-		public async Task<Identity_UserBranchOffice> InsertAsync(int userId, string branchOfficeId, ConnectionManager connectionManager) {
-			var _new = new Identity_UserBranchOffice() {
+		public async Task<identity_UserBranchOffice> InsertAsync(int userId, string branchOfficeId, ConnectionManager connectionManager) {
+			var _new = new identity_UserBranchOffice() {
 				UserID = userId,
 				BranchOfficeId = branchOfficeId
 			};

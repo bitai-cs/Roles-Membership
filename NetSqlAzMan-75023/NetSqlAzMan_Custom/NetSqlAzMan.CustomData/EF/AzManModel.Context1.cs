@@ -29,7 +29,7 @@ namespace NetSqlAzMan.CustomDataLayer.EF
         public virtual DbSet<identity_LDAPConfig> identity_LDAPConfig { get; set; }
         public virtual DbSet<identity_Login> identity_Login { get; set; }
         public virtual DbSet<identity_User> identity_User { get; set; }
-        public virtual DbSet<Identity_UserBranchOffice> identity_UserBranchOffice { get; set; }
+        public virtual DbSet<identity_UserBranchOffice> identity_UserBranchOffice { get; set; }
         public virtual DbSet<identity_UserValidationRequest> identity_UserValidationRequest { get; set; }
         public virtual DbSet<identity_vw_UserBranchOffices> identity_vw_UserBranchOffices { get; set; }
         public virtual DbSet<identity_vw_UsersByDepartment> identity_vw_UsersByDepartment { get; set; }

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\_vbastidas\Gd\Coding\Membresia\netsqlazman-75023\NetSqlAzMan.CustomData\EF\AzManModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\_bitai\code\Roles-Membership\NetSqlAzMan-75023\NetSqlAzMan_Custom\NetSqlAzMan.CustomData\EF\AzManModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

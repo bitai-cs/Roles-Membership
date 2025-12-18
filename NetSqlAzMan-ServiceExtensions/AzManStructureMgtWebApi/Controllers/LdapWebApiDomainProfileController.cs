@@ -15,94 +15,98 @@ namespace AzManStructureMgtWebApi.Controllers
 		[HttpGet]
 		[ResponseType(typeof(IEnumerable<NetSqlAzMan.ServiceBusinessObjects.LdapDomainProfile>))]
 		public async Task<IHttpActionResult> GetAllLdapDomainProfileAsync() {
-			var _bol = new NetSqlAzMan.CustomBussinessLogic.LdapWacDomainProfileBusinessFactory();
-			var _t = Task.Run(() => _bol.GetAllLdapDomainProfilesAsync());
+            throw new InvalidOperationException("Review next lines of code...");
 
-			return this.Ok(await _t);
+			//var _bol = new NetSqlAzMan.CustomBussinessLogic.LdapWacDomainProfileBusinessFactory();
+			//var _t = Task.Run(() => _bol.GetAllLdapDomainProfilesAsync());
+			//return this.Ok(await _t);
 		}
 
 
 		[HttpPost]
 		[ResponseType(typeof(IEnumerable<NetSqlAzMan.ServiceBusinessObjects.LdapDomainProfile>))]
 		public async Task<HttpResponseMessage> RegisterAsync([FromBody] NetSqlAzMan.ServiceBusinessObjects.LdapDomainProfile newSbo) {
-			try {
-				if (newSbo == null)
-					return GetResponseMessageForInvalidModel(null);
+            throw new InvalidOperationException("Review next lines of code...");
+			//try {
+			//	if (newSbo == null)
+			//		return GetResponseMessageForInvalidModel(null);
 
-				if (!this.ModelState.IsValid)
-					return GetResponseMessageForInvalidModel(this.ModelState);
+			//	if (!this.ModelState.IsValid)
+			//		return GetResponseMessageForInvalidModel(this.ModelState);
 
-				var _bl = new NetSqlAzMan.CustomBussinessLogic.LdapWacDomainProfileBusinessFactory();
-				var _created = await _bl.RegisterAsync(newSbo);
+			//	var _bl = new NetSqlAzMan.CustomBussinessLogic.LdapWacDomainProfileBusinessFactory();
+			//	var _created = await _bl.RegisterAsync(newSbo);
 
-				Uri _locationUri = GetUriForRouteValues(new { id = _created.DomainProfileId });
-				var _respMsg = this.GetResponseMessageForOK(_created, string.Format("Se actualizó los datos del Perfil de Dominio {0}", _created.DomainProfile), _locationUri);
+			//	Uri _locationUri = GetUriForRouteValues(new { id = _created.DomainProfileId });
+			//	var _respMsg = this.GetResponseMessageForOK(_created, string.Format("Se actualizó los datos del Perfil de Dominio {0}", _created.DomainProfile), _locationUri);
 
-				return _respMsg;
-			}
-			catch (DbUpdateConcurrencyException ex) {
-				return GetResponseMessageForDbConcurrencyException(ex);
-			}
-			catch {
-				throw;
-			}
+			//	return _respMsg;
+			//}
+			//catch (DbUpdateConcurrencyException ex) {
+			//	return GetResponseMessageForDbConcurrencyException(ex);
+			//}
+			//catch {
+			//	throw;
+			//}
 		}
 
 
 		[HttpPut]
 		[ResponseType(typeof(IEnumerable<NetSqlAzMan.ServiceBusinessObjects.LdapDomainProfile>))]
 		public async Task<HttpResponseMessage> UpdateAsync(byte id, [FromBody] NetSqlAzMan.ServiceBusinessObjects.LdapDomainProfile modified) {
-			try {
-				if (modified == null)
-					return GetResponseMessageForInvalidModel(null);
+            throw new InvalidOperationException("Review next lines of code...");
+			//try {
+			//	if (modified == null)
+			//		return GetResponseMessageForInvalidModel(null);
 
-				if (!this.ModelState.IsValid)
-					return GetResponseMessageForInvalidModel(this.ModelState);
+			//	if (!this.ModelState.IsValid)
+			//		return GetResponseMessageForInvalidModel(this.ModelState);
 
-				if (!id.Equals(modified.DomainProfileId))
-					return GetResponseMessageForMismatchingIds();
+			//	if (!id.Equals(modified.DomainProfileId))
+			//		return GetResponseMessageForMismatchingIds();
 
-				var _bl = new NetSqlAzMan.CustomBussinessLogic.LdapWacDomainProfileBusinessFactory();
-				var _updated = await _bl.UpdateAsync(modified);
+			//	var _bl = new NetSqlAzMan.CustomBussinessLogic.LdapWacDomainProfileBusinessFactory();
+			//	var _updated = await _bl.UpdateAsync(modified);
 
-				var _respMsg = this.GetResponseMessageForOK(_updated, string.Format("Se actualizó los datos del Perfil de Dominio {0}", _updated.DomainProfile));
+			//	var _respMsg = this.GetResponseMessageForOK(_updated, string.Format("Se actualizó los datos del Perfil de Dominio {0}", _updated.DomainProfile));
 
-				return _respMsg;
-			}
-			catch (DbUpdateConcurrencyException ex) {
-				return GetResponseMessageForDbConcurrencyException(ex);
-			}
-			catch {
-				throw;
-			}
+			//	return _respMsg;
+			//}
+			//catch (DbUpdateConcurrencyException ex) {
+			//	return GetResponseMessageForDbConcurrencyException(ex);
+			//}
+			//catch {
+			//	throw;
+			//}
 		}
 
 		[HttpDelete]
 		[ResponseType(typeof(IEnumerable<NetSqlAzMan.ServiceBusinessObjects.LdapDomainProfile>))]
 		public async Task<HttpResponseMessage> DeleteAsync(byte id, [FromBody] NetSqlAzMan.ServiceBusinessObjects.LdapDomainProfile dataToDelete) {
-			try {
-				if (dataToDelete == null)
-					return GetResponseMessageForInvalidModel(null);
+            throw new InvalidOperationException("Review next lines of code...");
+			//try {
+			//	if (dataToDelete == null)
+			//		return GetResponseMessageForInvalidModel(null);
 
-				if (!this.ModelState.IsValid)
-					return GetResponseMessageForInvalidModel(this.ModelState);
+			//	if (!this.ModelState.IsValid)
+			//		return GetResponseMessageForInvalidModel(this.ModelState);
 
-				if (!id.Equals(dataToDelete.DomainProfileId))
-					return GetResponseMessageForMismatchingIds();
+			//	if (!id.Equals(dataToDelete.DomainProfileId))
+			//		return GetResponseMessageForMismatchingIds();
 
-				var _bl = new NetSqlAzMan.CustomBussinessLogic.LdapWacDomainProfileBusinessFactory();
-				var _deleted = await _bl.DeleteAsync(dataToDelete);
+			//	var _bl = new NetSqlAzMan.CustomBussinessLogic.LdapWacDomainProfileBusinessFactory();
+			//	var _deleted = await _bl.DeleteAsync(dataToDelete);
 
-				var _respMsg = this.GetResponseMessageForOK(_deleted, string.Format("Se eliminó los datos del Perfil de Dominio {0}", _deleted.DomainProfile));
+			//	var _respMsg = this.GetResponseMessageForOK(_deleted, string.Format("Se eliminó los datos del Perfil de Dominio {0}", _deleted.DomainProfile));
 
-				return _respMsg;
-			}
-			catch (DbUpdateConcurrencyException ex) {
-				return GetResponseMessageForDbConcurrencyException(ex);
-			}
-			catch {
-				throw;
-			}
+			//	return _respMsg;
+			//}
+			//catch (DbUpdateConcurrencyException ex) {
+			//	return GetResponseMessageForDbConcurrencyException(ex);
+			//}
+			//catch {
+			//	throw;
+			//}
 		}
 	}
 }

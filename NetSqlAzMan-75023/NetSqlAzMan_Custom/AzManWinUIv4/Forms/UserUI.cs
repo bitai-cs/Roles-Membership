@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using AzManWinUI;
 
 namespace NetSqlAzMan.SnapIn.Forms
 {

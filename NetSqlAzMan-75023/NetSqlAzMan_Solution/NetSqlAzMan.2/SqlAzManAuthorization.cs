@@ -324,49 +324,49 @@ namespace NetSqlAzMan
 				case WhereDefined.Application:
 					displayName = this.item.Application.GetApplicationGroup(this.sid).Name;
 					return MemberType.ApplicationGroup;
-				case WhereDefined.LDAP:
-					#region ***PERSONALIZADO***
-					if (!string.IsNullOrEmpty(this.DomainProfile)) {
-						LdapHelperDTO.AsyncResult _asyncResult = null;
-						var _bl = new CustomBussinessLogic.LdapWebApiBusinessFactory();
-						try {
-							//Call Custom Logic
-							_asyncResult = Task.Run(() => _bl.SearchEntriesAsyncModeAsync(this.DomainProfile, true, 0, LdapHelperDTO.EntryAttribute.objectSid, this.SID.StringValue, LdapHelperDTO.RequiredEntryAttributes.Minimun)).Result;
-							//Evaluar resultados descargados
-							if (_asyncResult.Entries.Count() > 0) {
-								var _entry = _asyncResult.Entries.First();
-								if (!string.IsNullOrEmpty(_entry.displayName))
-									displayName = string.Format("{0} ({1}\\{2})", _entry.displayName, _entry.DomainProfile, _entry.samAccountName);
-								else
-									displayName = string.Format("{0}\\{1}", _entry.DomainProfile, _entry.samAccountName);
+				//case WhereDefined.LDAP:
+				//	#region ***PERSONALIZADO***
+				//	if (!string.IsNullOrEmpty(this.DomainProfile)) {
+				//		LdapHelperDTO.AsyncResult _asyncResult = null;
+				//		var _bl = new CustomBussinessLogic.LdapWebApiBusinessFactory();
+				//		try {
+				//			//Call Custom Logic
+				//			_asyncResult = Task.Run(() => _bl.SearchEntriesAsyncModeAsync(this.DomainProfile, true, 0, LdapHelperDTO.EntryAttribute.objectSid, this.SID.StringValue, LdapHelperDTO.RequiredEntryAttributes.Minimun)).Result;
+				//			//Evaluar resultados descargados
+				//			if (_asyncResult.Entries.Count() > 0) {
+				//				var _entry = _asyncResult.Entries.First();
+				//				if (!string.IsNullOrEmpty(_entry.displayName))
+				//					displayName = string.Format("{0} ({1}\\{2})", _entry.displayName, _entry.DomainProfile, _entry.samAccountName);
+				//				else
+				//					displayName = string.Format("{0}\\{1}", _entry.DomainProfile, _entry.samAccountName);
 
-								return (_entry.objectClass.Where(_i => _i.Equals("group", StringComparison.OrdinalIgnoreCase)).FirstOrDefault() != null) ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
-								//var _sr = _asyncResult.Entries.ToArray();
-								//if (!string.IsNullOrEmpty(_sr[0].displayName))
-								//	displayName = string.Format("{0} ({1}\\{2})", _sr[0].displayName, _sr[0].DomainProfile, _sr[0].samAccountName);
-								//else
-								//	displayName = string.Format("{0}\\{1}", _sr[0].DomainProfile, _sr[0].samAccountName);
+				//				return (_entry.objectClass.Where(_i => _i.Equals("group", StringComparison.OrdinalIgnoreCase)).FirstOrDefault() != null) ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
+				//				//var _sr = _asyncResult.Entries.ToArray();
+				//				//if (!string.IsNullOrEmpty(_sr[0].displayName))
+				//				//	displayName = string.Format("{0} ({1}\\{2})", _sr[0].displayName, _sr[0].DomainProfile, _sr[0].samAccountName);
+				//				//else
+				//				//	displayName = string.Format("{0}\\{1}", _sr[0].DomainProfile, _sr[0].samAccountName);
 
-								//return _sr[0].objectCategory.ToLower().StartsWith("cn=group") ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
-							}
-							else {
-								displayName = string.Format("{0}\\{1} [{2}]", this.DomainProfile, this.SID.StringValue, "NO EXISTE!");
-								return MemberType.AnonymousSID;
-							}
-						}
-						catch (Exception ex) {
-							displayName = string.Format("{0}\\{1} [{2}]", this.DomainProfile, this.SID.StringValue, ex.GetType().Name);
-							return MemberType.AnonymousSID;
-						}
-						//#endregion
-					}
-					else {
-						bool isAnLdapGroup;
-						bool isLocal;
-						DirectoryServices.DirectoryServicesUtils.GetMemberInfo(this.sid.StringValue, out displayName, out isAnLdapGroup, out isLocal);
-						return isAnLdapGroup ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
-					}
-				#endregion
+				//				//return _sr[0].objectCategory.ToLower().StartsWith("cn=group") ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
+				//			}
+				//			else {
+				//				displayName = string.Format("{0}\\{1} [{2}]", this.DomainProfile, this.SID.StringValue, "NO EXISTE!");
+				//				return MemberType.AnonymousSID;
+				//			}
+				//		}
+				//		catch (Exception ex) {
+				//			displayName = string.Format("{0}\\{1} [{2}]", this.DomainProfile, this.SID.StringValue, ex.GetType().Name);
+				//			return MemberType.AnonymousSID;
+				//		}
+				//		//#endregion
+				//	}
+				//	else {
+				//		bool isAnLdapGroup;
+				//		bool isLocal;
+				//		DirectoryServices.DirectoryServicesUtils.GetMemberInfo(this.sid.StringValue, out displayName, out isAnLdapGroup, out isLocal);
+				//		return isAnLdapGroup ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
+				//	}
+				//#endregion
 				case WhereDefined.Local:
 					if (this.item.Application.Store.Storage.Mode == NetSqlAzManMode.Administrator)
 						break;

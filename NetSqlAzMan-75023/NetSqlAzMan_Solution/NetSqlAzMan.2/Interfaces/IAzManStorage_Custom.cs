@@ -33,37 +33,37 @@ namespace NetSqlAzMan.Interfaces
 		///// <returns></returns>
 		//bool GetDBUserByValidatingPassword(string userName, string password, out IAzManDBUser azManUser, out string exceptionType, out string statusMessage, out string stackTrace);
 
-		/// <summary>
-		/// Get DS user by aunthenticaring. 
-		/// </summary>
-		/// <param name="ldapDomain"></param>
-		/// <param name="userName"></param>
-		/// <param name="password"></param>
-		/// <param name="azManUser"></param>
-		/// <param name="exceptionType"></param>
-		/// <param name="statusMessage"></param>
-		/// <param name="stackTrace"></param>
-		/// <returns></returns>
-		IAzManDBUser GetLDAPUserByValidatingPassword(string domainProfile, bool useGC, string userName, string password);
+		///// <summary>
+		///// Get DS user by aunthenticaring. 
+		///// </summary>
+		///// <param name="ldapDomain"></param>
+		///// <param name="userName"></param>
+		///// <param name="password"></param>
+		///// <param name="azManUser"></param>
+		///// <param name="exceptionType"></param>
+		///// <param name="statusMessage"></param>
+		///// <param name="stackTrace"></param>
+		///// <returns></returns>
+		//IAzManDBUser GetLDAPUserByValidatingPassword(string domainProfile, bool useGC, string userName, string password);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="ldapDomain"></param>
-		/// <param name="userName"></param>
-		/// <param name="azManUser"></param>
-		/// <param name="hex"></param>
-		/// <returns></returns>
-		//bool GetLDAPUser(string ldapDomain, string userName, out IAzManDBUser azManUser, out string exceptionType, out string statusMessage, out string stackTrace);
-		bool GetLDAPUser(string ldapDomain, string userName, out IAzManDBUser azManUser, out Exception hex);
+		///// <summary>
+		///// 
+		///// </summary>
+		///// <param name="ldapDomain"></param>
+		///// <param name="userName"></param>
+		///// <param name="azManUser"></param>
+		///// <param name="hex"></param>
+		///// <returns></returns>
+		////bool GetLDAPUser(string ldapDomain, string userName, out IAzManDBUser azManUser, out string exceptionType, out string statusMessage, out string stackTrace);
+		//bool GetLDAPUser(string ldapDomain, string userName, out IAzManDBUser azManUser, out Exception hex);
 
-		AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string userName, DateTime validFor, bool operationsOnly, params KeyValuePair<string, object>[] contextParameters);
+		//AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string userName, DateTime validFor, bool operationsOnly, params KeyValuePair<string, object>[] contextParameters);
 
-		AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string userName, DateTime validFor, bool operationsOnly, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters);
+		//AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string userName, DateTime validFor, bool operationsOnly, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters);
 
-		AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string sid, byte[] binarySid, DateTime validFor, bool operationsOnly, params KeyValuePair<string, object>[] contextParameters);
+		//AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string sid, byte[] binarySid, DateTime validFor, bool operationsOnly, params KeyValuePair<string, object>[] contextParameters);
 
-		AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string sid, byte[] binarySid, DateTime validFor, bool operationsOnly, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters);
+		//AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string sid, byte[] binarySid, DateTime validFor, bool operationsOnly, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters);
 
 		//bool ChangeDBUserPassword(string userName, string currentPassword, string renewedPassword, string passwordConfirmation, out Exception hex);
 

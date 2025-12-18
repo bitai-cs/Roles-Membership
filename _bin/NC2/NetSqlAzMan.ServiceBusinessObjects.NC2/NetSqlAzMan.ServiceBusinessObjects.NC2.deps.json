@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.0": {
+      "NetSqlAzMan.ServiceBusinessObjects.NC2/1.0.0": {
+        "runtime": {
+          "NetSqlAzMan.ServiceBusinessObjects.NC2.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "NetSqlAzMan.ServiceBusinessObjects.NC2/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

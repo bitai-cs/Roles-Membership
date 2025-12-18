@@ -141,10 +141,10 @@ namespace AzManStructureMgtWebApi.Controllers
 				_check = await Task.Run(() => _applicationGroup.IsInGroup(_azUser));
 			}
 			else {
-				if (!await Task.Run(() => _storage.GetLDAPUser(domainProfile, userNameToCheck, out _azUser, out _exce)))
-					throw _exce;
-
-				_check = await Task.Run(() => _applicationGroup.IsInGroup(_azUser));
+				throw new InvalidOperationException("Review the next lines of code...");
+				//if (!await Task.Run(() => _storage.GetLDAPUser(domainProfile, userNameToCheck, out _azUser, out _exce)))
+				//	throw _exce;
+				//_check = await Task.Run(() => _applicationGroup.IsInGroup(_azUser));
 			}
 
 			return Ok(new NetSqlAzMan.ServiceBusinessObjects.StructContent<bool>() { Value = _check });

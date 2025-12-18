@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetSqlAzMan.Interfaces;
+using AzManWinUI;
 
 namespace NetSqlAzMan.SnapIn.Forms {
 	public partial class frmItemProperties : frmBase {

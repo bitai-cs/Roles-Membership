@@ -14,10 +14,10 @@ namespace AzManStructureMgtWebApi.Controllers
 		[HttpGet]
 		[ResponseType(typeof(IEnumerable<NetSqlAzMan.ServiceBusinessObjects.LDAPConfig>))]
 		public async Task<IHttpActionResult> GetAllConfigAsync() {
-			NetSqlAzMan.CustomBussinessLogic.LDAPWebSvcBusinessFactory _bol = new NetSqlAzMan.CustomBussinessLogic.LDAPWebSvcBusinessFactory();
-			var _t = Task.Run(() => _bol.GetAllLDAPConfigAsync());
-
-			return this.Ok(await _t);
+            throw new InvalidOperationException("Review next lines of code...");
+   //         NetSqlAzMan.CustomBussinessLogic.LDAPWebSvcBusinessFactory _bol = new NetSqlAzMan.CustomBussinessLogic.LDAPWebSvcBusinessFactory();
+			//var _t = Task.Run(() => _bol.GetAllLDAPConfigAsync());
+			//return this.Ok(await _t);
 		}
 	}
 }

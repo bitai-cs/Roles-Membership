@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
+using AzManWinUI;
 
 namespace NetSqlAzMan.SnapIn.Forms {
     public partial class frmCheckAccessTest : frmBase {

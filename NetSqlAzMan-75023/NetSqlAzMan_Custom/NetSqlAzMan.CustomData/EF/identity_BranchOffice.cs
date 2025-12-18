@@ -18,7 +18,7 @@ namespace NetSqlAzMan.CustomDataLayer.EF
         public identity_BranchOffice()
         {
             this.identity_BranchOffice1 = new HashSet<identity_BranchOffice>();
-            this.identity_UserBranchOffice = new HashSet<Identity_UserBranchOffice>();
+            this.identity_UserBranchOffice = new HashSet<identity_UserBranchOffice>();
         }
     
         public string BranchOfficeId { get; set; }
@@ -30,6 +30,6 @@ namespace NetSqlAzMan.CustomDataLayer.EF
         public virtual ICollection<identity_BranchOffice> identity_BranchOffice1 { get; set; }
         public virtual identity_BranchOffice identity_BranchOffice2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Identity_UserBranchOffice> identity_UserBranchOffice { get; set; }
+        public virtual ICollection<identity_UserBranchOffice> identity_UserBranchOffice { get; set; }
     }
 }

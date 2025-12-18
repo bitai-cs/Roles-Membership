@@ -5,6 +5,7 @@ using System.Drawing.Printing;
 using NetSqlAzMan.Interfaces;
 using System.Linq;
 using System.Threading.Tasks;
+using AzManWinUI;
 
 namespace NetSqlAzMan.SnapIn.Printing
 {

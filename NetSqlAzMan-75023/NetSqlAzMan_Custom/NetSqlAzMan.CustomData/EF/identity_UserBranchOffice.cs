@@ -12,7 +12,7 @@ namespace NetSqlAzMan.CustomDataLayer.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Identity_UserBranchOffice
+    public partial class identity_UserBranchOffice
     {
         public int UserID { get; set; }
         public string BranchOfficeId { get; set; }

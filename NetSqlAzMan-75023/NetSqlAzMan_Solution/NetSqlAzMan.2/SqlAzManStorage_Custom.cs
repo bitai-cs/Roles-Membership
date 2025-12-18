@@ -20,173 +20,23 @@ namespace NetSqlAzMan
 	public partial class SqlAzManStorage
 	{
 		#region Private methods	
-		private AuthorizationType internalCheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string sid, byte[] binarySid, DateTime validFor, bool operationsOnly, bool retrieveAttributes, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters) {
-			var _bl = new NetSqlAzMan.CustomBussinessLogic.LdapWebApiBusinessFactory();
-			var _entries = Task.Run(() => _bl.SearchGroupMembershipAsync(domainProfile, true, 0, LdapHelperDTO.KeyEntryAttribute.objectSid, sid, LdapHelperDTO.RequiredEntryAttributes.OnlyObjectSid)).Result;
-
-			List<byte> _tokenList = new List<byte>();
-
-			//El usuario pertenece a grupos
-			int userGroupsCount = _entries.Count();
-			if (userGroupsCount > 0) {
-				_tokenList.AddRange(NetSqlAzMan.ServiceBusinessObjects.AzManItem.GetSqlBinarySid(binarySid));
-
-				foreach (var _groupEntry in _entries) {
-					_tokenList.AddRange(NetSqlAzMan.ServiceBusinessObjects.AzManItem.GetSqlBinarySid(_groupEntry.objectSidBytes));
-				}
-			}
-			else {
-				_tokenList.AddRange(binarySid);
-			}
-
-			SqlConnection _conn = new SqlConnection(this.db.Connection.ConnectionString);
-			_conn.Open();
-			DataSet _checkAccessResults = new DataSet();
-			System.Data.SqlClient.SqlCommand _cmd = new SqlCommand("dbo.netsqlazman_DirectCheckAccess", _conn);
-			_cmd.CommandType = CommandType.StoredProcedure;
-			_cmd.Parameters.AddWithValue("@STORENAME", storeName);
-			_cmd.Parameters.AddWithValue("@APPLICATIONNAME", applicationName);
-			_cmd.Parameters.AddWithValue("@ITEMNAME", itemName);
-			_cmd.Parameters.AddWithValue("@OPERATIONSONLY", operationsOnly);
-			_cmd.Parameters.AddWithValue("@TOKEN", _tokenList.ToArray());
-			_cmd.Parameters.AddWithValue("@USERGROUPSCOUNT", (object)userGroupsCount);
-			_cmd.Parameters.AddWithValue("@VALIDFOR", validFor);
-			_cmd.Parameters.AddWithValue("@LDAPPATH", DirectoryServicesUtils.rootDsePath);
-			_cmd.Parameters.AddWithValue("@RETRIEVEATTRIBUTES", retrieveAttributes);
-			System.Data.SqlClient.SqlParameter pAuthorizationType = new System.Data.SqlClient.SqlParameter("@AUTHORIZATION_TYPE", (object)0);
-			pAuthorizationType.Direction = System.Data.ParameterDirection.InputOutput;
-			_cmd.Parameters.Add(pAuthorizationType);
-			//BizRule Check CallBack
-			SqlDataAdapter checkAccessPartialResultsDataAdapter = new SqlDataAdapter(_cmd);
-			try {
-				checkAccessPartialResultsDataAdapter.Fill(_checkAccessResults);
-			}
-			catch (SqlException sqlex) {
-				if (sqlex.Message.StartsWith("Store not found", StringComparison.CurrentCultureIgnoreCase)) {
-					throw SqlAzManException.StoreNotFoundException(storeName, sqlex);
-				}
-				else if (sqlex.Message.StartsWith("Application not found", StringComparison.CurrentCultureIgnoreCase)) {
-					throw SqlAzManException.ApplicationNotFoundException(applicationName, storeName, sqlex);
-				}
-				else if (sqlex.Message.StartsWith("Item not found", StringComparison.CurrentCultureIgnoreCase)) {
-					throw SqlAzManException.ItemNotFoundException(itemName, storeName, applicationName, sqlex);
-				}
-				else {
-					throw SqlAzManException.GenericException(sqlex);
-				}
-			}
-			finally {
-				_conn.Close();
-			}
-			DataTable checkAccessPartialResultsDataTable = _checkAccessResults.Tables[0];
-			DataTable checkAccessAttributesDataTable = (retrieveAttributes ? _checkAccessResults.Tables[1] : new DataTable());
-			AuthorizationType result;
-			if (checkAccessPartialResultsDataTable.Select("BizRuleId IS NOT NULL").Length == 0) {
-				//No business rules to check ... just return check access authorizationType
-				result = (AuthorizationType)((int)pAuthorizationType.Value);
-			}
-			else {
-				//Transform DataRows into a Hierarchical Tree of Node(s)
-				IAzManApplication application = this[storeName][applicationName];
-				ItemNode itemNode = this.buildTreeOfNodes(application, checkAccessPartialResultsDataTable, itemName);
-				//Execute Biz Rules and Cut Nodes that returns false
-				Hashtable ctxParameters = new Hashtable();
-				if (contextParameters != null) {
-					foreach (KeyValuePair<string, object> kv in contextParameters) {
-						ctxParameters.Add(kv.Key, kv.Value);
-					}
-				}
-				//itemNode = this.executeBizRules(itemNode, new SqlAzManSID(windowsIdentity.User), ctxParameters);
-				itemNode = this.executeBizRules(itemNode, new SqlAzManSID(sid), ctxParameters);
-				//Compute final CheckAccess authorizationType
-				result = this.computeCheckAccessResult(itemNode, ref checkAccessAttributesDataTable);
-				if (result == AuthorizationType.Deny || result == AuthorizationType.Neutral) {
-					checkAccessAttributesDataTable = new DataTable(); //no attributes
-				}
-				//else
-				//{
-				//    DataRow[] rowWithBizRules = checkAccessPartialResultsDataTable.Select("ItemId=" + itemNode.azmanItem.ItemId.ToString());
-				//    foreach (DataRow dr in rowWithBizRules)
-				//    {
-				//        dr["AuthorizationType"] = (int)result;
-				//    }
-				//    checkAccessAttributesDataTable.AcceptChanges();
-				//}
-			}
-			//Populate Attributes authorizationType
-			if (retrieveAttributes) {
-				attributes = new List<KeyValuePair<string, string>>(checkAccessAttributesDataTable.Rows.Count);
-				foreach (DataRow dr in checkAccessAttributesDataTable.Rows) {
-					KeyValuePair<string, string> kvp = new KeyValuePair<string, string>((string)dr[0], (string)dr[1]);
-					if (!attributes.Contains(kvp)) {
-						if (dr["ItemId"] == DBNull.Value) {
-							if (result == AuthorizationType.Allow || result == AuthorizationType.AllowWithDelegation)
-								attributes.Add(kvp);
-						}
-						else if (dr["ItemId"] != DBNull.Value) {
-							int itemId = (int)dr["ItemId"];
-							DataRow[] drItems = checkAccessPartialResultsDataTable.Select("ItemId=" + itemId.ToString());
-							if (drItems.Length > 0) {
-								DataRow drItem = drItems[0];
-								AuthorizationType auth = (AuthorizationType)drItem["AuthorizationType"];
-								if (auth == AuthorizationType.Allow || auth == AuthorizationType.AllowWithDelegation) {
-									attributes.Add(kvp);
-								}
-								else if (auth == AuthorizationType.Neutral) {
-									var store = this.Stores[storeName];
-									var application = store.Applications[applicationName];
-									var items = application.Items;
-									var itemValues = items.Values.ToArray();
-									AuthorizationType authParent = this.getParentResult(drItem, checkAccessPartialResultsDataTable, itemValues);
-									if (authParent == AuthorizationType.Allow || authParent == AuthorizationType.AllowWithDelegation) {
-										attributes.Add(kvp);
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-			else {
-				attributes = new List<KeyValuePair<string, string>>();
-			}
-			return result;
-		}
-
-		private AuthorizationType internalCheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string userName, DateTime validFor, bool operationsOnly, bool retrieveAttributes, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters) {
-			IAzManDBUser _azUser;
-			Exception _exce;
-			if (!this.GetLDAPUser(domainProfile, userName, out _azUser, out _exce))
-				throw _exce;
-
-			return internalCheckAccessLDAP(storeName, applicationName, itemName, domainProfile, _azUser.CustomSid.StringValue, _azUser.CustomSid.BinaryValue, validFor, operationsOnly, retrieveAttributes, out attributes, contextParameters);
-		}
-
-		//private AuthorizationType internalCheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string userName, string sid, DateTime validFor, bool operationsOnly, bool retrieveAttributes, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters) {
+		//private AuthorizationType internalCheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string sid, byte[] binarySid, DateTime validFor, bool operationsOnly, bool retrieveAttributes, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters) {
 		//	var _bl = new NetSqlAzMan.CustomBussinessLogic.LdapWebApiBusinessFactory();
-		//	var _asyncResult = Task.Run(() => _bl.SearchEntriesAsyncModeAsync(domainProfile, true, 0, LdapHelperDTO.EntryAttribute.objectSid, sid, LdapHelperDTO.RequiredEntryAttributes.ObjectSidAndSAMAccountName)).Result;
-		//	if (_asyncResult.Entries.Count().Equals(0))
-		//		throw new Exception(string.Format("No se pudo encontrar el objectSid: {0} usando el perfil de dominio {1}.", sid, domainProfile));
-
-		//	var _entry = _asyncResult.Entries.First();
-		//	if (!_entry.samAccountName.Equals(userName, StringComparison.OrdinalIgnoreCase))
-		//		throw new Exception("El nombre de usuario y su Sid no se corresponden.");
+		//	var _entries = Task.Run(() => _bl.SearchGroupMembershipAsync(domainProfile, true, 0, LdapHelperDTO.KeyEntryAttribute.objectSid, sid, LdapHelperDTO.RequiredEntryAttributes.OnlyObjectSid)).Result;
 
 		//	List<byte> _tokenList = new List<byte>();
-
-		//	var _entries = Task.Run(() => _bl.SearchGroupMembershipAsync(domainProfile, true, 0, LdapHelperDTO.KeyEntryAttribute.objectSid, sid, LdapHelperDTO.RequiredEntryAttributes.OnlyObjectSid)).Result;
 
 		//	//El usuario pertenece a grupos
 		//	int userGroupsCount = _entries.Count();
 		//	if (userGroupsCount > 0) {
-		//		_tokenList.AddRange(NetSqlAzMan.ServiceBusinessObjects.AzManItem.GetSqlBinarySid(_entry.objectSidBytes));
+		//		_tokenList.AddRange(NetSqlAzMan.ServiceBusinessObjects.AzManItem.GetSqlBinarySid(binarySid));
 
 		//		foreach (var _groupEntry in _entries) {
 		//			_tokenList.AddRange(NetSqlAzMan.ServiceBusinessObjects.AzManItem.GetSqlBinarySid(_groupEntry.objectSidBytes));
 		//		}
 		//	}
 		//	else {
-		//		_tokenList.AddRange(_entry.objectSidBytes);
+		//		_tokenList.AddRange(binarySid);
 		//	}
 
 		//	SqlConnection _conn = new SqlConnection(this.db.Connection.ConnectionString);
@@ -302,6 +152,156 @@ namespace NetSqlAzMan
 		//	}
 		//	return result;
 		//}
+
+		//private AuthorizationType internalCheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string userName, DateTime validFor, bool operationsOnly, bool retrieveAttributes, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters) {
+		//	IAzManDBUser _azUser;
+		//	Exception _exce;
+		//	if (!this.GetLDAPUser(domainProfile, userName, out _azUser, out _exce))
+		//		throw _exce;
+
+		//	return internalCheckAccessLDAP(storeName, applicationName, itemName, domainProfile, _azUser.CustomSid.StringValue, _azUser.CustomSid.BinaryValue, validFor, operationsOnly, retrieveAttributes, out attributes, contextParameters);
+		//}
+
+		////private AuthorizationType internalCheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string userName, string sid, DateTime validFor, bool operationsOnly, bool retrieveAttributes, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters) {
+		////	var _bl = new NetSqlAzMan.CustomBussinessLogic.LdapWebApiBusinessFactory();
+		////	var _asyncResult = Task.Run(() => _bl.SearchEntriesAsyncModeAsync(domainProfile, true, 0, LdapHelperDTO.EntryAttribute.objectSid, sid, LdapHelperDTO.RequiredEntryAttributes.ObjectSidAndSAMAccountName)).Result;
+		////	if (_asyncResult.Entries.Count().Equals(0))
+		////		throw new Exception(string.Format("No se pudo encontrar el objectSid: {0} usando el perfil de dominio {1}.", sid, domainProfile));
+
+		////	var _entry = _asyncResult.Entries.First();
+		////	if (!_entry.samAccountName.Equals(userName, StringComparison.OrdinalIgnoreCase))
+		////		throw new Exception("El nombre de usuario y su Sid no se corresponden.");
+
+		////	List<byte> _tokenList = new List<byte>();
+
+		////	var _entries = Task.Run(() => _bl.SearchGroupMembershipAsync(domainProfile, true, 0, LdapHelperDTO.KeyEntryAttribute.objectSid, sid, LdapHelperDTO.RequiredEntryAttributes.OnlyObjectSid)).Result;
+
+		////	//El usuario pertenece a grupos
+		////	int userGroupsCount = _entries.Count();
+		////	if (userGroupsCount > 0) {
+		////		_tokenList.AddRange(NetSqlAzMan.ServiceBusinessObjects.AzManItem.GetSqlBinarySid(_entry.objectSidBytes));
+
+		////		foreach (var _groupEntry in _entries) {
+		////			_tokenList.AddRange(NetSqlAzMan.ServiceBusinessObjects.AzManItem.GetSqlBinarySid(_groupEntry.objectSidBytes));
+		////		}
+		////	}
+		////	else {
+		////		_tokenList.AddRange(_entry.objectSidBytes);
+		////	}
+
+		////	SqlConnection _conn = new SqlConnection(this.db.Connection.ConnectionString);
+		////	_conn.Open();
+		////	DataSet _checkAccessResults = new DataSet();
+		////	System.Data.SqlClient.SqlCommand _cmd = new SqlCommand("dbo.netsqlazman_DirectCheckAccess", _conn);
+		////	_cmd.CommandType = CommandType.StoredProcedure;
+		////	_cmd.Parameters.AddWithValue("@STORENAME", storeName);
+		////	_cmd.Parameters.AddWithValue("@APPLICATIONNAME", applicationName);
+		////	_cmd.Parameters.AddWithValue("@ITEMNAME", itemName);
+		////	_cmd.Parameters.AddWithValue("@OPERATIONSONLY", operationsOnly);
+		////	_cmd.Parameters.AddWithValue("@TOKEN", _tokenList.ToArray());
+		////	_cmd.Parameters.AddWithValue("@USERGROUPSCOUNT", (object)userGroupsCount);
+		////	_cmd.Parameters.AddWithValue("@VALIDFOR", validFor);
+		////	_cmd.Parameters.AddWithValue("@LDAPPATH", DirectoryServicesUtils.rootDsePath);
+		////	_cmd.Parameters.AddWithValue("@RETRIEVEATTRIBUTES", retrieveAttributes);
+		////	System.Data.SqlClient.SqlParameter pAuthorizationType = new System.Data.SqlClient.SqlParameter("@AUTHORIZATION_TYPE", (object)0);
+		////	pAuthorizationType.Direction = System.Data.ParameterDirection.InputOutput;
+		////	_cmd.Parameters.Add(pAuthorizationType);
+		////	//BizRule Check CallBack
+		////	SqlDataAdapter checkAccessPartialResultsDataAdapter = new SqlDataAdapter(_cmd);
+		////	try {
+		////		checkAccessPartialResultsDataAdapter.Fill(_checkAccessResults);
+		////	}
+		////	catch (SqlException sqlex) {
+		////		if (sqlex.Message.StartsWith("Store not found", StringComparison.CurrentCultureIgnoreCase)) {
+		////			throw SqlAzManException.StoreNotFoundException(storeName, sqlex);
+		////		}
+		////		else if (sqlex.Message.StartsWith("Application not found", StringComparison.CurrentCultureIgnoreCase)) {
+		////			throw SqlAzManException.ApplicationNotFoundException(applicationName, storeName, sqlex);
+		////		}
+		////		else if (sqlex.Message.StartsWith("Item not found", StringComparison.CurrentCultureIgnoreCase)) {
+		////			throw SqlAzManException.ItemNotFoundException(itemName, storeName, applicationName, sqlex);
+		////		}
+		////		else {
+		////			throw SqlAzManException.GenericException(sqlex);
+		////		}
+		////	}
+		////	finally {
+		////		_conn.Close();
+		////	}
+		////	DataTable checkAccessPartialResultsDataTable = _checkAccessResults.Tables[0];
+		////	DataTable checkAccessAttributesDataTable = (retrieveAttributes ? _checkAccessResults.Tables[1] : new DataTable());
+		////	AuthorizationType result;
+		////	if (checkAccessPartialResultsDataTable.Select("BizRuleId IS NOT NULL").Length == 0) {
+		////		//No business rules to check ... just return check access authorizationType
+		////		result = (AuthorizationType)((int)pAuthorizationType.Value);
+		////	}
+		////	else {
+		////		//Transform DataRows into a Hierarchical Tree of Node(s)
+		////		IAzManApplication application = this[storeName][applicationName];
+		////		ItemNode itemNode = this.buildTreeOfNodes(application, checkAccessPartialResultsDataTable, itemName);
+		////		//Execute Biz Rules and Cut Nodes that returns false
+		////		Hashtable ctxParameters = new Hashtable();
+		////		if (contextParameters != null) {
+		////			foreach (KeyValuePair<string, object> kv in contextParameters) {
+		////				ctxParameters.Add(kv.Key, kv.Value);
+		////			}
+		////		}
+		////		//itemNode = this.executeBizRules(itemNode, new SqlAzManSID(windowsIdentity.User), ctxParameters);
+		////		itemNode = this.executeBizRules(itemNode, new SqlAzManSID(sid), ctxParameters);
+		////		//Compute final CheckAccess authorizationType
+		////		result = this.computeCheckAccessResult(itemNode, ref checkAccessAttributesDataTable);
+		////		if (result == AuthorizationType.Deny || result == AuthorizationType.Neutral) {
+		////			checkAccessAttributesDataTable = new DataTable(); //no attributes
+		////		}
+		////		//else
+		////		//{
+		////		//    DataRow[] rowWithBizRules = checkAccessPartialResultsDataTable.Select("ItemId=" + itemNode.azmanItem.ItemId.ToString());
+		////		//    foreach (DataRow dr in rowWithBizRules)
+		////		//    {
+		////		//        dr["AuthorizationType"] = (int)result;
+		////		//    }
+		////		//    checkAccessAttributesDataTable.AcceptChanges();
+		////		//}
+		////	}
+		////	//Populate Attributes authorizationType
+		////	if (retrieveAttributes) {
+		////		attributes = new List<KeyValuePair<string, string>>(checkAccessAttributesDataTable.Rows.Count);
+		////		foreach (DataRow dr in checkAccessAttributesDataTable.Rows) {
+		////			KeyValuePair<string, string> kvp = new KeyValuePair<string, string>((string)dr[0], (string)dr[1]);
+		////			if (!attributes.Contains(kvp)) {
+		////				if (dr["ItemId"] == DBNull.Value) {
+		////					if (result == AuthorizationType.Allow || result == AuthorizationType.AllowWithDelegation)
+		////						attributes.Add(kvp);
+		////				}
+		////				else if (dr["ItemId"] != DBNull.Value) {
+		////					int itemId = (int)dr["ItemId"];
+		////					DataRow[] drItems = checkAccessPartialResultsDataTable.Select("ItemId=" + itemId.ToString());
+		////					if (drItems.Length > 0) {
+		////						DataRow drItem = drItems[0];
+		////						AuthorizationType auth = (AuthorizationType)drItem["AuthorizationType"];
+		////						if (auth == AuthorizationType.Allow || auth == AuthorizationType.AllowWithDelegation) {
+		////							attributes.Add(kvp);
+		////						}
+		////						else if (auth == AuthorizationType.Neutral) {
+		////							var store = this.Stores[storeName];
+		////							var application = store.Applications[applicationName];
+		////							var items = application.Items;
+		////							var itemValues = items.Values.ToArray();
+		////							AuthorizationType authParent = this.getParentResult(drItem, checkAccessPartialResultsDataTable, itemValues);
+		////							if (authParent == AuthorizationType.Allow || authParent == AuthorizationType.AllowWithDelegation) {
+		////								attributes.Add(kvp);
+		////							}
+		////						}
+		////					}
+		////				}
+		////			}
+		////		}
+		////	}
+		////	else {
+		////		attributes = new List<KeyValuePair<string, string>>();
+		////	}
+		////	return result;
+		////}
 		#endregion
 
 		#region Internal methods
@@ -533,105 +533,105 @@ namespace NetSqlAzMan
 		//}
 
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="domainProfile"></param>
-		/// <param name="userName"></param>
-		/// <param name="password"></param>
-		/// <param name="azManUser"></param>
-		/// <param name="exceptionType"></param>
-		/// <param name="statusMessage"></param>
-		/// <param name="stackTrace"></param>
-		/// <returns></returns>		
-		public IAzManDBUser GetLDAPUserByValidatingPassword(string domainProfile, bool useGC, string userName, string password) {
-			IAzManDBUser _user = null;
+		///// <summary>
+		///// 
+		///// </summary>
+		///// <param name="domainProfile"></param>
+		///// <param name="userName"></param>
+		///// <param name="password"></param>
+		///// <param name="azManUser"></param>
+		///// <param name="exceptionType"></param>
+		///// <param name="statusMessage"></param>
+		///// <param name="stackTrace"></param>
+		///// <returns></returns>		
+		//public IAzManDBUser GetLDAPUserByValidatingPassword(string domainProfile, bool useGC, string userName, string password) {
+		//	IAzManDBUser _user = null;
 
-			if (userName.Contains('*'))
-				throw new InvalidOperationException("El nombre de usuario no puede contener caracteres comodin.");
+		//	if (userName.Contains('*'))
+		//		throw new InvalidOperationException("El nombre de usuario no puede contener caracteres comodin.");
 
-			var _bl = new CustomBussinessLogic.LdapWebApiBusinessFactory();
+		//	var _bl = new CustomBussinessLogic.LdapWebApiBusinessFactory();
 
-			//Autenticar usuario
-			var _authStatus = Task.Run(() => {
-				return _bl.AuthenticateUserAsync(domainProfile, useGC, userName, password);
-			}).Result;
-			if (!_authStatus.IsAuthenticated) {
-				throw NetSqlAzMan.SqlAzManException.AuthenticationException(userName, null);
-			}
+		//	//Autenticar usuario
+		//	var _authStatus = Task.Run(() => {
+		//		return _bl.AuthenticateUserAsync(domainProfile, useGC, userName, password);
+		//	}).Result;
+		//	if (!_authStatus.IsAuthenticated) {
+		//		throw NetSqlAzMan.SqlAzManException.AuthenticationException(userName, null);
+		//	}
 
-			//Obtener datos del usuarios autenticado
-			var _entries = Task.Run(() => {
-				return _bl.SearchEntriesAsyncModeAsync(domainProfile, true, 0, LdapHelperDTO.EntryAttribute.sAMAccountName, userName, LdapHelperDTO.RequiredEntryAttributes.Minimun);
-			}).Result;
-			var _entry = _entries.Entries.First();
+		//	//Obtener datos del usuarios autenticado
+		//	var _entries = Task.Run(() => {
+		//		return _bl.SearchEntriesAsyncModeAsync(domainProfile, true, 0, LdapHelperDTO.EntryAttribute.sAMAccountName, userName, LdapHelperDTO.RequiredEntryAttributes.Minimun);
+		//	}).Result;
+		//	var _entry = _entries.Entries.First();
 
-			//Instanciar objeto
-			_user = new SqlAzManDBUser(true, new SqlAzManSID(_entry.objectSid), _entry.DomainProfile, _entry.samAccountName, _entry.displayName, new Dictionary<string, object>());
+		//	//Instanciar objeto
+		//	_user = new SqlAzManDBUser(true, new SqlAzManSID(_entry.objectSid), _entry.DomainProfile, _entry.samAccountName, _entry.displayName, new Dictionary<string, object>());
 
-			return _user;
-		}
+		//	return _user;
+		//}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="domainProfile"></param>
-		/// <param name="userName"></param>
-		/// <param name="azManUser"></param>
-		/// <param name="hex"></param>
-		/// <returns></returns>
-		//public bool GetLDAPUser(string domainProfile, string userName, out IAzManDBUser azManUser, out string exceptionType, out string statusMessage, out string stackTrace) {
-		public bool GetLDAPUser(string domainProfile, string userName, out IAzManDBUser azManUser, out Exception hex) {
-			azManUser = null;
-			hex = null;
+		///// <summary>
+		///// 
+		///// </summary>
+		///// <param name="domainProfile"></param>
+		///// <param name="userName"></param>
+		///// <param name="azManUser"></param>
+		///// <param name="hex"></param>
+		///// <returns></returns>
+		////public bool GetLDAPUser(string domainProfile, string userName, out IAzManDBUser azManUser, out string exceptionType, out string statusMessage, out string stackTrace) {
+		//public bool GetLDAPUser(string domainProfile, string userName, out IAzManDBUser azManUser, out Exception hex) {
+		//	azManUser = null;
+		//	hex = null;
 
-			try {
-				if (userName.Contains('*'))
-					throw new InvalidOperationException("El nombre de usuario no puede contener caracteres comodines.");
+		//	try {
+		//		if (userName.Contains('*'))
+		//			throw new InvalidOperationException("El nombre de usuario no puede contener caracteres comodines.");
 
-				LdapHelperDTO.AsyncResult _asyncResult = null;
-				#region Call Custom Logic
-				var _bl = new CustomBussinessLogic.LdapWebApiBusinessFactory();
-				_asyncResult = Task.Run(() => _bl.SearchEntriesAsyncModeAsync(domainProfile, true, 0, LdapHelperDTO.EntryAttribute.sAMAccountName, userName, LdapHelperDTO.RequiredEntryAttributes.Minimun)).Result;
-				#endregion
+		//		LdapHelperDTO.AsyncResult _asyncResult = null;
+		//		#region Call Custom Logic
+		//		var _bl = new CustomBussinessLogic.LdapWebApiBusinessFactory();
+		//		_asyncResult = Task.Run(() => _bl.SearchEntriesAsyncModeAsync(domainProfile, true, 0, LdapHelperDTO.EntryAttribute.sAMAccountName, userName, LdapHelperDTO.RequiredEntryAttributes.Minimun)).Result;
+		//		#endregion
 
-				if (_asyncResult.Entries.Count().Equals(0))
-					throw new ActiveDirectoryObjectNotFoundException(string.Format("No se encontró alguna entrada con el atributo {0}: {1}", LdapHelperDTO.EntryAttribute.sAMAccountName.ToString(), userName));
+		//		if (_asyncResult.Entries.Count().Equals(0))
+		//			throw new ActiveDirectoryObjectNotFoundException(string.Format("No se encontró alguna entrada con el atributo {0}: {1}", LdapHelperDTO.EntryAttribute.sAMAccountName.ToString(), userName));
 
-				if (_asyncResult.Entries.Count() > 1)
-					throw new ActiveDirectoryObjectNotFoundException("No se pudo obtener información especifica del usuario en el dominio. Se obtuvieron múltiples resultados.");
+		//		if (_asyncResult.Entries.Count() > 1)
+		//			throw new ActiveDirectoryObjectNotFoundException("No se pudo obtener información especifica del usuario en el dominio. Se obtuvieron múltiples resultados.");
 
-				var _entry = _asyncResult.Entries.First();
-				azManUser = new SqlAzManDBUser(true, new SqlAzManSID(_entry.objectSid), _entry.DomainProfile, _entry.samAccountName, _entry.displayName, new Dictionary<string, object>());
+		//		var _entry = _asyncResult.Entries.First();
+		//		azManUser = new SqlAzManDBUser(true, new SqlAzManSID(_entry.objectSid), _entry.DomainProfile, _entry.samAccountName, _entry.displayName, new Dictionary<string, object>());
 
-				return true;
-			}
-			catch (Exception ex) {
-				//exceptionType = ex.GetType().FullName;
-				//statusMessage = ex.Message;
-				//stackTrace = ex.StackTrace;
-				hex = ex;
-				return false;
-			}
-		}
+		//		return true;
+		//	}
+		//	catch (Exception ex) {
+		//		//exceptionType = ex.GetType().FullName;
+		//		//statusMessage = ex.Message;
+		//		//stackTrace = ex.StackTrace;
+		//		hex = ex;
+		//		return false;
+		//	}
+		//}
 
-		public AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string userName, DateTime validFor, bool operationsOnly, params KeyValuePair<string, object>[] contextParameters) {
-			List<KeyValuePair<string, string>> attributes;
-			return this.internalCheckAccessLDAP(storeName, applicationName, itemName, domainProfile, userName, validFor, operationsOnly, false, out attributes, contextParameters);
-		}
+		//public AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string userName, DateTime validFor, bool operationsOnly, params KeyValuePair<string, object>[] contextParameters) {
+		//	List<KeyValuePair<string, string>> attributes;
+		//	return this.internalCheckAccessLDAP(storeName, applicationName, itemName, domainProfile, userName, validFor, operationsOnly, false, out attributes, contextParameters);
+		//}
 
-		public AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string userName, DateTime validFor, bool operationsOnly, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters) {
-			return this.internalCheckAccessLDAP(storeName, applicationName, itemName, domainProfile, userName, validFor, operationsOnly, true, out attributes, contextParameters);
-		}
+		//public AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string userName, DateTime validFor, bool operationsOnly, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters) {
+		//	return this.internalCheckAccessLDAP(storeName, applicationName, itemName, domainProfile, userName, validFor, operationsOnly, true, out attributes, contextParameters);
+		//}
 
-		public AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string sid, byte[] binarySid, DateTime validFor, bool operationsOnly, params KeyValuePair<string, object>[] contextParameters) {
-			List<KeyValuePair<string, string>> attributes;
-			return this.internalCheckAccessLDAP(storeName, applicationName, itemName, domainProfile, sid, binarySid, validFor, operationsOnly, false, out attributes, contextParameters);
-		}
+		//public AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string sid, byte[] binarySid, DateTime validFor, bool operationsOnly, params KeyValuePair<string, object>[] contextParameters) {
+		//	List<KeyValuePair<string, string>> attributes;
+		//	return this.internalCheckAccessLDAP(storeName, applicationName, itemName, domainProfile, sid, binarySid, validFor, operationsOnly, false, out attributes, contextParameters);
+		//}
 
-		public AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string sid, byte[] binarySid, DateTime validFor, bool operationsOnly, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters) {
-			return this.internalCheckAccessLDAP(storeName, applicationName, itemName, domainProfile, sid, binarySid, validFor, operationsOnly, true, out attributes, contextParameters);
-		}
+		//public AuthorizationType CheckAccessLDAP(string storeName, string applicationName, string itemName, string domainProfile, string sid, byte[] binarySid, DateTime validFor, bool operationsOnly, out List<KeyValuePair<string, string>> attributes, params KeyValuePair<string, object>[] contextParameters) {
+		//	return this.internalCheckAccessLDAP(storeName, applicationName, itemName, domainProfile, sid, binarySid, validFor, operationsOnly, true, out attributes, contextParameters);
+		//}
 
 		public ServiceBusinessObjects.AzManStorage GetAzManStorageDTO() {
 			return new ServiceBusinessObjects.AzManStorage() {
@@ -713,25 +713,25 @@ namespace NetSqlAzMan
 			foreach (var item in allItems) {
 				List<KeyValuePair<string, string>> attributes;
 				AuthorizationType auth;
-				if (!user.IsLdapEntry) {
-					auth = this.internalCheckAccess(store.Name, application.Name, item.Name, user, validFor, false, true, out attributes, contextParameters);
-					result.Add(new NetSqlAzMan.Cache.AuthorizedItem() {
+				//if (!user.IsLdapEntry) {
+				auth = this.internalCheckAccess(store.Name, application.Name, item.Name, user, validFor, false, true, out attributes, contextParameters);
+				result.Add(new NetSqlAzMan.Cache.AuthorizedItem() {
 						Name = item.Name,
 						Authorization = auth,
 						Type = item.ItemType,
 						Attributes = attributes
 					});
-				}
-				else {
-					//auth = this.internalCheckAccessLDAP(store.Name, application.Name, item.Name, user.LdapProfileId, user.UserName, user.CustomSid.StringValue, validFor, false, true, out attributes, contextParameters);
-					auth = this.internalCheckAccessLDAP(store.Name, application.Name, item.Name, user.DomainProfile, user.CustomSid.StringValue, user.CustomSid.BinaryValue, validFor, false, true, out attributes, contextParameters);
-					result.Add(new NetSqlAzMan.Cache.AuthorizedItem() {
-						Name = item.Name,
-						Authorization = auth,
-						Type = item.ItemType,
-						Attributes = attributes
-					});
-				}
+				//}
+				//else {
+				//	//auth = this.internalCheckAccessLDAP(store.Name, application.Name, item.Name, user.LdapProfileId, user.UserName, user.CustomSid.StringValue, validFor, false, true, out attributes, contextParameters);
+				//	auth = this.internalCheckAccessLDAP(store.Name, application.Name, item.Name, user.DomainProfile, user.CustomSid.StringValue, user.CustomSid.BinaryValue, validFor, false, true, out attributes, contextParameters);
+				//	result.Add(new NetSqlAzMan.Cache.AuthorizedItem() {
+				//		Name = item.Name,
+				//		Authorization = auth,
+				//		Type = item.ItemType,
+				//		Attributes = attributes
+				//	});
+				//}
 			}
 
 			return result.ToArray();

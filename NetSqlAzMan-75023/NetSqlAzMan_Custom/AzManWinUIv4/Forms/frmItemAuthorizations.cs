@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AzManWinUI;
 using NetSqlAzMan.Interfaces;
 using NetSqlAzMan.SnapIn.DirectoryServices;
 using NetSqlAzMan.SnapIn.DirectoryServices.ADObjectPicker;

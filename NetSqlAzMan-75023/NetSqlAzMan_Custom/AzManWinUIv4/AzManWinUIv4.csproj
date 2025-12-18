@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AzManWinUI</RootNamespace>
     <AssemblyName>AzManWinUIv4</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -119,85 +119,88 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Basgosoft.Configuration, Version=1.0.0.25379, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\_bin\Basgosoft.Configuration.dll</HintPath>
+    <Reference Include="Basgosoft.Configuration">
+      <HintPath>..\..\..\_bin\Basgosoft.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="Basgosoft.Data.Factory">
-      <HintPath>..\..\..\..\_bin\Basgosoft.Data.Factory.dll</HintPath>
+      <HintPath>..\..\..\_bin\Basgosoft.Data.Factory.dll</HintPath>
     </Reference>
-    <Reference Include="Basgosoft.Data.Factory.DescendantFactory, Version=1.0.2.30212, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\_bin\Basgosoft.Data.Factory.DescendantFactory.dll</HintPath>
+    <Reference Include="Basgosoft.Data.Factory.DescendantFactory">
+      <HintPath>..\..\..\_bin\Basgosoft.Data.Factory.DescendantFactory.dll</HintPath>
     </Reference>
     <Reference Include="Basgosoft.Environment.Configuration">
-      <HintPath>..\..\..\..\_bin\Basgosoft.Environment.Configuration.dll</HintPath>
+      <HintPath>..\..\..\_bin\Basgosoft.Environment.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Basgosoft.ManagementConsoleLib, Version=1.0.7011.42557, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\_bin\Basgosoft.ManagementConsoleLib.dll</HintPath>
+    <Reference Include="Basgosoft.ManagementConsoleLib">
+      <HintPath>..\..\..\_bin\Basgosoft.ManagementConsoleLib.dll</HintPath>
     </Reference>
     <Reference Include="Basgosoft.Reflection">
-      <HintPath>..\..\..\..\_bin\Basgosoft.Reflection.dll</HintPath>
-    </Reference>
-    <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Unity.5.8.6\lib\net45\CommonServiceLocator.dll</HintPath>
+      <HintPath>..\..\..\_bin\Basgosoft.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.4.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libs\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetZip, Version=1.11.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DotNetZip.1.11.0\lib\net20\DotNetZip.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="ExceptionReporter.NET, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ExceptionReporter.2.3.0\lib\net40\ExceptionReporter.NET.dll</HintPath>
     </Reference>
     <Reference Include="Interop.ActiveDs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa06657db59055d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\..\_bin\Interop.ActiveDs.dll</HintPath>
     </Reference>
-    <Reference Include="LDAPHelperDTO, Version=1.1.2.1234, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\_bin\LDAPHelperDTO.dll</HintPath>
+    <Reference Include="LdapHelperDTO">
+      <HintPath>..\..\..\_bin\LDAPHelperDTO\Release\netstandard2.0\LdapHelperDTO.dll</HintPath>
     </Reference>
     <Reference Include="microsoft.managementconsole">
       <HintPath>..\..\..\..\Archivos de programa\Reference Assemblies\Microsoft\mmc\v3.0\microsoft.managementconsole.dll</HintPath>
     </Reference>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\..\NetSqlAzMan-ServiceExtensions\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleMapi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Simple-MAPI.NET.1.1.0\lib\net20\SimpleMapi.dll</HintPath>
+    <Reference Include="Newtonsoft.Json.Bson, Version=1.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.Bson.1.0.2\lib\net45\Newtonsoft.Json.Bson.dll</HintPath>
     </Reference>
     <Reference Include="SqlAudit">
       <HintPath>Libraries\SqlAudit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    <Reference Include="System.Net.Http.Formatting, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.6.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -207,26 +210,8 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Unity.Abstractions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Unity.5.8.6\lib\net45\Unity.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Configuration, Version=5.2.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Unity.5.8.6\lib\net45\Unity.Configuration.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Container, Version=5.8.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Unity.5.8.6\lib\net45\Unity.Container.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Interception, Version=5.5.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Unity.Interception.5.5.3\lib\net45\Unity.Interception.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Interception.Configuration, Version=5.1.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Unity.5.8.6\lib\net45\Unity.Interception.Configuration.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RegistrationByConvention, Version=2.1.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Unity.5.8.6\lib\net45\Unity.RegistrationByConvention.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ServiceLocation, Version=2.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Unity.5.8.6\lib\net45\Unity.ServiceLocation.dll</HintPath>
+    <Reference Include="WebApiStandard.WebApiCommon">
+      <HintPath>..\..\..\_bin\WebApiStandard.WebApiCommon.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -236,6 +221,26 @@
     <Compile Include="AppUI.Designer.cs">
       <DependentUpon>AppUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="AzManWebApiClientHelpers\AzManApplicationGroupMembersHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\AzManApplicationGroupsHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\AzManApplicationsHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\AzManAuthorizationsHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\AzManDBUsersHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\AzManItemsHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\AzManStorageAuthorizationsHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\AzManStorageHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\AzManStoreGroupMembersHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\AzManStoreGroupsHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\AzManStoresHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\BaseHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\BranchOfficesHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\DBUsersHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\DepartmentsHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\Global.cs" />
+    <Compile Include="AzManWebApiClientHelpers\LDAPConfigHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\LdapWebApiDomainProfilesHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\LdapWebApiServerBaseDNsHelper.cs" />
+    <Compile Include="AzManWebApiClientHelpers\LdapWebApiUsersHelper.cs" />
     <Compile Include="ChangePwdUI.cs">
       <SubType>Form</SubType>
     </Compile>

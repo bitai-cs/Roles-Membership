@@ -7,7 +7,7 @@ using NetSqlAzMan.LINQ;
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NetSqlAzMan.Extensions;
+//using NetSqlAzMan.Extensions;
 
 namespace NetSqlAzMan
 {
@@ -124,52 +124,52 @@ namespace NetSqlAzMan
 					case WhereDefined.Application:
 						displayName = this.applicationGroup.Application.GetApplicationGroup(this.sid).Name;
 						return MemberType.ApplicationGroup;
-					case WhereDefined.LDAP:
-						#region ***PERSONALIZADO***
-						if (!string.IsNullOrEmpty(this.DomainProfile)) {
-							LdapHelperDTO.AsyncResult _asynResult = null;
-							var _bl = new CustomBussinessLogic.LdapWebApiBusinessFactory();
-							try {
-								//Call Custom Logic
-								_asynResult = Task.Run(() => _bl.SearchEntriesAsyncModeAsync(this.DomainProfile, true, 0, LdapHelperDTO.EntryAttribute.objectSid, this.SID.StringValue, LdapHelperDTO.RequiredEntryAttributes.Minimun)).Result;
-								//Evaluar resultados descargados
-								if (_asynResult.Entries.Count().Equals(1)) {
-									var _entry = _asynResult.Entries.First();
-									if (!string.IsNullOrEmpty(_entry.displayName))
-										displayName = string.Format("{0} ({1}\\{2})", _entry.displayName, _entry.DomainProfile, _entry.samAccountName);
-									else if (!string.IsNullOrEmpty(_entry.cn))
-										displayName = string.Format("{0} ({1}\\{2})", _entry.cn, _entry.DomainProfile, _entry.samAccountName);
-									else
-										displayName = string.Format("{0}\\{1}", _entry.DomainProfile, _entry.samAccountName);
+					//case WhereDefined.LDAP:
+					//	#region ***PERSONALIZADO***
+					//	if (!string.IsNullOrEmpty(this.DomainProfile)) {
+					//		LdapHelperDTO.AsyncResult _asynResult = null;
+					//		var _bl = new CustomBussinessLogic.LdapWebApiBusinessFactory();
+					//		try {
+					//			//Call Custom Logic
+					//			_asynResult = Task.Run(() => _bl.SearchEntriesAsyncModeAsync(this.DomainProfile, true, 0, LdapHelperDTO.EntryAttribute.objectSid, this.SID.StringValue, LdapHelperDTO.RequiredEntryAttributes.Minimun)).Result;
+					//			//Evaluar resultados descargados
+					//			if (_asynResult.Entries.Count().Equals(1)) {
+					//				var _entry = _asynResult.Entries.First();
+					//				if (!string.IsNullOrEmpty(_entry.displayName))
+					//					displayName = string.Format("{0} ({1}\\{2})", _entry.displayName, _entry.DomainProfile, _entry.samAccountName);
+					//				else if (!string.IsNullOrEmpty(_entry.cn))
+					//					displayName = string.Format("{0} ({1}\\{2})", _entry.cn, _entry.DomainProfile, _entry.samAccountName);
+					//				else
+					//					displayName = string.Format("{0}\\{1}", _entry.DomainProfile, _entry.samAccountName);
 
-									return _entry.GetIsGroupByObjectClass() ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
-								}
-								else {
-									displayName = string.Format("{0} {1}\\{2}", "NO IDENTIFICADO!", this.DomainProfile, this.SID.StringValue);
+					//				return _entry.GetIsGroupByObjectClass() ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
+					//			}
+					//			else {
+					//				displayName = string.Format("{0} {1}\\{2}", "NO IDENTIFICADO!", this.DomainProfile, this.SID.StringValue);
 
-									return MemberType.AnonymousSID;
-								}
-							}
-							catch (Exception ex) {
-								displayName = string.Format("{0} {1}\\{2} [3]", "ERROR!", this.DomainProfile, this.SID.StringValue, ex.GetType().Name);
+					//				return MemberType.AnonymousSID;
+					//			}
+					//		}
+					//		catch (Exception ex) {
+					//			displayName = string.Format("{0} {1}\\{2} [3]", "ERROR!", this.DomainProfile, this.SID.StringValue, ex.GetType().Name);
 
-								return MemberType.AnonymousSID;
-							}
-						}
-						else {
-							////Ya no se admite usuarios agregados desde el componente 
-							////selector de Windows. Todos los usuarios LDAP deben provenir desde el 
-							////servicio Web Api Ldap
-							//bool isAnLdapGroup;
-							//bool isLocal;
-							//DirectoryServices.DirectoryServicesUtils.GetMemberInfo(this.sid.StringValue, out displayName, out isAnLdapGroup, out isLocal);
-							//return isAnLdapGroup ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
+					//			return MemberType.AnonymousSID;
+					//		}
+					//	}
+					//	else {
+					//		////Ya no se admite usuarios agregados desde el componente 
+					//		////selector de Windows. Todos los usuarios LDAP deben provenir desde el 
+					//		////servicio Web Api Ldap
+					//		//bool isAnLdapGroup;
+					//		//bool isLocal;
+					//		//DirectoryServices.DirectoryServicesUtils.GetMemberInfo(this.sid.StringValue, out displayName, out isAnLdapGroup, out isLocal);
+					//		//return isAnLdapGroup ? MemberType.WindowsNTGroup : MemberType.WindowsNTUser;
 
-							displayName = string.Format("{0} {1}", "NO SOPORTADO!", this.SID.StringValue);
+					//		displayName = string.Format("{0} {1}", "NO SOPORTADO!", this.SID.StringValue);
 
-							return MemberType.AnonymousSID;
-						}
-					#endregion
+					//		return MemberType.AnonymousSID;
+					//	}
+					//#endregion
 					case WhereDefined.Local:
 						bool isALocalGroup;
 						bool isLocal2;

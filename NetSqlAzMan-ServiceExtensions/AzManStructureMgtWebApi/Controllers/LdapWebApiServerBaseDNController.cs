@@ -14,10 +14,10 @@ namespace AzManStructureMgtWebApi.Controllers
 		[HttpGet]
 		[ResponseType(typeof(IEnumerable<NetSqlAzMan.ServiceBusinessObjects.LdapServerBaseDN>))]
 		public async Task<IHttpActionResult> GetByDomainProfileAndWideScopeBaseDNStatusAsync(string domainProfile, bool wideScopeBaseDN) {
-			var _bol = new NetSqlAzMan.CustomBussinessLogic.LdapWacServerBaseDNBusinessFactory();
-			var _return = await Task.Run(() => _bol.GetLdapServerBaseDNByDomainProfileAndWideScopeStatusAsync(domainProfile, wideScopeBaseDN));
-
-			return this.Ok(_return);
+            throw new InvalidOperationException("Review next lines of code...");
+			//var _bol = new NetSqlAzMan.CustomBussinessLogic.LdapWacServerBaseDNBusinessFactory();
+			//var _return = await Task.Run(() => _bol.GetLdapServerBaseDNByDomainProfileAndWideScopeStatusAsync(domainProfile, wideScopeBaseDN));
+			//return this.Ok(_return);
 		}
 	}
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using AzManWinUI;
 
 namespace NetSqlAzMan.SnapIn.Forms
 {

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetSqlAzMan.Interfaces;
+using AzManWinUI;
 
 namespace NetSqlAzMan.SnapIn.Forms {
 	public partial class frmApplicationGroupsList : frmBase {

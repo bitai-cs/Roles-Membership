@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Basgosoft.Data.Sql.AdvancedHelper
+</name>
+</assembly>
+<members>
+<member name="T:Basgosoft.Data.Sql.AdvancedHelper">
+ <summary>
+ Clase que encapsula el acceso a los datos en un servidor de datos
+ SQL Server
+ </summary>
+ <remarks>Se usa el proveedor nativo para SQL Server</remarks>
+</member>
+</members>
+</doc>

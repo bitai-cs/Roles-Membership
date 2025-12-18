@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NetSqlAzMan.CustomBussinessLogic</RootNamespace>
     <AssemblyName>NetSqlAzMan.CustomBussinessLogic</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -71,22 +72,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="LdapWacDomainProfileBusinessFactory.cs" />
-    <Compile Include="LdapWacServerBaseDNBusinessFactory.cs" />
-    <Compile Include="LdapWebApiClientHelpers\LdapAuthenticationHelper.cs" />
-    <Compile Include="LdapWebApiClientHelpers\LdapEntryHelper.cs" />
-    <Compile Include="LdapWebApiClientHelpers\LdapGroupMembershipHelper.cs" />
-    <Compile Include="LdapWebApiBusinessFactory.cs" />
-    <Compile Include="LDAPWebSvcBusinessFactory.cs" />
     <Compile Include="BranchOfficeBusinessFactory.cs" />
     <Compile Include="DBUserBusinessFactory.cs" />
     <Compile Include="DepartmentBusinessFactory.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="PasswordHasher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="LdapWebApiClientHelpers\BaseHelper.cs" />
-    <Compile Include="LdapWebApiClientHelpers\Global.cs" />
-    <Compile Include="LdapWebApiClientHelpers\LdapUserAndGroupHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\NetSqlAzMan-ServiceExtensions\NetSqlAzMan.ServiceBusinessObjects\NetSqlAzMan.ServiceBusinessObjects.csproj">
@@ -181,7 +172,9 @@
     </None>
     <Content Include="Docs\ConcurrencySqlTrace\Trace.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="LdapWebApiClientHelpers\" />
+  </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>

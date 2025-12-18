@@ -18,7 +18,7 @@ namespace NetSqlAzMan.CustomDataLayer.EF
         public identity_User()
         {
             this.identity_UserValidationRequest = new HashSet<identity_UserValidationRequest>();
-            this.identity_UserBranchOffice = new HashSet<Identity_UserBranchOffice>();
+            this.identity_UserBranchOffice = new HashSet<identity_UserBranchOffice>();
         }
     
         public int UserID { get; set; }
@@ -36,7 +36,7 @@ namespace NetSqlAzMan.CustomDataLayer.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<identity_UserValidationRequest> identity_UserValidationRequest { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Identity_UserBranchOffice> identity_UserBranchOffice { get; set; }
+        public virtual ICollection<identity_UserBranchOffice> identity_UserBranchOffice { get; set; }
         public virtual identity_Department identity_Department { get; set; }
     }
 }

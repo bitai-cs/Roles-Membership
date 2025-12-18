@@ -22,7 +22,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -101,7 +101,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LDAPHelperDTO">
-      <HintPath>..\..\..\..\LDAPServices\LDAPHelperDTO\bin\Debug\netstandard2.0\LDAPHelperDTO.dll</HintPath>
+      <HintPath>..\..\..\_bin\LDAPHelperDTO.dll</HintPath>
     </Reference>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -140,7 +140,6 @@
     <Compile Include="BizRuleSourceLanguage.cs" />
     <Compile Include="Cache\AuthorizedItem.cs" />
     <Compile Include="Cache\DBUser.cs" />
-    <Compile Include="Extensions\LdapEntryExtensions.cs" />
     <Compile Include="Interfaces\IAzManApplicationGroup_Custom.cs" />
     <Compile Include="Interfaces\IAzManApplicationGroupMember_Custom.cs" />
     <Compile Include="Interfaces\IAzManAuthorization_Custom.cs" />
@@ -342,6 +341,9 @@
       <Project>{898cbdae-617f-4eab-95b2-592443acbcf4}</Project>
       <Name>NetSqlAzMan.CustomBussinessLogic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

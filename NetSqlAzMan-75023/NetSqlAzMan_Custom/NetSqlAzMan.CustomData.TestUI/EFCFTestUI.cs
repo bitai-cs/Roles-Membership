@@ -60,7 +60,7 @@ namespace NetSqlAzMan.CustomDataLayer.TestUI
 		}
 
 		private async void button1_Click(object sender, EventArgs e) {
-			CustomDataLayer.EF.Identity_UserBranchOffice _dal = new Identity_UserBranchOffice();
+			CustomDataLayer.EF.identity_UserBranchOffice _dal = new identity_UserBranchOffice();
 			var _cm = _dal.GetConnectionManager(true);
 			var _created = await _dal.InsertAsync(2342, 55.ToString(), _cm);
 			System.Diagnostics.Debugger.Break();

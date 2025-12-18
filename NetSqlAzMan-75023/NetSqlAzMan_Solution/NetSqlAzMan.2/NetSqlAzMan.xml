@@ -1303,29 +1303,6 @@
             Interfaces interface for all AzMan Storage
             </summary>
         </member>
-        <member name="M:NetSqlAzMan.Interfaces.IAzManStorage.GetLDAPUserByValidatingPassword(System.String,System.Boolean,System.String,System.String)">
-            <summary>
-            Get DS user by aunthenticaring. 
-            </summary>
-            <param name="ldapDomain"></param>
-            <param name="userName"></param>
-            <param name="password"></param>
-            <param name="azManUser"></param>
-            <param name="exceptionType"></param>
-            <param name="statusMessage"></param>
-            <param name="stackTrace"></param>
-            <returns></returns>
-        </member>
-        <member name="M:NetSqlAzMan.Interfaces.IAzManStorage.GetLDAPUser(System.String,System.String,NetSqlAzMan.Interfaces.IAzManDBUser@,System.Exception@)">
-            <summary>
-            
-            </summary>
-            <param name="ldapDomain"></param>
-            <param name="userName"></param>
-            <param name="azManUser"></param>
-            <param name="hex"></param>
-            <returns></returns>
-        </member>
         <member name="M:NetSqlAzMan.Interfaces.IAzManStorage.OpenConnection">
             <summary>
             Opens the connection.
@@ -5219,29 +5196,6 @@
             <summary>
             Gets the DB users.
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:NetSqlAzMan.SqlAzManStorage.GetLDAPUserByValidatingPassword(System.String,System.Boolean,System.String,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="domainProfile"></param>
-            <param name="userName"></param>
-            <param name="password"></param>
-            <param name="azManUser"></param>
-            <param name="exceptionType"></param>
-            <param name="statusMessage"></param>
-            <param name="stackTrace"></param>
-            <returns></returns>		
-        </member>
-        <member name="M:NetSqlAzMan.SqlAzManStorage.GetLDAPUser(System.String,System.String,NetSqlAzMan.Interfaces.IAzManDBUser@,System.Exception@)">
-            <summary>
-            
-            </summary>
-            <param name="domainProfile"></param>
-            <param name="userName"></param>
-            <param name="azManUser"></param>
-            <param name="hex"></param>
             <returns></returns>
         </member>
         <member name="M:NetSqlAzMan.SqlAzManStorage.GetAuthorizedItems(System.String,System.String,NetSqlAzMan.Interfaces.IAzManDBUser,System.DateTime,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">

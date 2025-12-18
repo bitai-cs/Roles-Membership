@@ -48,11 +48,11 @@ namespace AzManStructureMgtWebApi.Controllers
 				_auth = await Task.Run(() => _storage.CheckAccess(store, application, item, _azUser, validFor.Value, operationsOnly.Value, out _attributes, _dict?.ToArray()));
 			} //"domainProfile" asignado, se evaluará un usuario en el servicio LDAP relacionado.
 			else {
-				var _status = await Task.Run(() => _storage.GetLDAPUser(domainProfile, userName, out _azUser, out _exce));
-				if (!_status)
-					throw _exce;
-
-				_auth = _storage.CheckAccessLDAP(store, application, item, domainProfile, _azUser.CustomSid.StringValue, _azUser.CustomSid.BinaryValue, validFor.Value, operationsOnly.Value, out _attributes, _dict?.ToArray());
+                throw new InvalidOperationException("Review next lines of code...");
+				//var _status = await Task.Run(() => _storage.GetLDAPUser(domainProfile, userName, out _azUser, out _exce));
+				//if (!_status)
+				//	throw _exce;
+				//_auth = _storage.CheckAccessLDAP(store, application, item, domainProfile, _azUser.CustomSid.StringValue, _azUser.CustomSid.BinaryValue, validFor.Value, operationsOnly.Value, out _attributes, _dict?.ToArray());
 			}
 
 			switch (_auth) {

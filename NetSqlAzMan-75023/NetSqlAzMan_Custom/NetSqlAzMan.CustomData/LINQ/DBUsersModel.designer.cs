@@ -9,7 +9,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NetSqlAzMan.CustomDataLayer.LINQ {
+namespace NetSqlAzMan.CustomDataLayer.LINQ
+{
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
 	using System.Data;
@@ -19,151 +20,171 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-
-
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name = "AzManLdap")]
-	public partial class DBUsersModelDataContext : System.Data.Linq.DataContext {
-
+	
+	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="AzManLdap")]
+	public partial class DBUsersModelDataContext : System.Data.Linq.DataContext
+	{
+		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
-
-		#region Extensibility Method Definitions
-		partial void OnCreated();
-		partial void Insertidentity_User(identity_User instance);
-		partial void Updateidentity_User(identity_User instance);
-		partial void Deleteidentity_User(identity_User instance);
-		partial void Insertidentity_UserBranchOffice(identity_UserBranchOffice instance);
-		partial void Updateidentity_UserBranchOffice(identity_UserBranchOffice instance);
-		partial void Deleteidentity_UserBranchOffice(identity_UserBranchOffice instance);
-		partial void Insertidentity_Department(identity_Department instance);
-		partial void Updateidentity_Department(identity_Department instance);
-		partial void Deleteidentity_Department(identity_Department instance);
-		partial void Insertidentity_BranchOffice(identity_BranchOffice instance);
-		partial void Updateidentity_BranchOffice(identity_BranchOffice instance);
-		partial void Deleteidentity_BranchOffice(identity_BranchOffice instance);
-		#endregion
-
-		public DBUsersModelDataContext() :
-				base("data source=.\\SQL2K14;initial catalog=AzMan_MS_CI_AI;user id=secman;password=secman;", mappingSource) {
+		
+    #region Extensibility Method Definitions
+    partial void OnCreated();
+    partial void Insertidentity_User(identity_User instance);
+    partial void Updateidentity_User(identity_User instance);
+    partial void Deleteidentity_User(identity_User instance);
+    partial void Insertidentity_UserBranchOffice(identity_UserBranchOffice instance);
+    partial void Updateidentity_UserBranchOffice(identity_UserBranchOffice instance);
+    partial void Deleteidentity_UserBranchOffice(identity_UserBranchOffice instance);
+    partial void Insertidentity_Department(identity_Department instance);
+    partial void Updateidentity_Department(identity_Department instance);
+    partial void Deleteidentity_Department(identity_Department instance);
+    partial void Insertidentity_BranchOffice(identity_BranchOffice instance);
+    partial void Updateidentity_BranchOffice(identity_BranchOffice instance);
+    partial void Deleteidentity_BranchOffice(identity_BranchOffice instance);
+    #endregion
+		
+		public DBUsersModelDataContext() : 
+				base(global::NetSqlAzMan.CustomDataLayer.Properties.Settings.Default.AzManLdapConnectionString, mappingSource)
+		{
 			OnCreated();
 		}
-
-		public DBUsersModelDataContext(string connection) :
-				base(connection, mappingSource) {
+		
+		public DBUsersModelDataContext(string connection) : 
+				base(connection, mappingSource)
+		{
 			OnCreated();
 		}
-
-		public DBUsersModelDataContext(System.Data.IDbConnection connection) :
-				base(connection, mappingSource) {
+		
+		public DBUsersModelDataContext(System.Data.IDbConnection connection) : 
+				base(connection, mappingSource)
+		{
 			OnCreated();
 		}
-
-		public DBUsersModelDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) :
-				base(connection, mappingSource) {
+		
+		public DBUsersModelDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+				base(connection, mappingSource)
+		{
 			OnCreated();
 		}
-
-		public DBUsersModelDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) :
-				base(connection, mappingSource) {
+		
+		public DBUsersModelDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+				base(connection, mappingSource)
+		{
 			OnCreated();
 		}
-
-		public System.Data.Linq.Table<identity_User> identity_Users {
-			get {
+		
+		public System.Data.Linq.Table<identity_User> identity_Users
+		{
+			get
+			{
 				return this.GetTable<identity_User>();
 			}
 		}
-
-		public System.Data.Linq.Table<identity_UserBranchOffice> identity_UserBranchOffices {
-			get {
+		
+		public System.Data.Linq.Table<identity_UserBranchOffice> identity_UserBranchOffices
+		{
+			get
+			{
 				return this.GetTable<identity_UserBranchOffice>();
 			}
 		}
-
-		public System.Data.Linq.Table<identity_Department> identity_Departments {
-			get {
+		
+		public System.Data.Linq.Table<identity_Department> identity_Departments
+		{
+			get
+			{
 				return this.GetTable<identity_Department>();
 			}
 		}
-
-		public System.Data.Linq.Table<identity_BranchOffice> identity_BranchOffices {
-			get {
+		
+		public System.Data.Linq.Table<identity_BranchOffice> identity_BranchOffices
+		{
+			get
+			{
 				return this.GetTable<identity_BranchOffice>();
 			}
 		}
 	}
-
-	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.identity_User")]
-	public partial class identity_User : INotifyPropertyChanging, INotifyPropertyChanged {
-
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.identity_User")]
+	public partial class identity_User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-
+		
 		private int _UserID;
-
+		
 		private string _UserName;
-
+		
 		private System.Data.Linq.Binary _Password;
-
+		
 		private string _PasswordHash;
-
+		
 		private string _FirstName;
-
+		
 		private string _LastName;
-
+		
 		private string _FullName;
-
+		
 		private string _Mail;
-
+		
 		private System.Nullable<int> _DepartmentId;
-
+		
 		private bool _Enabled;
-
+		
 		private System.Data.Linq.Binary _RecordVersion;
-
+		
 		private EntitySet<identity_UserBranchOffice> _identity_UserBranchOffices;
-
+		
 		private EntityRef<identity_Department> _identity_Department;
-
-		#region Extensibility Method Definitions
-		partial void OnLoaded();
-		partial void OnValidate(System.Data.Linq.ChangeAction action);
-		partial void OnCreated();
-		partial void OnUserIDChanging(int value);
-		partial void OnUserIDChanged();
-		partial void OnUserNameChanging(string value);
-		partial void OnUserNameChanged();
-		partial void OnPasswordChanging(System.Data.Linq.Binary value);
-		partial void OnPasswordChanged();
-		partial void OnPasswordHashChanging(string value);
-		partial void OnPasswordHashChanged();
-		partial void OnFirstNameChanging(string value);
-		partial void OnFirstNameChanged();
-		partial void OnLastNameChanging(string value);
-		partial void OnLastNameChanged();
-		partial void OnFullNameChanging(string value);
-		partial void OnFullNameChanged();
-		partial void OnMailChanging(string value);
-		partial void OnMailChanged();
-		partial void OnDepartmentIdChanging(System.Nullable<int> value);
-		partial void OnDepartmentIdChanged();
-		partial void OnEnabledChanging(bool value);
-		partial void OnEnabledChanged();
-		partial void OnRecordVersionChanging(System.Data.Linq.Binary value);
-		partial void OnRecordVersionChanged();
-		#endregion
-
-		public identity_User() {
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUserIDChanging(int value);
+    partial void OnUserIDChanged();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnPasswordChanging(System.Data.Linq.Binary value);
+    partial void OnPasswordChanged();
+    partial void OnPasswordHashChanging(string value);
+    partial void OnPasswordHashChanged();
+    partial void OnFirstNameChanging(string value);
+    partial void OnFirstNameChanged();
+    partial void OnLastNameChanging(string value);
+    partial void OnLastNameChanged();
+    partial void OnFullNameChanging(string value);
+    partial void OnFullNameChanged();
+    partial void OnMailChanging(string value);
+    partial void OnMailChanged();
+    partial void OnDepartmentIdChanging(System.Nullable<int> value);
+    partial void OnDepartmentIdChanged();
+    partial void OnEnabledChanging(bool value);
+    partial void OnEnabledChanged();
+    partial void OnRecordVersionChanging(System.Data.Linq.Binary value);
+    partial void OnRecordVersionChanged();
+    #endregion
+		
+		public identity_User()
+		{
 			this._identity_UserBranchOffices = new EntitySet<identity_UserBranchOffice>(new Action<identity_UserBranchOffice>(this.attach_identity_UserBranchOffices), new Action<identity_UserBranchOffice>(this.detach_identity_UserBranchOffices));
 			this._identity_Department = default(EntityRef<identity_Department>);
 			OnCreated();
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_UserID", AutoSync = AutoSync.OnInsert, DbType = "Int NOT NULL IDENTITY", IsPrimaryKey = true, IsDbGenerated = true, UpdateCheck = UpdateCheck.Never)]
-		public int UserID {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public int UserID
+		{
+			get
+			{
 				return this._UserID;
 			}
-			set {
-				if ((this._UserID != value)) {
+			set
+			{
+				if ((this._UserID != value))
+				{
 					this.OnUserIDChanging(value);
 					this.SendPropertyChanging();
 					this._UserID = value;
@@ -172,14 +193,18 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_UserName", DbType = "NVarChar(255) NOT NULL", CanBeNull = false, UpdateCheck = UpdateCheck.Never)]
-		public string UserName {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(255) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string UserName
+		{
+			get
+			{
 				return this._UserName;
 			}
-			set {
-				if ((this._UserName != value)) {
+			set
+			{
+				if ((this._UserName != value))
+				{
 					this.OnUserNameChanging(value);
 					this.SendPropertyChanging();
 					this._UserName = value;
@@ -188,14 +213,18 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Password", DbType = "VarBinary(50) NOT NULL", CanBeNull = false, UpdateCheck = UpdateCheck.Never)]
-		public System.Data.Linq.Binary Password {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarBinary(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Password
+		{
+			get
+			{
 				return this._Password;
 			}
-			set {
-				if ((this._Password != value)) {
+			set
+			{
+				if ((this._Password != value))
+				{
 					this.OnPasswordChanging(value);
 					this.SendPropertyChanging();
 					this._Password = value;
@@ -204,14 +233,18 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PasswordHash", DbType = "NVarChar(2048)", UpdateCheck = UpdateCheck.Never)]
-		public string PasswordHash {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PasswordHash", DbType="NVarChar(2048)", UpdateCheck=UpdateCheck.Never)]
+		public string PasswordHash
+		{
+			get
+			{
 				return this._PasswordHash;
 			}
-			set {
-				if ((this._PasswordHash != value)) {
+			set
+			{
+				if ((this._PasswordHash != value))
+				{
 					this.OnPasswordHashChanging(value);
 					this.SendPropertyChanging();
 					this._PasswordHash = value;
@@ -220,14 +253,18 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FirstName", DbType = "NVarChar(150) NOT NULL", CanBeNull = false, UpdateCheck = UpdateCheck.Never)]
-		public string FirstName {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(150) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string FirstName
+		{
+			get
+			{
 				return this._FirstName;
 			}
-			set {
-				if ((this._FirstName != value)) {
+			set
+			{
+				if ((this._FirstName != value))
+				{
 					this.OnFirstNameChanging(value);
 					this.SendPropertyChanging();
 					this._FirstName = value;
@@ -236,14 +273,18 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_LastName", DbType = "NVarChar(150) NOT NULL", CanBeNull = false, UpdateCheck = UpdateCheck.Never)]
-		public string LastName {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(150) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string LastName
+		{
+			get
+			{
 				return this._LastName;
 			}
-			set {
-				if ((this._LastName != value)) {
+			set
+			{
+				if ((this._LastName != value))
+				{
 					this.OnLastNameChanging(value);
 					this.SendPropertyChanging();
 					this._LastName = value;
@@ -252,14 +293,18 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FullName", AutoSync = AutoSync.Always, DbType = "NVarChar(301) NOT NULL", CanBeNull = false, IsDbGenerated = true, UpdateCheck = UpdateCheck.Never)]
-		public string FullName {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", AutoSync=AutoSync.Always, DbType="NVarChar(301) NOT NULL", CanBeNull=false, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public string FullName
+		{
+			get
+			{
 				return this._FullName;
 			}
-			set {
-				if ((this._FullName != value)) {
+			set
+			{
+				if ((this._FullName != value))
+				{
 					this.OnFullNameChanging(value);
 					this.SendPropertyChanging();
 					this._FullName = value;
@@ -268,14 +313,18 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Mail", DbType = "NVarChar(255)", UpdateCheck = UpdateCheck.Never)]
-		public string Mail {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mail", DbType="NVarChar(255)", UpdateCheck=UpdateCheck.Never)]
+		public string Mail
+		{
+			get
+			{
 				return this._Mail;
 			}
-			set {
-				if ((this._Mail != value)) {
+			set
+			{
+				if ((this._Mail != value))
+				{
 					this.OnMailChanging(value);
 					this.SendPropertyChanging();
 					this._Mail = value;
@@ -284,15 +333,20 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DepartmentId", DbType = "Int", UpdateCheck = UpdateCheck.Never)]
-		public System.Nullable<int> DepartmentId {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentId", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> DepartmentId
+		{
+			get
+			{
 				return this._DepartmentId;
 			}
-			set {
-				if ((this._DepartmentId != value)) {
-					if (this._identity_Department.HasLoadedOrAssignedValue) {
+			set
+			{
+				if ((this._DepartmentId != value))
+				{
+					if (this._identity_Department.HasLoadedOrAssignedValue)
+					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
 					this.OnDepartmentIdChanging(value);
@@ -303,14 +357,18 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Enabled", DbType = "Bit NOT NULL", UpdateCheck = UpdateCheck.Never)]
-		public bool Enabled {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Enabled", DbType="Bit NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public bool Enabled
+		{
+			get
+			{
 				return this._Enabled;
 			}
-			set {
-				if ((this._Enabled != value)) {
+			set
+			{
+				if ((this._Enabled != value))
+				{
 					this.OnEnabledChanging(value);
 					this.SendPropertyChanging();
 					this._Enabled = value;
@@ -319,14 +377,18 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RecordVersion", AutoSync = AutoSync.Always, DbType = "rowversion NOT NULL", CanBeNull = false, IsDbGenerated = true, IsVersion = true, UpdateCheck = UpdateCheck.Never)]
-		public System.Data.Linq.Binary RecordVersion {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecordVersion", AutoSync=AutoSync.Always, DbType="rowversion NOT NULL", CanBeNull=false, IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary RecordVersion
+		{
+			get
+			{
 				return this._RecordVersion;
 			}
-			set {
-				if ((this._RecordVersion != value)) {
+			set
+			{
+				if ((this._RecordVersion != value))
+				{
 					this.OnRecordVersionChanging(value);
 					this.SendPropertyChanging();
 					this._RecordVersion = value;
@@ -335,108 +397,131 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "identity_User_identity_UserBranchOffice", Storage = "_identity_UserBranchOffices", ThisKey = "UserID", OtherKey = "UserID")]
-		public EntitySet<identity_UserBranchOffice> identity_UserBranchOffices {
-			get {
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identity_User_identity_UserBranchOffice", Storage="_identity_UserBranchOffices", ThisKey="UserID", OtherKey="UserID")]
+		public EntitySet<identity_UserBranchOffice> identity_UserBranchOffices
+		{
+			get
+			{
 				return this._identity_UserBranchOffices;
 			}
-			set {
+			set
+			{
 				this._identity_UserBranchOffices.Assign(value);
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "identity_Department_identity_User", Storage = "_identity_Department", ThisKey = "DepartmentId", OtherKey = "DepartmentId", IsForeignKey = true)]
-		public identity_Department identity_Department {
-			get {
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identity_Department_identity_User", Storage="_identity_Department", ThisKey="DepartmentId", OtherKey="DepartmentId", IsForeignKey=true)]
+		public identity_Department identity_Department
+		{
+			get
+			{
 				return this._identity_Department.Entity;
 			}
-			set {
+			set
+			{
 				identity_Department previousValue = this._identity_Department.Entity;
-				if (((previousValue != value)
-							|| (this._identity_Department.HasLoadedOrAssignedValue == false))) {
+				if (((previousValue != value) 
+							|| (this._identity_Department.HasLoadedOrAssignedValue == false)))
+				{
 					this.SendPropertyChanging();
-					if ((previousValue != null)) {
+					if ((previousValue != null))
+					{
 						this._identity_Department.Entity = null;
 						previousValue.identity_Users.Remove(this);
 					}
 					this._identity_Department.Entity = value;
-					if ((value != null)) {
+					if ((value != null))
+					{
 						value.identity_Users.Add(this);
 						this._DepartmentId = value.DepartmentId;
 					}
-					else {
+					else
+					{
 						this._DepartmentId = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("identity_Department");
 				}
 			}
 		}
-
+		
 		public event PropertyChangingEventHandler PropertyChanging;
-
+		
 		public event PropertyChangedEventHandler PropertyChanged;
-
-		protected virtual void SendPropertyChanging() {
-			if ((this.PropertyChanging != null)) {
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
 				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
-
-		protected virtual void SendPropertyChanged(String propertyName) {
-			if ((this.PropertyChanged != null)) {
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-
-		private void attach_identity_UserBranchOffices(identity_UserBranchOffice entity) {
+		
+		private void attach_identity_UserBranchOffices(identity_UserBranchOffice entity)
+		{
 			this.SendPropertyChanging();
 			entity.identity_User = this;
 		}
-
-		private void detach_identity_UserBranchOffices(identity_UserBranchOffice entity) {
+		
+		private void detach_identity_UserBranchOffices(identity_UserBranchOffice entity)
+		{
 			this.SendPropertyChanging();
 			entity.identity_User = null;
 		}
 	}
-
-	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.identity_UserBranchOffice")]
-	public partial class identity_UserBranchOffice : INotifyPropertyChanging, INotifyPropertyChanged {
-
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.identity_UserBranchOffice")]
+	public partial class identity_UserBranchOffice : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-
+		
 		private int _UserID;
-
+		
 		private string _BranchOfficeId;
-
+		
 		private EntityRef<identity_User> _identity_User;
-
+		
 		private EntityRef<identity_BranchOffice> _identity_BranchOffice;
-
-		#region Extensibility Method Definitions
-		partial void OnLoaded();
-		partial void OnValidate(System.Data.Linq.ChangeAction action);
-		partial void OnCreated();
-		partial void OnUserIDChanging(int value);
-		partial void OnUserIDChanged();
-		partial void OnBranchOfficeIdChanging(string value);
-		partial void OnBranchOfficeIdChanged();
-		#endregion
-
-		public identity_UserBranchOffice() {
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUserIDChanging(int value);
+    partial void OnUserIDChanged();
+    partial void OnBranchOfficeIdChanging(string value);
+    partial void OnBranchOfficeIdChanged();
+    #endregion
+		
+		public identity_UserBranchOffice()
+		{
 			this._identity_User = default(EntityRef<identity_User>);
 			this._identity_BranchOffice = default(EntityRef<identity_BranchOffice>);
 			OnCreated();
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_UserID", DbType = "Int NOT NULL", IsPrimaryKey = true)]
-		public int UserID {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int UserID
+		{
+			get
+			{
 				return this._UserID;
 			}
-			set {
-				if ((this._UserID != value)) {
-					if (this._identity_User.HasLoadedOrAssignedValue) {
+			set
+			{
+				if ((this._UserID != value))
+				{
+					if (this._identity_User.HasLoadedOrAssignedValue)
+					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
 					this.OnUserIDChanging(value);
@@ -447,15 +532,20 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BranchOfficeId", DbType = "VarChar(2) NOT NULL", CanBeNull = false, IsPrimaryKey = true)]
-		public string BranchOfficeId {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchOfficeId", DbType="VarChar(2) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string BranchOfficeId
+		{
+			get
+			{
 				return this._BranchOfficeId;
 			}
-			set {
-				if ((this._BranchOfficeId != value)) {
-					if (this._identity_BranchOffice.HasLoadedOrAssignedValue) {
+			set
+			{
+				if ((this._BranchOfficeId != value))
+				{
+					if (this._identity_BranchOffice.HasLoadedOrAssignedValue)
+					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
 					this.OnBranchOfficeIdChanging(value);
@@ -466,111 +556,135 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "identity_User_identity_UserBranchOffice", Storage = "_identity_User", ThisKey = "UserID", OtherKey = "UserID", IsForeignKey = true)]
-		public identity_User identity_User {
-			get {
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identity_User_identity_UserBranchOffice", Storage="_identity_User", ThisKey="UserID", OtherKey="UserID", IsForeignKey=true)]
+		public identity_User identity_User
+		{
+			get
+			{
 				return this._identity_User.Entity;
 			}
-			set {
+			set
+			{
 				identity_User previousValue = this._identity_User.Entity;
-				if (((previousValue != value)
-							|| (this._identity_User.HasLoadedOrAssignedValue == false))) {
+				if (((previousValue != value) 
+							|| (this._identity_User.HasLoadedOrAssignedValue == false)))
+				{
 					this.SendPropertyChanging();
-					if ((previousValue != null)) {
+					if ((previousValue != null))
+					{
 						this._identity_User.Entity = null;
 						previousValue.identity_UserBranchOffices.Remove(this);
 					}
 					this._identity_User.Entity = value;
-					if ((value != null)) {
+					if ((value != null))
+					{
 						value.identity_UserBranchOffices.Add(this);
 						this._UserID = value.UserID;
 					}
-					else {
+					else
+					{
 						this._UserID = default(int);
 					}
 					this.SendPropertyChanged("identity_User");
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "identity_BranchOffice_identity_UserBranchOffice", Storage = "_identity_BranchOffice", ThisKey = "BranchOfficeId", OtherKey = "BranchOfficeId", IsForeignKey = true)]
-		public identity_BranchOffice identity_BranchOffice {
-			get {
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identity_BranchOffice_identity_UserBranchOffice", Storage="_identity_BranchOffice", ThisKey="BranchOfficeId", OtherKey="BranchOfficeId", IsForeignKey=true)]
+		public identity_BranchOffice identity_BranchOffice
+		{
+			get
+			{
 				return this._identity_BranchOffice.Entity;
 			}
-			set {
+			set
+			{
 				identity_BranchOffice previousValue = this._identity_BranchOffice.Entity;
-				if (((previousValue != value)
-							|| (this._identity_BranchOffice.HasLoadedOrAssignedValue == false))) {
+				if (((previousValue != value) 
+							|| (this._identity_BranchOffice.HasLoadedOrAssignedValue == false)))
+				{
 					this.SendPropertyChanging();
-					if ((previousValue != null)) {
+					if ((previousValue != null))
+					{
 						this._identity_BranchOffice.Entity = null;
 						previousValue.identity_UserBranchOffices.Remove(this);
 					}
 					this._identity_BranchOffice.Entity = value;
-					if ((value != null)) {
+					if ((value != null))
+					{
 						value.identity_UserBranchOffices.Add(this);
 						this._BranchOfficeId = value.BranchOfficeId;
 					}
-					else {
+					else
+					{
 						this._BranchOfficeId = default(string);
 					}
 					this.SendPropertyChanged("identity_BranchOffice");
 				}
 			}
 		}
-
+		
 		public event PropertyChangingEventHandler PropertyChanging;
-
+		
 		public event PropertyChangedEventHandler PropertyChanged;
-
-		protected virtual void SendPropertyChanging() {
-			if ((this.PropertyChanging != null)) {
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
 				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
-
-		protected virtual void SendPropertyChanged(String propertyName) {
-			if ((this.PropertyChanged != null)) {
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
-
-	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.identity_Department")]
-	public partial class identity_Department : INotifyPropertyChanging, INotifyPropertyChanged {
-
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.identity_Department")]
+	public partial class identity_Department : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-
+		
 		private int _DepartmentId;
-
+		
 		private string _DepartmentName;
-
+		
 		private EntitySet<identity_User> _identity_Users;
-
-		#region Extensibility Method Definitions
-		partial void OnLoaded();
-		partial void OnValidate(System.Data.Linq.ChangeAction action);
-		partial void OnCreated();
-		partial void OnDepartmentIdChanging(int value);
-		partial void OnDepartmentIdChanged();
-		partial void OnDepartmentNameChanging(string value);
-		partial void OnDepartmentNameChanged();
-		#endregion
-
-		public identity_Department() {
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDepartmentIdChanging(int value);
+    partial void OnDepartmentIdChanged();
+    partial void OnDepartmentNameChanging(string value);
+    partial void OnDepartmentNameChanged();
+    #endregion
+		
+		public identity_Department()
+		{
 			this._identity_Users = new EntitySet<identity_User>(new Action<identity_User>(this.attach_identity_Users), new Action<identity_User>(this.detach_identity_Users));
 			OnCreated();
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DepartmentId", AutoSync = AutoSync.OnInsert, DbType = "Int NOT NULL IDENTITY", IsPrimaryKey = true, IsDbGenerated = true)]
-		public int DepartmentId {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int DepartmentId
+		{
+			get
+			{
 				return this._DepartmentId;
 			}
-			set {
-				if ((this._DepartmentId != value)) {
+			set
+			{
+				if ((this._DepartmentId != value))
+				{
 					this.OnDepartmentIdChanging(value);
 					this.SendPropertyChanging();
 					this._DepartmentId = value;
@@ -579,14 +693,18 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DepartmentName", DbType = "NVarChar(150) NOT NULL", CanBeNull = false)]
-		public string DepartmentName {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentName", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
+		public string DepartmentName
+		{
+			get
+			{
 				return this._DepartmentName;
 			}
-			set {
-				if ((this._DepartmentName != value)) {
+			set
+			{
+				if ((this._DepartmentName != value))
+				{
 					this.OnDepartmentNameChanging(value);
 					this.SendPropertyChanging();
 					this._DepartmentName = value;
@@ -595,87 +713,102 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "identity_Department_identity_User", Storage = "_identity_Users", ThisKey = "DepartmentId", OtherKey = "DepartmentId")]
-		public EntitySet<identity_User> identity_Users {
-			get {
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identity_Department_identity_User", Storage="_identity_Users", ThisKey="DepartmentId", OtherKey="DepartmentId")]
+		public EntitySet<identity_User> identity_Users
+		{
+			get
+			{
 				return this._identity_Users;
 			}
-			set {
+			set
+			{
 				this._identity_Users.Assign(value);
 			}
 		}
-
+		
 		public event PropertyChangingEventHandler PropertyChanging;
-
+		
 		public event PropertyChangedEventHandler PropertyChanged;
-
-		protected virtual void SendPropertyChanging() {
-			if ((this.PropertyChanging != null)) {
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
 				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
-
-		protected virtual void SendPropertyChanged(String propertyName) {
-			if ((this.PropertyChanged != null)) {
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-
-		private void attach_identity_Users(identity_User entity) {
+		
+		private void attach_identity_Users(identity_User entity)
+		{
 			this.SendPropertyChanging();
 			entity.identity_Department = this;
 		}
-
-		private void detach_identity_Users(identity_User entity) {
+		
+		private void detach_identity_Users(identity_User entity)
+		{
 			this.SendPropertyChanging();
 			entity.identity_Department = null;
 		}
 	}
-
-	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.identity_BranchOffice")]
-	public partial class identity_BranchOffice : INotifyPropertyChanging, INotifyPropertyChanged {
-
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.identity_BranchOffice")]
+	public partial class identity_BranchOffice : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-
+		
 		private string _BranchOfficeId;
-
+		
 		private string _BranchOfficeName;
-
+		
 		private string _RelativeBranchOfficeId;
-
+		
 		private EntitySet<identity_UserBranchOffice> _identity_UserBranchOffices;
-
+		
 		private EntitySet<identity_BranchOffice> _identity_BranchOffices;
-
+		
 		private EntityRef<identity_BranchOffice> _identity_BranchOffice1;
-
-		#region Extensibility Method Definitions
-		partial void OnLoaded();
-		partial void OnValidate(System.Data.Linq.ChangeAction action);
-		partial void OnCreated();
-		partial void OnBranchOfficeIdChanging(string value);
-		partial void OnBranchOfficeIdChanged();
-		partial void OnBranchOfficeNameChanging(string value);
-		partial void OnBranchOfficeNameChanged();
-		partial void OnRelativeBranchOfficeIdChanging(string value);
-		partial void OnRelativeBranchOfficeIdChanged();
-		#endregion
-
-		public identity_BranchOffice() {
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBranchOfficeIdChanging(string value);
+    partial void OnBranchOfficeIdChanged();
+    partial void OnBranchOfficeNameChanging(string value);
+    partial void OnBranchOfficeNameChanged();
+    partial void OnRelativeBranchOfficeIdChanging(string value);
+    partial void OnRelativeBranchOfficeIdChanged();
+    #endregion
+		
+		public identity_BranchOffice()
+		{
 			this._identity_UserBranchOffices = new EntitySet<identity_UserBranchOffice>(new Action<identity_UserBranchOffice>(this.attach_identity_UserBranchOffices), new Action<identity_UserBranchOffice>(this.detach_identity_UserBranchOffices));
 			this._identity_BranchOffices = new EntitySet<identity_BranchOffice>(new Action<identity_BranchOffice>(this.attach_identity_BranchOffices), new Action<identity_BranchOffice>(this.detach_identity_BranchOffices));
 			this._identity_BranchOffice1 = default(EntityRef<identity_BranchOffice>);
 			OnCreated();
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BranchOfficeId", DbType = "VarChar(2) NOT NULL", CanBeNull = false, IsPrimaryKey = true)]
-		public string BranchOfficeId {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchOfficeId", DbType="VarChar(2) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string BranchOfficeId
+		{
+			get
+			{
 				return this._BranchOfficeId;
 			}
-			set {
-				if ((this._BranchOfficeId != value)) {
+			set
+			{
+				if ((this._BranchOfficeId != value))
+				{
 					this.OnBranchOfficeIdChanging(value);
 					this.SendPropertyChanging();
 					this._BranchOfficeId = value;
@@ -684,14 +817,18 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BranchOfficeName", DbType = "NVarChar(150) NOT NULL", CanBeNull = false)]
-		public string BranchOfficeName {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchOfficeName", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
+		public string BranchOfficeName
+		{
+			get
+			{
 				return this._BranchOfficeName;
 			}
-			set {
-				if ((this._BranchOfficeName != value)) {
+			set
+			{
+				if ((this._BranchOfficeName != value))
+				{
 					this.OnBranchOfficeNameChanging(value);
 					this.SendPropertyChanging();
 					this._BranchOfficeName = value;
@@ -700,15 +837,20 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RelativeBranchOfficeId", DbType = "VarChar(2) NOT NULL", CanBeNull = false)]
-		public string RelativeBranchOfficeId {
-			get {
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RelativeBranchOfficeId", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string RelativeBranchOfficeId
+		{
+			get
+			{
 				return this._RelativeBranchOfficeId;
 			}
-			set {
-				if ((this._RelativeBranchOfficeId != value)) {
-					if (this._identity_BranchOffice1.HasLoadedOrAssignedValue) {
+			set
+			{
+				if ((this._RelativeBranchOfficeId != value))
+				{
+					if (this._identity_BranchOffice1.HasLoadedOrAssignedValue)
+					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
 					this.OnRelativeBranchOfficeIdChanging(value);
@@ -719,86 +861,107 @@ namespace NetSqlAzMan.CustomDataLayer.LINQ {
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "identity_BranchOffice_identity_UserBranchOffice", Storage = "_identity_UserBranchOffices", ThisKey = "BranchOfficeId", OtherKey = "BranchOfficeId")]
-		public EntitySet<identity_UserBranchOffice> identity_UserBranchOffices {
-			get {
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identity_BranchOffice_identity_UserBranchOffice", Storage="_identity_UserBranchOffices", ThisKey="BranchOfficeId", OtherKey="BranchOfficeId")]
+		public EntitySet<identity_UserBranchOffice> identity_UserBranchOffices
+		{
+			get
+			{
 				return this._identity_UserBranchOffices;
 			}
-			set {
+			set
+			{
 				this._identity_UserBranchOffices.Assign(value);
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "identity_BranchOffice_identity_BranchOffice", Storage = "_identity_BranchOffices", ThisKey = "BranchOfficeId", OtherKey = "RelativeBranchOfficeId")]
-		public EntitySet<identity_BranchOffice> identity_BranchOffices {
-			get {
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identity_BranchOffice_identity_BranchOffice", Storage="_identity_BranchOffices", ThisKey="BranchOfficeId", OtherKey="RelativeBranchOfficeId")]
+		public EntitySet<identity_BranchOffice> identity_BranchOffices
+		{
+			get
+			{
 				return this._identity_BranchOffices;
 			}
-			set {
+			set
+			{
 				this._identity_BranchOffices.Assign(value);
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "identity_BranchOffice_identity_BranchOffice", Storage = "_identity_BranchOffice1", ThisKey = "RelativeBranchOfficeId", OtherKey = "BranchOfficeId", IsForeignKey = true)]
-		public identity_BranchOffice identity_BranchOffice1 {
-			get {
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identity_BranchOffice_identity_BranchOffice", Storage="_identity_BranchOffice1", ThisKey="RelativeBranchOfficeId", OtherKey="BranchOfficeId", IsForeignKey=true)]
+		public identity_BranchOffice identity_BranchOffice1
+		{
+			get
+			{
 				return this._identity_BranchOffice1.Entity;
 			}
-			set {
+			set
+			{
 				identity_BranchOffice previousValue = this._identity_BranchOffice1.Entity;
-				if (((previousValue != value)
-							|| (this._identity_BranchOffice1.HasLoadedOrAssignedValue == false))) {
+				if (((previousValue != value) 
+							|| (this._identity_BranchOffice1.HasLoadedOrAssignedValue == false)))
+				{
 					this.SendPropertyChanging();
-					if ((previousValue != null)) {
+					if ((previousValue != null))
+					{
 						this._identity_BranchOffice1.Entity = null;
 						previousValue.identity_BranchOffices.Remove(this);
 					}
 					this._identity_BranchOffice1.Entity = value;
-					if ((value != null)) {
+					if ((value != null))
+					{
 						value.identity_BranchOffices.Add(this);
 						this._RelativeBranchOfficeId = value.BranchOfficeId;
 					}
-					else {
+					else
+					{
 						this._RelativeBranchOfficeId = default(string);
 					}
 					this.SendPropertyChanged("identity_BranchOffice1");
 				}
 			}
 		}
-
+		
 		public event PropertyChangingEventHandler PropertyChanging;
-
+		
 		public event PropertyChangedEventHandler PropertyChanged;
-
-		protected virtual void SendPropertyChanging() {
-			if ((this.PropertyChanging != null)) {
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
 				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
-
-		protected virtual void SendPropertyChanged(String propertyName) {
-			if ((this.PropertyChanged != null)) {
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-
-		private void attach_identity_UserBranchOffices(identity_UserBranchOffice entity) {
+		
+		private void attach_identity_UserBranchOffices(identity_UserBranchOffice entity)
+		{
 			this.SendPropertyChanging();
 			entity.identity_BranchOffice = this;
 		}
-
-		private void detach_identity_UserBranchOffices(identity_UserBranchOffice entity) {
+		
+		private void detach_identity_UserBranchOffices(identity_UserBranchOffice entity)
+		{
 			this.SendPropertyChanging();
 			entity.identity_BranchOffice = null;
 		}
-
-		private void attach_identity_BranchOffices(identity_BranchOffice entity) {
+		
+		private void attach_identity_BranchOffices(identity_BranchOffice entity)
+		{
 			this.SendPropertyChanging();
 			entity.identity_BranchOffice1 = this;
 		}
-
-		private void detach_identity_BranchOffices(identity_BranchOffice entity) {
+		
+		private void detach_identity_BranchOffices(identity_BranchOffice entity)
+		{
 			this.SendPropertyChanging();
 			entity.identity_BranchOffice1 = null;
 		}
